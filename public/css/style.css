@@ -1,0 +1,118 @@
+:root {
+    --darkOrange: #bf6200;
+    --orange: #ffc180;
+    --textLight: #333;
+    --textDark: #555;
+}
+p {
+    text-align: justify;
+    --text-indent: 40px;
+}
+.simple li{
+    margin-left: 40px;
+    list-style-type: disc;
+}
+body, a, a:visited, nav ul a {
+    color: #555;
+}
+nav ul a {
+    font-weight: bold;
+}
+.error-block {
+    font-size: 12px;
+    color: red;
+    margin-top: 0px;
+    display: block;
+}
+.logo img, .logo a {
+    width: 100%;
+    max-width: 440px;
+}
+.head {
+    margin-top: 40px;
+}
+.phones {
+    float: right;
+    text-align: right;
+}
+.phones div {
+    color: #333;
+}
+.shadow {
+    box-shadow: 0 5px 8px 0 rgba(0,0,0,0.50),0 2px 10px 0 rgba(0,0,0,0.30);
+}
+span.bold-phones {
+    font-weight: bold;
+    font-size: 20px;
+    color: #bf6200;
+    margin-left: 10px;
+}
+.phones img, .phones i {
+    float: right;
+    margin-left: 10px;
+    margin-top: 5px;
+}
+.nav-wrapper {
+    background-color: #ffc180;
+}
+.bread {
+    margin-top: 10px;
+}
+.bread_item {
+    display: block;
+    padding: 5px 0px;
+    color: #bf6200 !important;
+    text-decoration: underline;
+    font-weight: bolder;
+    float: left;
+}
+.bread i {
+    margin-right: 10px;
+}
+.content {
+    margin: 30px;
+}
+.catalog-box {
+    margin-top: 40px;
+}
+.catalog-box b {
+    font-size: 15px;
+    text-decoration: underline;
+}
+.catalog-box li {
+    padding: 2px;
+}
+
+#gallery {
+    margin-bottom: 20px;
+}
+.gallary_container {
+    text-align: center;
+}
+footer b {
+    display: block;
+}
+footer.page-footer {
+    width: 100%;
+    background-color: #ffc180;
+    /*position: fixed;
+    bottom: 0;*/
+}
+footer.page-footer strong{
+    display: block;
+}
+footer .black-strip {
+    background-color: black;
+    height: 20px;
+}
+.footer-links {
+    float: left;
+    margin-right: 20px;
+    margin-top: 10px;
+}
+.footer-links a {
+    color: inherit;
+    text-decoration: underline;
+    display: block;
+    cursor: pointer;
+}

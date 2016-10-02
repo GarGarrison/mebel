@@ -1,0 +1,74 @@
+/*.container {
+    max-width: 1000px;
+}*/
+h1 {
+    font-size: 3em;
+    margin-left: 0px;
+}
+form a {
+    margin: 10px;
+}
+label {
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+.card {
+    --background: #f5f5f5;
+}
+.btn, .btn-floating {
+    background-color: #bf6200 !important;
+}
+.btn:hover, .btn-floating:hover {
+    background-color: #e64a19 !important;
+}
+label[for="search"] i {
+    color: #444 !important;
+}
+.brand-logo {
+    margin-left: 20px;
+}
+
+/*    INPUT PART */
+.input-field input {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+/* label color */
+.input-field label {
+    color: #888;
+}
+/* label focus color */
+.input-field input[type=text]:focus + label,
+.input-field input[type=password]:focus + label,
+.input-field textarea:focus + label {
+    color: #bf6200 !important;
+}
+/* label underline focus color */
+.input-field input[type=text]:focus,
+.input-field input[type=password]:focus,
+.input-field textarea:focus {
+    border-bottom: 1px solid #bf6200 !important;
+    box-shadow: 0 1px 0 0 #bf6200 !important;
+}
+/* valid color */
+.input-field input[type=text].valid,
+.input-field input[type=password].valid,
+.input-field textarea.valid {
+    border-bottom: 1px solid #bf6200;
+    box-shadow: 0 1px 0 0 #bf6200;
+}
+/* invalid color */
+.input-field input[type=text].invalid,
+.input-field input[type=password].invalid,
+.input-field textarea.invalid {
+    border-bottom: 1px solid #bf6200;
+    box-shadow: 0 1px 0 0 #bf6200;
+}
+/* icon prefix focus color */
+.input-field .prefix.active {
+    color: #bf6200;
+}
+
+.dropdown-content li > a, .dropdown-content li > span {
+    color: var(--textDark);
+}
