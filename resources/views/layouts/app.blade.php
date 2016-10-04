@@ -37,7 +37,7 @@
                     <div>консультация:<span class="bold-phones">{{ config('z_my.consult_phone') }}</span></div>
                     <!-- <div>вызов замерщика:<span class="bold-phones">{{ config('z_my.zamer_phone') }}</span></div> -->
                     <a href="https://vk.com/public68794579"><img src="{{asset('img/vk.png')}}"></a>
-                    <i class="material-icons">email</i>
+                    <a href="{{ url('/feedback') }}"><i class="material-icons">email</i></a>
                 </div>
         </div>
         <div class="drop" name="catalog">
@@ -109,7 +109,7 @@
         <div class="container">
             <div class="row">
                 <div class="col s12 m6">
-                    <b>КАТАЛОГ ПРОДУКЦИИ</b>
+                    <a href="{{ url('/catalog') }}"><b>КАТАЛОГ ПРОДУКЦИИ</b></a>
                     <div class="footer-links">
                     @foreach($sections as $section)
                         @if ($section->main_section)
@@ -127,10 +127,10 @@
                     </div>
                 </div>
                 <div class="col s12 m6">
-                    <b>КОНТАКТЫ</b>
+                    <a href="{{ url('/feedback') }}"><b>КОНТАКТЫ</b></a>
                     <div class="footer-links">
                         <div>{{ config('z_my.consult_phone') }}</div>
-                        <div>{{ config('z_my.zamer_phone') }}</div>
+                        <!-- <div>{{ config('z_my.zamer_phone') }}</div> -->
                         <div><u>{{ config('z_my.address') }}</u></div>
                     </div>
                 </div>

@@ -10,10 +10,10 @@
                     <td><u>Телефон консультанта:</u></td>
                     <td><span class="bold-phones">{{ config('z_my.consult_phone') }}</span></td>
                 </tr>
-                <tr>
+                <!-- <tr>
                     <td><u>Телефон замерщика:</u></td>
                     <td><span class="bold-phones">{{ config('z_my.zamer_phone') }}</span></td>
-                </tr>
+                </tr> -->
                 <tr>
                     <td><u>Наш адрес:</u></td>
                     <td><span class="bold-phones">{{ config('z_my.address') }}</span></td>
@@ -52,7 +52,7 @@
         <div class="input-field col s12 l6">
             <i class="material-icons prefix">business</i>
             <input name="address" type="text" class="validate">
-            <label for="address">Адрес</label>
+            <label for="address">Город</label>
             @if ($errors->has('address'))
                 <span class="error-block">{{ $errors->first('address') }}</span>
             @endif
@@ -72,7 +72,7 @@
         <div class="input-field col s12 l6">
             <i class="material-icons prefix">comment</i>
             <textarea name="text" class="materialize-textarea"></textarea>
-            <label for="text">Комментарий</label>
+            <label for="text">Сообщение</label>
         </div>
     </div>
     <div class="row">
