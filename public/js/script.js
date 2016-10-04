@@ -29,7 +29,10 @@ $(document).ready(function(){
     theme = $("#gallery").attr("name");
     if (!theme) theme = "tiles";
     $("#gallery").unitegallery(themes_params[theme]);
-    $(".button-collapse").sideNav();   
+    $(".button-collapse").sideNav();
+
+
+    if ($('body').height() < $(window).height() && !location.href.split('/').indexOf("admin")) $('footer').addClass('fixed-footer');
 });
 // $(document).on('click','.ug-item-wrapper img', function(){
 //     api = $("#gallery").unitegallery();

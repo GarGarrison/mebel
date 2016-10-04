@@ -92,11 +92,14 @@ span.bold-phones {
 footer b {
     display: block;
 }
+
+footer.fixed-footer {
+    position: fixed;
+    bottom: 0;
+}
 footer.page-footer {
     width: 100%;
     background-color: #ffc180;
-    /*position: fixed;
-    bottom: 0;*/
 }
 footer.page-footer strong{
     display: block;

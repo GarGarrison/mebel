@@ -15,4 +15,4 @@ for bigpath, dirs, files in os.walk(bigbase):
             curdir = bigpath.split('/')[-1]
             fsmall = os.path.join(smallpath, f)
             if not os.path.exists(fsmall) and curdir not in ['materiali', 'komplektuyshie']:
-                os.system("convert -scale 35% {0} {1}".format(fbig, fsmall))
+                os.system('convert -scale 35% "{0}" "{1}"'.format(fbig, fsmall))

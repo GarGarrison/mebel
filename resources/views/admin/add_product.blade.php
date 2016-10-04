@@ -21,14 +21,14 @@
     <input type="hidden" name="id" value="{{$current_prod->id}}">
     @endif
     <div class="row">
-        <div class="input-field col s6 m6 l4">
+        <div class="input-field col s6 l4">
             <input name="name" type="text" class="validate" value="{{ $current_prod['name'] or '' }}">
             <label class="{{ $class }}" for="name">Название</label>
             @if ($errors->has('name'))
                 <span class="error-block">{{ $errors->first('name') }}</span>
             @endif
         </div>
-        <div class="input-field col s6 m6 l4">
+        <div class="input-field col s6 l4">
             <input name="translit" type="text" class="validate" value="{{ $current_prod['translit'] or '' }}">
             <label class="{{ $class }}" for="translit">Транслит</label>
             @if ($errors->has('translit'))
@@ -37,14 +37,14 @@
         </div>
     </div>
     <div class="row">
-        <div class="input-field col s6 m6 l4">
+        <div class="input-field col s6 l4">
             <input name="menu_name" type="text" class="validate" value="{{ $current_prod['menu_name'] or '' }}">
             <label class="{{ $class }}" for="menu_name">Названия для меню</label>
             @if ($errors->has('menu_name'))
                 <span class="error-block">{{ $errors->first('menu_name') }}</span>
             @endif
         </div>
-        <div class="input-field col s6 m6 l4">
+        <div class="input-field col s6 l4">
             <input name="title_img" type="text" class="validate" value="{{ $current_prod['title_img'] or '' }}">
             <label class="{{ $class }}" for="title_img">Заглавная картинка</label>
             @if ($errors->has('title_img'))
@@ -53,9 +53,18 @@
         </div>
     </div>
     <div class="row">
-        <div class="input-field col s12 m12 l6">
+        <div class="input-field col s12 l8">
             <textarea name="description" class="materialize-textarea">{{ $current_prod['description'] or '' }}</textarea>
             <label class="{{ $class }}" for="description">Описание</label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s12 l8">
+            <input name="title" type="text" class="validate" value="{{ $current_prod['title'] or '' }}">
+            <label class="{{ $class }}" for="title">Title</label>
+            @if ($errors->has('title'))
+                <span class="error-block">{{ $errors->first('title') }}</span>
+            @endif
         </div>
     </div>
     <div class="row">

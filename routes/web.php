@@ -18,7 +18,7 @@ Route::post('/login', 'Auth\LoginController@login');
 Route::get('/logout', 'Auth\LoginController@logout');
 
 Route::get('/', 'IndexController@index');
-Route::get('/error404', 'IndexController@error404');
+Route::get('/notfound', 'IndexController@error404');
 Route::get('/about', 'IndexController@about');
 Route::get('/feedback', 'IndexController@feedback');
 Route::post('/feedback', 'IndexController@mail');

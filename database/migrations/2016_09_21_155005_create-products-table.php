@@ -22,6 +22,7 @@ class CreateProductsTable extends Migration
             $table->string('img_base');
             $table->string('title_img');
             $table->text('description');
+            $table->string('title');
             $table->string('meta_keywords');
             $table->string('meta_description');
             $table->boolean('root_product');

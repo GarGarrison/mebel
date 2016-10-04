@@ -99,6 +99,7 @@ class AdminController extends SharedController
             'translit' => $request['translit'],
             'title_img' => $request['title_img'],
             'description' => $request['description'],
+            'title' => $request['title'],
             'meta_keywords' => $request['meta_keywords'],
             'meta_description' => $request['meta_description'],
             'main_section' => $this->getCheckbox($request['main_section'])
@@ -124,6 +125,7 @@ class AdminController extends SharedController
             'img_base' => $img_base,
             'title_img' => $request['title_img'],
             'description' => $request['description'],
+            'title' => $request['title'],
             'meta_keywords' => $request['meta_keywords'],
             'meta_description' => $request['meta_description'],
             'calculator' => $this->getCheckbox($request['calculator']),
@@ -162,6 +164,7 @@ class AdminController extends SharedController
             'translit' => $request['translit'],
             'title_img' => $request['title_img'],
             'description' => $request['description'],
+            'title' => $request['title'],
             'meta_keywords' => $request['meta_keywords'],
             'meta_description' => $request['meta_description'],
             'main_section' => $this->getCheckbox($request['main_section'])
@@ -189,6 +192,7 @@ class AdminController extends SharedController
             'img_base' => $img_base,
             'title_img' => $request['title_img'],
             'description' => $request['description'],
+            'title' => $request['title'],
             'meta_keywords' => $request['meta_keywords'],
             'meta_description' => $request['meta_description'],
             'calculator' => $this->getCheckbox($request['calculator']),
