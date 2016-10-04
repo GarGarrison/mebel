@@ -1,5 +1,10 @@
 @extends('layouts.app')
 
+@section('meta')
+<meta name="Keywords" content="{{ $section->meta_keywords}}"/>
+<meta name="Description" content="{{ $section->meta_description}}"/> 
+@endsection
+
 @section('content')
 <div class="col s12 valign-wrapper bread">
     <a href="{{ url('/catalog') }}" class="bread_item valign">Каталог</a>

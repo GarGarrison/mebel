@@ -59,6 +59,22 @@
         </div>
     </div>
     <div class="row">
+        <div class="input-field col s6 l4">
+            <input name="meta_keywords" type="text" class="validate" value="{{ $current_prod['meta_keywords'] or '' }}">
+            <label class="{{ $class }}" for="meta_keywords">Мета keywords</label>
+            @if ($errors->has('meta_keywords'))
+                <span class="error-block">{{ $errors->first('meta_keywords') }}</span>
+            @endif
+        </div>
+        <div class="input-field col s6 l4">
+            <input name="meta_description" type="text" class="validate" value="{{ $current_prod['meta_description'] or '' }}">
+            <label class="{{ $class }}" for="meta_description">Мета description</label>
+            @if ($errors->has('meta_description'))
+                <span class="error-block">{{ $errors->first('meta_description') }}</span>
+            @endif
+        </div>
+    </div>
+    <div class="row">
         <div class="input-field col s6 m6 l4">
             <select name="parent_section">
                 <option value="0">Не выбрано</option>

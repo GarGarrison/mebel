@@ -11,9 +11,14 @@
 |
 */
 
-Auth::routes();
+//Auth::routes();
+
+Route::get('/login', 'Auth\LoginController@showLoginForm');
+Route::post('/login', 'Auth\LoginController@login');
+Route::get('/logout', 'Auth\LoginController@logout');
 
 Route::get('/', 'IndexController@index');
+Route::get('/error404', 'IndexController@error404');
 Route::get('/about', 'IndexController@about');
 Route::get('/feedback', 'IndexController@feedback');
 Route::post('/feedback', 'IndexController@mail');
@@ -35,7 +40,4 @@ Route::post('/admin/edit_section', 'AdminController@edit_section');
 Route::post('/admin/edit_product', 'AdminController@edit_product');
 Route::post('/admin/edit_property', 'AdminController@edit_property');
 
-Route::get('/home', 'HomeController@index');
 Route::get('/test', 'IndexController@test');
-
-/* IMAGEMAGICK */

@@ -1,32 +1,12 @@
-CREATE TABLE IF NOT EXISTS `sections` (
-`id` int(10) unsigned NOT NULL,
-  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `translit` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `title_img` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `description` text COLLATE utf8_unicode_ci NOT NULL,
-  `main_section` tinyint(1) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+INSERT INTO `users` (`id`, `name`, `email`, `password`, `admin`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'gar.garrison', 'garold.garrison@yandex.ru', '$2y$10$GelqwtRc6I/TSqas/.g6XeMJS/hMzbvOfWCr.E0tgxr/9KGunkFha', 1, NULL, '2016-10-04 15:11:04', '2016-10-04 15:11:04');
 
 INSERT INTO `sections` (`id`, `name`, `translit`, `title_img`, `description`, `main_section`) VALUES
 (1, 'Кухни', 'kuhni', 'Кухни_на_заказ.jpg', '<p>Кухня во все времена занимала в доме особенное место, в котором проводится огромное количество времени. Это не только приготовление вкусных блюд, но и семейные обеды и ужины, встреча гостей. Поэтому подойти к выбору кухни необходимо тщательно, ведь удачное решение будет создавать Вам настроение каждый день и радовать вас и вашу семью еще долгие годы. </p>\r\n<p>Наша компания предлагает огромный выбор <b>кухонь на заказ</b> самых разных стилей, которые выполняются по Вашим <b>индивидуальным размерам</b>. Широкий выбор облицовочных материалов и расцветок, предлагаемых нашей компанией, позволит реализовать все Ваши самые смелые мечты и представления об идеальной кухне.</p>', 1),
 (2, 'Шкафы', 'shkafi', 'шкафы_купе_на_заказ.jpg', '', 1),
 (3, 'Материалы', 'materiali', 'xxx', '', 0),
 (4, 'Комплектующие', 'komplektuyshie', 'xxx', '', 0);
-
-
-CREATE TABLE IF NOT EXISTS `products` (
-`id` int(10) unsigned NOT NULL,
-  `parent_section` int(11) NOT NULL,
-  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `menu_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `translit` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `img_base` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `title_img` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `description` text COLLATE utf8_unicode_ci NOT NULL,
-  `root_product` tinyint(1) NOT NULL,
-  `calculator` tinyint(1) NOT NULL DEFAULT '0',
-  `have_property` tinyint(1) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `products` (`id`, `parent_section`, `name`, `menu_name`, `translit`, `img_base`, `title_img`, `description`, `root_product`, `calculator`, `have_property`) VALUES
 (1, 1, 'Кухни массив дерева', 'Из массива', 'kuhni-massiv-dereva', 'kuhni/kuhni-massiv-dereva', 'Кухни_массив_дерева_на_заказ.jpg', '<p><b>Кухни из массива дерева</b> всегда относились к разряду элитных, были особенно желанны и являлись отличительной чертой утонченных покупателей , и это не случайно. Выполненная на заказ кухня из натуральных пород дерева станет настоящим украшением любого дома, и поводом для гордости самого требовательного хозяина.</p>\r\n<p>В качестве сырья для кухни из массива мы чаще всего используем дуб, ясень, бук и акацию.\r\nДуб, несмотря на высокую вязкость, прекрасно поддается обработке и обладает огромной прочностью, наиболее распространен в изготовлении мебели из массива. Ясень также очень крепкая порода, но более светлая, обладает красивой и благородной текстурой. Бук обладает не меньшими декоративными качествами, его прочность не уступает дубу, он прекрасно поддается обработке. И, наконец, акация — самая крепкая порода дерева, произрастающая на территории России. Из-за своей прочности сложна в обработке, но зато обладает интересный светлым оттенком и прослужит Вам долгие годы.</p>', 0, 1, 0),

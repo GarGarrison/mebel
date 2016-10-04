@@ -4,10 +4,12 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
+    @section('meta')
+        <meta name="Keywords" content="Кухни мебель шкафы на заказ Москва"/>
+        <meta name="Description" content="Изготовление Кухни мебель на заказ по индивидуальным размерам"/> 
+    @show
     <title>{{ $title or config('z_my.name')." - Кухни и другая мебель на заказ" }}</title>
     <link rel="shortcut icon" href="{{{ asset('/favicon3.png') }}}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
@@ -33,7 +35,7 @@
                 </div>
                 <div class="phones col s12 m6">
                     <div>консультация:<span class="bold-phones">{{ config('z_my.consult_phone') }}</span></div>
-                    <div>вызов замерщика:<span class="bold-phones">{{ config('z_my.zamer_phone') }}</span></div>
+                    <!-- <div>вызов замерщика:<span class="bold-phones">{{ config('z_my.zamer_phone') }}</span></div> -->
                     <a href="https://vk.com/public68794579"><img src="{{asset('img/vk.png')}}"></a>
                     <i class="material-icons">email</i>
                 </div>
@@ -82,6 +84,12 @@
                     <li><a href="{{url('/about')}}">О компании</a></li>
                     <li><a href="{{url('/feedback')}}">Обратная связь</a></li>
                 </ul>
+                @if (!Auth::guest())
+                <ul class="right"> 
+                    <li>{{ Auth::user()->name }}</li>  
+                    <li><a href="{{ url('/logout') }}">Выйти</a></li>
+                </ul>
+                @endif
                 <!-- <ul class="right">
                     <li><a href="{{url('/admin')}}">Admin</a></li>
                 </ul> -->

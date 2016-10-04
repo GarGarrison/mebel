@@ -20,6 +20,9 @@ class IndexController extends SharedController
     public function about(){
         return view('about');
     }
+    public function error404(){
+        return view('errors.404');
+    }
     public function feedback(){
         return view('feedback');
     }

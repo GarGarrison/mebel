@@ -12,6 +12,13 @@ use App\SpecialProperty;
 
 class AdminController extends SharedController
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+        parent::__construct();
+    }
+
     protected function section_validator(array $data)
     {
         return Validator::make($data, [
@@ -92,6 +99,8 @@ class AdminController extends SharedController
             'translit' => $request['translit'],
             'title_img' => $request['title_img'],
             'description' => $request['description'],
+            'meta_keywords' => $request['meta_keywords'],
+            'meta_description' => $request['meta_description'],
             'main_section' => $this->getCheckbox($request['main_section'])
         ]);
         return response()->json(['success'=> 'Успешно сохранено']);
@@ -115,6 +124,8 @@ class AdminController extends SharedController
             'img_base' => $img_base,
             'title_img' => $request['title_img'],
             'description' => $request['description'],
+            'meta_keywords' => $request['meta_keywords'],
+            'meta_description' => $request['meta_description'],
             'calculator' => $this->getCheckbox($request['calculator']),
             'root_product' => $this->getCheckbox($request['root_product'])
         ]);
@@ -151,6 +162,8 @@ class AdminController extends SharedController
             'translit' => $request['translit'],
             'title_img' => $request['title_img'],
             'description' => $request['description'],
+            'meta_keywords' => $request['meta_keywords'],
+            'meta_description' => $request['meta_description'],
             'main_section' => $this->getCheckbox($request['main_section'])
         ]);
         $section->save();
@@ -176,6 +189,8 @@ class AdminController extends SharedController
             'img_base' => $img_base,
             'title_img' => $request['title_img'],
             'description' => $request['description'],
+            'meta_keywords' => $request['meta_keywords'],
+            'meta_description' => $request['meta_description'],
             'calculator' => $this->getCheckbox($request['calculator']),
             'root_product' => $this->getCheckbox($request['root_product'])
         ]);

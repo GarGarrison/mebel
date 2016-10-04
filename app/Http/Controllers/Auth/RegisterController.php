@@ -4,10 +4,10 @@ namespace App\Http\Controllers\Auth;
 
 use App\User;
 use Validator;
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\SharedController;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
-class RegisterController extends Controller
+class RegisterController extends SharedController
 {
     /*
     |--------------------------------------------------------------------------
@@ -27,7 +27,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/admin';
 
     /**
      * Create a new controller instance.
@@ -37,6 +37,7 @@ class RegisterController extends Controller
     public function __construct()
     {
         $this->middleware('guest');
+        parent::__construct();
     }
 
     /**

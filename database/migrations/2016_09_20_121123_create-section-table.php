@@ -19,6 +19,8 @@ class CreateSectionTable extends Migration
             $table->string('translit');
             $table->string('title_img');
             $table->text('description');
+            $table->string('meta_keywords');
+            $table->string('meta_description');
             $table->boolean('main_section');
         });
     }

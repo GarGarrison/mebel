@@ -12,15 +12,6 @@
                 <span class="error-block">{{ $errors->first('name') }}</span>
             @endif
         </div>
-    </div>
-    <div class="row">
-        <div class="input-field col s6 l3">
-            <input name="phone" type="text" class="validate">
-            <label for="phone">Телефон</label>
-            @if ($errors->has('phone'))
-                <span class="error-block">{{ $errors->first('phone') }}</span>
-            @endif
-        </div>
         <div class="input-field col s6 l3">
             <input name="email" type="text" class="validate" value="{{ old('email')}}">
             <label for="email">Электронная почта</label>
