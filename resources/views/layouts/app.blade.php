@@ -66,7 +66,7 @@
                     <div>консультация:<span class="bold-phones">{{ config('z_my.consult_phone') }}</span></div>
                     <!-- <div>вызов замерщика:<span class="bold-phones">{{ config('z_my.zamer_phone') }}</span></div> -->
                     <a href="https://vk.com/public68794579"><img src="{{asset('img/vk.png')}}"></a>
-                    <a href="{{ url('/feedback') }}"><i class="material-icons">email</i></a>
+                    <a href="{{ url('/contacts') }}"><i class="material-icons">email</i></a>
                 </div>
         </div>
         <div class="drop" name="catalog">
@@ -106,12 +106,12 @@
                     <li><i class="material-icons hide-on-small-only" style="color:#555">menu</i></li>
                     <li><a class="catalog">Каталог</a></li>
                     <li><a href="{{url('/about')}}">О компании</a></li>
-                    <li><a href="{{url('/feedback')}}">Обратная связь</a></li>
+                    <li><a href="{{url('/contacts')}}">Контакты</a></li>
                 </ul>
                 <ul class="side-nav" id="collapse_menu">
                     <li><a href="{{url('/catalog')}}">Каталог</a></li>
                     <li><a href="{{url('/about')}}">О компании</a></li>
-                    <li><a href="{{url('/feedback')}}">Обратная связь</a></li>
+                    <li><a href="{{url('/contacts')}}">Контакты</a></li>
                 </ul>
                 @if (!Auth::guest())
                 <ul class="right"> 
@@ -156,7 +156,7 @@
                     </div>
                 </div>
                 <div class="col s12 m6">
-                    <a href="{{ url('/feedback') }}"><b>КОНТАКТЫ</b></a>
+                    <a href="{{ url('/contacts') }}"><b>КОНТАКТЫ</b></a>
                     <div class="footer-links">
                         <div>{{ config('z_my.consult_phone') }}</div>
                         <!-- <div>{{ config('z_my.zamer_phone') }}</div> -->

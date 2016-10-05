@@ -23,8 +23,8 @@ class IndexController extends SharedController
     public function error404(){
         return view('errors.404');
     }
-    public function feedback(){
-        return view('feedback');
+    public function contacts(){
+        return view('contacts');
     }
     public function catalog(){
         return view('catalog');
@@ -33,7 +33,7 @@ class IndexController extends SharedController
         Mail::send('mail', [ 'request' => $request->all()], function($message){
             $message->to(config('z_my.mailTo'))->subject('Вопрос по Yourmebel');
         });
-        return view('feedback', ['response'=> "yes"]);
+        return view('contacts', ['response'=> "yes"]);
     }
     public function test(){
         return view('test');

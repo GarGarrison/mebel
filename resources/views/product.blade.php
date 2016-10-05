@@ -41,7 +41,7 @@
         <p><b>На всю мебель мы предоставляем гарантию 18 месяцев!</b></p>
         <p>Чтобы сделать предварительный расчет Вашей мебели и сделать заказ, Вы можете связаться с нашим консультантом по телефону <span class="bold-phones">{{ config('z_my.consult_phone') }}</span></p>
         <p>Так же вы можете сделать это отправив нам на почту письмо с помощью формы обратной связи:</p>
-        <a href="{{ url('/feedback') }}"><button type="submit" class="btn">Заказать</button></a>
+        <a href="{{ url('/contacts') }}"><button type="submit" class="btn">Заказать</button></a>
     @endif
 </div>
 @endsection

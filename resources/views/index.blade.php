@@ -11,7 +11,7 @@
                 $smallpath = "photosmall/".$section->translit.'/'.$section->title_img;
             ?>
                         <a href="{{ url($path_url.$section->translit)}}">
-                            <img src="{{ asset( $bigpath ) }}" data-image="{{ asset( $bigpath ) }}" alt="{{ $section->name }}" data-description="{{ $section->name }}">
+                            <img src="{{ asset( $smallpath ) }}" data-image="{{ asset( $bigpath ) }}" alt="{{ $section->name }}" data-description="{{ $section->name }}">
                         </a>
             @endforeach
         </div>  
