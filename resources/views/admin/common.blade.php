@@ -47,14 +47,14 @@
     </div>
 </div>
 <div class="row">
-    <div class="input-field col s6 l4">
+    <div class="input-field col s12 l8">
         <input name="meta_keywords" type="text" class="validate" value="{{ $current['meta_keywords'] or '' }}">
         <label class="{{ $class }}" for="meta_keywords">Мета keywords</label>
         @if ($errors->has('meta_keywords'))
             <span class="error-block">{{ $errors->first('meta_keywords') }}</span>
         @endif
     </div>
-    <div class="input-field col s6 l4">
+    <div class="input-field col s12 l8">
         <input name="meta_description" type="text" class="validate" value="{{ $current['meta_description'] or '' }}">
         <label class="{{ $class }}" for="meta_description">Мета description</label>
         @if ($errors->has('meta_description'))

@@ -11,7 +11,7 @@
         <meta name="Keywords" content="Кухни мебель шкафы спальни на заказ Москва Подмосковье от производителя"/>
         <meta name="Description" content="Кухни, мебель на заказ по индивидуальным размерам от производителя"/> 
     @show
-    <title>{{config('z_my.name')." - "}}{{ $title or "Кухни, шкафы, спальни и другая мебель на заказ от производителя" }}</title>
+    <title>{{config('z_my.name')." - "}}{{ $title or "Изготовление мебели на заказ - кухни, шкафы купе и другая корпусная мебель" }}</title>
     <link rel="shortcut icon" href="{{{ asset('/favicon3.png') }}}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -93,6 +93,12 @@
                 </ul>
                 @endforeach
         </div>
+        <div class="drop" name="info">
+            <ul>
+                <a href="{{ url('/about') }}">О компании</a>
+                <!-- <a href="{{ url('/kak-vibrat-kuhnyu') }}">Как выбрать кухню</a> -->
+            </ul>
+        </div>
     </div>
     <nav>
         <div class="nav-wrapper">
@@ -102,10 +108,10 @@
                     <li><i class="material-icons" style="color:#555">menu</i></li>
                     <li><a href="#" data-activates="collapse_menu" class="button-collapse">Меню</a></li>
                 </ul>
-                <ul class="hide-on-small-only">
+                <ul class="hide-on-small-only drop_menu">
                     <li><i class="material-icons hide-on-small-only" style="color:#555">menu</i></li>
-                    <li><a class="catalog">Каталог</a></li>
-                    <li><a href="{{url('/about')}}">О компании</a></li>
+                    <li><a name="catalog">Каталог</a></li>
+                    <li><a name="info" href="{{url('/about')}}">Информация</a></li>
                     <li><a href="{{url('/contacts')}}">Контакты</a></li>
                 </ul>
                 <ul class="side-nav" id="collapse_menu">
@@ -179,7 +185,6 @@
     <script type='text/javascript' src='/unitegallery/dist/js/unitegallery.min.js'></script>
     <script type='text/javascript' src='/unitegallery/dist/themes/tiles/ug-theme-tiles.js'></script> 
     <script type='text/javascript' src='/unitegallery/dist/themes/tilesgrid/ug-theme-tilesgrid.js'></script> 
-    <script type='text/javascript' src='/unitegallery/dist/themes/carousel/ug-theme-carousel.js'></script> 
     <script type="text/javascript" src="{{asset('js/helpers.js')}}"></script>
     <script type="text/javascript" src="{{asset('js/dropmenu.js')}}"></script>
     <script type="text/javascript" src="{{asset('js/script.js')}}"></script>

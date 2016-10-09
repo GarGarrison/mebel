@@ -7,10 +7,11 @@ $(document).on('click', 'body', function(event){
         $('.drop .subdrop').hide();
     }
 });
-$(document).on('mouseover', '.catalog', function(){
+$(document).on('mouseover', '.drop_menu a', function(){
+    $('.drop').hide();
     y = $(this).offset().top + $(this).height() + 5;
     x = $(this).offset().left;
-    target = $(this).attr('class');
+    target = $(this).attr('name');
     $('.drop[name="' + target + '"]').css({'top': y, 'left': x}).slideDown('fast');
 
 });

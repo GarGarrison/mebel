@@ -27,9 +27,9 @@
                 <option value="0">Не выбрано</option>
                 @foreach ($sections as $section)
                     @if($current_section == $section->id)
-                    <option value="{{ $section->id }}" selected="selected">{{ $section->name }}</option>
+                    <option value="{{ $section->id }}" selected="selected">{{ $section->menu_name }}</option>
                     @else
-                   <option value="{{ $section->id }}">{{ $section->name }}</option>
+                   <option value="{{ $section->id }}">{{ $section->menu_name }}</option>
                    @endif
                 @endforeach
             </select>

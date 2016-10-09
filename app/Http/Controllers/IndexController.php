@@ -29,6 +29,9 @@ class IndexController extends SharedController
     public function catalog(){
         return view('catalog');
     }
+    public function howto_kitchen(){
+        return view('articals.howto_kitchen');
+    }
     public function mail(Request $request){
         Mail::send('mail', [ 'request' => $request->all()], function($message){
             $message->to(config('z_my.mailTo'))->subject('Вопрос по Yourmebel');

@@ -21,13 +21,15 @@ Route::post('/login', 'Auth\LoginController@login');
 Route::get('/logout', 'Auth\LoginController@logout');
 
 Route::get('/', 'IndexController@index');
-Route::get('/notfound', 'IndexController@error404');
 Route::get('/about', 'IndexController@about');
 Route::get('/contacts', 'IndexController@contacts');
-Route::post('/mail', 'IndexController@mail');
 Route::get('/catalog', 'IndexController@catalog');
 Route::get('/section/{section}', 'IndexController@section');
 Route::get('/product/{product}', 'IndexController@product');
+Route::get('/notfound', 'IndexController@error404');
+Route::post('/mail', 'IndexController@mail');
+
+Route::get('/kak-vibrat-kuhnyu', 'IndexController@howto_kitchen');
 
 Route::get('/admin', 'AdminController@index');
 Route::get('/admin/show_add_section/{id?}', 'AdminController@show_add_section');

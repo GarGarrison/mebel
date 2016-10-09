@@ -8,6 +8,15 @@ p {
     text-align: justify;
     --text-indent: 40px;
 }
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 0.5em;
+}
+h2 {
+    font-size: 1.1em;
+    font-weight: bolder;
+    margin: 0px;
+}
 .simple li{
     margin-left: 40px;
     list-style-type: disc;
@@ -17,6 +26,9 @@ body, a, a:visited, nav ul a {
 }
 nav ul a {
     font-weight: bold;
+}
+p a {
+    text-decoration: underline;
 }
 .error-block {
     font-size: 12px;
