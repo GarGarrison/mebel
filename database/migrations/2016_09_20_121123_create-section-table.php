@@ -15,13 +15,15 @@ class CreateSectionTable extends Migration
     {
         Schema::create('sections', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
-            $table->string('translit');
-            $table->string('title_img');
-            $table->text('description');
+            $table->string('header');
+            $table->string('menu_name');
+            $table->string('url_name');
+            $table->string('img_base');
+            $table->string('img_title');
             $table->string('title');
             $table->string('meta_keywords');
             $table->string('meta_description');
+            $table->text('description');
             $table->boolean('main_section');
         });
     }

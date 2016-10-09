@@ -39,17 +39,19 @@ class IndexController extends SharedController
         return view('test');
     }
     public function section($section){
-        $section = Section::where('translit', $section)->first();
+        $section = Section::where('url_name', $section)->first();
+        if (!$section) abort(404);
         $products = Product::where('parent_section', $section->id)->get();
         return view('section', ['title'=>$section->title, 'section'=>$section, 'products'=>$products]);
     }
     public function product($product){
         $properties = "";
-        $product = Product::where('translit', $product)->first();
+        $product = Product::where('url_name', $product)->first();
+        if (!$product) abort(404);
         $parent_section = Section::find($product->parent_section);
         if ($product->have_property) {
             $propertiesByProduct = $this->getPropertyDict();
-            $properties = $propertiesByProduct[$product->translit];
+            $properties = $propertiesByProduct[$product->url_name];
         }
         $path = scandir(public_path().'/photobig/'.$product->img_base);
         unset($path[0]);

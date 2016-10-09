@@ -8,10 +8,10 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     @section('meta')
-        <meta name="Keywords" content="Кухни мебель шкафы на заказ Москва"/>
-        <meta name="Description" content="Изготовление Кухни мебель на заказ по индивидуальным размерам"/> 
+        <meta name="Keywords" content="Кухни мебель шкафы спальни на заказ Москва Подмосковье от производителя"/>
+        <meta name="Description" content="Кухни, мебель на заказ по индивидуальным размерам от производителя"/> 
     @show
-    <title>{{ $title or config('z_my.name')." - Кухни и другая мебель на заказ" }}</title>
+    <title>{{config('z_my.name')." - "}}{{ $title or "Кухни, шкафы, спальни и другая мебель на заказ от производителя" }}</title>
     <link rel="shortcut icon" href="{{{ asset('/favicon3.png') }}}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -63,8 +63,8 @@
                     <a href="{{ url('/') }}"><img src="{{asset('img/yourlogo_rus.png')}}"></a>
                 </div>
                 <div class="phones col s12 m6">
-                    <div>консультация:<span class="bold-phones">{{ config('z_my.consult_phone') }}</span></div>
-                    <!-- <div>вызов замерщика:<span class="bold-phones">{{ config('z_my.zamer_phone') }}</span></div> -->
+                    <div><b>Консультация:</b><span class="bold-phones">{{ config('z_my.phone') }}</span></div>
+                    <div><span class="bold-phones">{{ config('z_my.consult_phone') }}</span></div>
                     <a href="https://vk.com/public68794579"><img src="{{asset('img/vk.png')}}"></a>
                     <a href="{{ url('/contacts') }}"><i class="material-icons">email</i></a>
                 </div>
@@ -73,22 +73,22 @@
                 <ul>
                 @foreach($sections as $section)
                     @if ($section->main_section)
-                    <a class="haschild" name="{{$section->translit}}">{{$section->name}}<i class="material-icons">chevron_right</i></a>
+                    <a class="haschild" name="{{$section->id}}">{{$section->menu_name}}<i class="material-icons">chevron_right</i></a>
                     @endif
                 @endforeach
                 @foreach($root_products as $rp)
-                    <a name="{{$rp->translit}}" href="{{ url('/product/'.$rp->translit) }}">{{$rp->name}}</a>
+                    <a name="{{$rp->id}}" href="{{ url('/product/'.$rp->url_name) }}">{{$rp->menu_name}}</a>
                 @endforeach
                 @foreach($sections as $section)
                     @if (!$section->main_section)
-                    <a class="haschild" name="{{$section->translit}}">{{$section->name}}<i class="material-icons">chevron_right</i></a>
+                    <a class="haschild" name="{{$section->id}}">{{$section->menu_name}}<i class="material-icons">chevron_right</i></a>
                     @endif
                 @endforeach
                 </ul>
                 @foreach(array_keys($productsBySection) as $key)
                 <ul class="subdrop" name="{{$key}}">
                     @foreach( $productsBySection[$key] as $product)
-                        <a href="{{ url('/product/'.$product->translit) }}">{{ $product->menu_name }}</a>
+                        <a href="{{ url('/product/'.$product->url_name) }}">{{ $product->menu_name }}</a>
                     @endforeach
                 </ul>
                 @endforeach
@@ -142,15 +142,15 @@
                     <div class="footer-links">
                     @foreach($sections as $section)
                         @if ($section->main_section)
-                        <a class="haschild" name="{{$section->translit}}" href="{{ url('/section/'.$section->translit) }}">{{$section->name}}</a>
+                        <a class="haschild" name="{{$section->url_name}}" href="{{ url('/section/'.$section->url_name) }}">{{$section->menu_name}}</a>
                         @endif
                     @endforeach
                     @foreach($root_products as $rp)
-                        <a name="{{$rp->translit}}" href="{{ url('/product/'.$rp->translit) }}">{{$rp->name}}</a>
+                        <a name="{{$rp->url_name}}" href="{{ url('/product/'.$rp->url_name) }}">{{$rp->menu_name}}</a>
                     @endforeach
                     @foreach($sections as $section)
                         @if (!$section->main_section)
-                        <a class="haschild" name="{{$section->translit}}" href="{{ url('/section/'.$section->translit) }}">{{$section->name}}</a>
+                        <a class="haschild" name="{{$section->url_name}}" href="{{ url('/section/'.$section->url_name) }}">{{$section->menu_name}}</a>
                         @endif
                     @endforeach
                     </div>
@@ -158,6 +158,7 @@
                 <div class="col s12 m6">
                     <a href="{{ url('/contacts') }}"><b>КОНТАКТЫ</b></a>
                     <div class="footer-links">
+                        <div>{{ config('z_my.phone') }}</div>
                         <div>{{ config('z_my.consult_phone') }}</div>
                         <!-- <div>{{ config('z_my.zamer_phone') }}</div> -->
                         <div><u>{{ config('z_my.address') }}</u></div>

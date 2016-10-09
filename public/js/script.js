@@ -32,7 +32,7 @@ $(document).ready(function(){
     $(".button-collapse").sideNav();
 
 
-    if ($('body').height() < $(window).height() && location.href.split('/').indexOf("admin") <=0) $('footer').addClass('fixed-footer');
+    if ($('body').height() < $(window).height() && location.href.split('/').indexOf("admin") <=0 && $("#gallery").length == 0 ) $('footer').addClass('fixed-footer');
 });
 // $(document).on('click','.ug-item-wrapper img', function(){
 //     api = $("#gallery").unitegallery();

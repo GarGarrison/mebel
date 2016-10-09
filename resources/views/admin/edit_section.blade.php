@@ -5,7 +5,7 @@
         <select class="filter-object" name="parent">
             <option value="" selected>Не выбрано</option>
             @foreach ($sections as $section)
-               <option value="{{ url('/admin/show_add_section', [$section->id]) }}">{{ $section->name }}</option>
+               <option value="{{ url('/admin/show_add_section', [$section->id]) }}">{{ $section->menu_name }}</option>
             @endforeach
         </select>
     </div>

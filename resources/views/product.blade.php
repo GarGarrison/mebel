@@ -10,13 +10,13 @@
     <a href="{{ url('/catalog') }}" class="bread_item valign">Каталог</a>
     <i class="material-icons valign">chevron_right</i>
     @if ($parent_section)
-    <a href="{{ url('/section/'.$parent_section->translit) }}" class="bread_item valign">{{ $parent_section->name }}</a>
+    <a href="{{ url('/section/'.$parent_section->url_name) }}" class="bread_item valign">{{ $parent_section->menu_name }}</a>
     <i class="material-icons valign">chevron_right</i>
     @endif
-    <a href="{{ url('/section/'.$product->translit) }}" class="bread_item valign">{{ $product->name }}</a>
+    <a href="{{ url('/section/'.$product->url_name) }}" class="bread_item valign">{{ $product->menu_name }}</a>
 </div>
 <div class="col s12">
-    <h1>{{ $product->name }}</h1>
+    <h1>{{ $product->header }}</h1>
     {!! $product->description !!}
 
     @if( $product->have_property)
@@ -39,7 +39,7 @@
     @endif
     @if ($product->parent_section != 3 && $product->parent_section != 4)
         <p><b>На всю мебель мы предоставляем гарантию 18 месяцев!</b></p>
-        <p>Чтобы сделать предварительный расчет Вашей мебели и сделать заказ, Вы можете связаться с нашим консультантом по телефону <span class="bold-phones">{{ config('z_my.consult_phone') }}</span></p>
+        <p>Чтобы сделать предварительный расчет Вашей мебели и сделать заказ, Вы можете связаться с нашим консультантом по телефону<span class="bold-phones">{{ config('z_my.phone') }}</span> или<span class="bold-phones">{{ config('z_my.consult_phone') }}</span></p>
         <p>Так же вы можете сделать это отправив нам на почту письмо с помощью формы обратной связи:</p>
         <a href="{{ url('/contacts') }}"><button type="submit" class="btn">Заказать</button></a>
     @endif

@@ -7,8 +7,11 @@
         <table>
             <tbody>
                 <tr>
-                    <td><u>Телефон консультанта:</u></td>
-                    <td><span class="bold-phones">{{ config('z_my.consult_phone') }}</span></td>
+                    <td><u>Наши консультанты:</u></td>
+                    <td>
+                        <span class="bold-phones">{{ config('z_my.phone') }}</span><br />
+                        <span class="bold-phones">{{ config('z_my.consult_phone') }}</span>
+                    </td>
                 </tr>
                 <!-- <tr>
                     <td><u>Телефон замерщика:</u></td>

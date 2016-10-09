@@ -19,56 +19,21 @@ class AdminController extends SharedController
         parent::__construct();
     }
 
-    protected function section_validator(array $data)
-    {
-        return Validator::make($data, [
-            'name' => 'required|max:255|unique:sections',
-            'translit' => 'required|max:255|unique:sections',
-            'title_img' => 'required|max:255'
-        ]);
-    }
-    protected function product_validator(array $data)
-    {
-        return Validator::make($data, [
-            'name' => 'required|max:255|unique:products',
-            'menu_name' => 'required|max:255|unique:products',
-            'translit' => 'required|max:255|unique:products',
-            'title_img' => 'max:255'
-        ]);
-    }
-    protected function edit_section_validator(array $data)
-    {
-        return Validator::make($data, [
-            'name' => 'required|max:255',
-            'translit' => 'required|max:255',
-            'title_img' => 'required|max:255'
-        ]);
-    }
-    protected function edit_product_validator(array $data)
-    {
-        return Validator::make($data, [
-            'name' => 'required|max:255',
-            'menu_name' => 'required|max:255',
-            'translit' => 'required|max:255',
-            'title_img' => 'max:255',
-            'parent_section' => 'required'
-        ]);
-    }
 /* SHOW SECTION */
     public function index(){
         return view('admin.admin');
     }
 
     public function show_add_section($id=""){
-        $current_sec = '';
-        if ($id) $current_sec = Section::find($id);
-        return view('admin.add_section', ['current_sec'=>$current_sec]);
+        $current = '';
+        if ($id) $current = Section::find($id);
+        return view('admin.add_section', ['current'=>$current]);
     }
 
     public function show_add_product($id=""){
-        $current_prod = '';
-        if ($id) $current_prod = Product::find($id);
-        return view('admin.add_product', ['current_prod'=>$current_prod]);
+        $current = '';
+        if ($id) $current = Product::find($id);
+        return view('admin.add_product', ['current'=>$current]);
     }
 
     public function show_add_property($id=""){
@@ -90,44 +55,38 @@ class AdminController extends SharedController
     }
 /* ADD SECTION */
     public function add_section(Request $request){
-        $validator = $this->section_validator($request->all());
-        if ($validator->fails()) {
-            return $validator->messages();
-        }
         Section::create([
-            'name' => $request['name'],
-            'translit' => $request['translit'],
-            'title_img' => $request['title_img'],
-            'description' => $request['description'],
+            'header' => $request['header'],
+            'menu_name' => $request['menu_name'],
+            'url_name' => $request['url_name'],
+            'img_title' => $request['img_title'],
+            'img_base' => $request['img_base'],
             'title' => $request['title'],
             'meta_keywords' => $request['meta_keywords'],
             'meta_description' => $request['meta_description'],
+            'description' => $request['description'],
             'main_section' => $this->getCheckbox($request['main_section'])
         ]);
         return response()->json(['success'=> 'Успешно сохранено']);
     }
 
     public function add_product(Request $request){
-        $validator = $this->product_validator($request->all());
-        if ($validator->fails()) {
-            return $validator->messages();
-        }
-        $translit = $request['translit'];
+        $img_base = $request['img_base'];
         $req_ps = $request['parent_section'];
         $parent_section = "";
-        if ($req_ps) $parent_section = Section::find($req_ps)->translit.'/';
-        $img_base = $parent_section.$translit;
+        if ($req_ps) $parent_section = Section::find($req_ps)->img_base.'/';
+        $img_base = $parent_section.$img_base;
         Product::create([
-            'name' => $request['name'],
+            'header' => $request['header'],
             'menu_name' => $request['menu_name'],
-            'parent_section' => $request['parent_section'] ? $request['parent_section'] : 0,
-            'translit' => $translit,
+            'url_name' => $request['url_name'],
+            'img_title' => $request['img_title'],
             'img_base' => $img_base,
-            'title_img' => $request['title_img'],
-            'description' => $request['description'],
             'title' => $request['title'],
             'meta_keywords' => $request['meta_keywords'],
             'meta_description' => $request['meta_description'],
+            'description' => $request['description'],
+            'parent_section' => $request['parent_section'] ? $request['parent_section'] : 0,
             'calculator' => $this->getCheckbox($request['calculator']),
             'root_product' => $this->getCheckbox($request['root_product'])
         ]);
@@ -154,19 +113,27 @@ class AdminController extends SharedController
     }
 /* EDIT SECTION */
     public function edit_section(Request $request) {
-        $validator = $this->edit_section_validator($request->all());
-        if ($validator->fails()) {
-            return $validator->messages();
-        }
         $section = Section::find($request['id']);
+        $img_base = $request['img_base'];
+        if ($section->img_base != $img_base) {
+            foreach (Product::where('parent_section', $section->id)->get() as $product) {
+                $new_base = str_replace($section->img_base.'/', $img_base.'/', $product->img_base);
+                $product->update([
+                    'img_base' => $new_base
+                ]);
+                $product->save();
+            }
+        }
         $section->update([
-            'name' => $request['name'],
-            'translit' => $request['translit'],
-            'title_img' => $request['title_img'],
-            'description' => $request['description'],
+            'header' => $request['header'],
+            'menu_name' => $request['menu_name'],
+            'url_name' => $request['url_name'],
+            'img_title' => $request['img_title'],
+            'img_base' => $img_base,
             'title' => $request['title'],
             'meta_keywords' => $request['meta_keywords'],
             'meta_description' => $request['meta_description'],
+            'description' => $request['description'],
             'main_section' => $this->getCheckbox($request['main_section'])
         ]);
         $section->save();
@@ -174,27 +141,23 @@ class AdminController extends SharedController
     }
 
     public function edit_product(Request $request) {
-        $validator = $this->edit_product_validator($request->all());
-        if ($validator->fails()) {
-            return $validator->messages();
-        }
-        $translit = $request['translit'];
+        $img_base = $request['img_base'];
         $req_ps = $request['parent_section'];
         $parent_section = "";
-        if ($req_ps) $parent_section = Section::find($req_ps)->translit.'/';
-        $img_base = $parent_section.$translit;
+        if ($req_ps) $parent_section = Section::find($req_ps)->img_base.'/';
+        $img_base = $parent_section.$img_base;
         $product = Product::find($request['id']);
         $product->update([
-            'name' => $request['name'],
+            'header' => $request['header'],
             'menu_name' => $request['menu_name'],
-            'parent_section' => $request['parent_section'] ? $request['parent_section'] : 0,
-            'translit' => $translit,
+            'url_name' => $request['url_name'],
+            'img_title' => $request['img_title'],
             'img_base' => $img_base,
-            'title_img' => $request['title_img'],
-            'description' => $request['description'],
             'title' => $request['title'],
             'meta_keywords' => $request['meta_keywords'],
             'meta_description' => $request['meta_description'],
+            'description' => $request['description'],
+            'parent_section' => $request['parent_section'] ? $request['parent_section'] : 0,
             'calculator' => $this->getCheckbox($request['calculator']),
             'root_product' => $this->getCheckbox($request['root_product'])
         ]);

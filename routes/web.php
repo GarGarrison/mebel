@@ -13,6 +13,9 @@
 
 //Auth::routes();
 
+Route::get('/google51095b7803df147b.html', function(){
+    return File::get(public_path() . '/google51095b7803df147b.html');
+});
 Route::get('/login', 'Auth\LoginController@showLoginForm');
 Route::post('/login', 'Auth\LoginController@login');
 Route::get('/logout', 'Auth\LoginController@logout');

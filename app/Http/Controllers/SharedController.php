@@ -16,18 +16,17 @@ class SharedController extends Controller
     public function getCheckbox($var, $default=0) {
         return isset($var) ? 1: $default;
     }
-
     public function getProdDict(){
         $dict = array();
         foreach (Section::all() as $section) {
-           $dict[$section->translit] = Product::where('parent_section', $section->id)->get();
+           $dict[$section->id] = Product::where('parent_section', $section->id)->get();
         }
         return $dict;
     }
     public function getPropertyDict(){
         $dict = array();
         foreach (Product::where("have_property", 1)->get() as $product) {
-           $dict[$product->translit] = SpecialProperty::where('parent_product', $product->id)->get();
+           $dict[$product->url_name] = SpecialProperty::where('parent_product', $product->id)->get();
         }
         return $dict;
     }

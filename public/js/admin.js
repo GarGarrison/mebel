@@ -18,7 +18,7 @@ $(document).on('change', 'select.filter-object', function(){
     url = $(this).val();
     $('.edit_current_position').html();
     load_with_error(url + " .ajax-form", $('.edit_current_position'), function(){
-        $('.edit_current_position').prepend("<hr />");
+        $('.edit_current_position').prepend("<hr /><br /><br />");
     })
     // $('.edit_current_position').load(url + " .ajax-form", function(){
     //     $('.edit_current_position').prepend("<hr />");
