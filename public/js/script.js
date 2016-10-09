@@ -10,6 +10,7 @@ $(document).ready(function(){
             tile_enable_icons:false,
             tile_enable_textpanel:true,
             tile_textpanel_title_text_align: "center",
+            grid_num_rows: 4,
             tile_textpanel_always_on:true
         },
         'tiles': {
@@ -17,13 +18,6 @@ $(document).ready(function(){
             slider_control_zoom: false,
             tile_enable_icons:false,
             tiles_type: "justified"
-        },
-        'slider': {
-            gallery_theme: "carousel",
-            tile_width: 200,
-            theme_navigation_enable_play: false,
-            tile_enable_icons:false,
-            gallery_autoplay:false
         }
     }
     theme = $("#gallery").attr("name");
