@@ -11,7 +11,7 @@
                 $smallpath = "photosmall/".$item->img_base.'/'.$item->img_title;
             ?>
                         <a href="{{ url($path_url.$item->url_name)}}">
-                            <img src="{{ asset( $smallpath ) }}" data-image="{{ asset( $bigpath ) }}" alt="{{ $item->header }}" data-description="{{ $item->menu_name }}">
+                            <img src="{{ asset( $smallpath ) }}" data-image="{{ asset( $bigpath ) }}" alt="{{ $item->menu_name }}" data-description="{{ $item->header }}">
                         </a>
             @endforeach
         </div>  
