@@ -145,7 +145,7 @@ class AdminController extends SharedController
         $req_ps = $request['parent_section'];
         $parent_section = "";
         if ($req_ps) $parent_section = Section::find($req_ps)->img_base.'/';
-        $img_base = $parent_section.$img_base;
+        if (count(explode('/', $img_base)) == 1) $img_base = $parent_section.$img_base;
         $product = Product::find($request['id']);
         $product->update([
             'header' => $request['header'],
