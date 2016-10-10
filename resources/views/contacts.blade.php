@@ -25,7 +25,7 @@
         </table>
     </div>
 </div>
-<h6 style="text-indent: 15px;">Сделать заказ или задать нам вопрос вы можете заполнив форму:</h6>
+<h6>Сделать заказ или задать нам вопрос вы можете заполнив форму:</h6>
 @if (!empty($response))
     <script type="text/javascript">alert("Успешно отправлено!")</script>
 @endif
