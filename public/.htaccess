@@ -5,6 +5,7 @@
 
     RewriteEngine On
 
+    # 301 redirect form www to non-www
     RewriteCond %{HTTP_HOST} ^www.yourmebel.com$ [NC]
     RewriteRule ^(.*)$ http://yourmebel.com/$1 [R=301,L]
 

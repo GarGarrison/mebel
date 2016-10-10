@@ -43,14 +43,14 @@ class IndexController extends SharedController
     }
     public function section($section){
         $section = Section::where('url_name', $section)->first();
-        if (!$section) abort(404);
+        if (!$section) return redirect('/catalog');
         $products = Product::where('parent_section', $section->id)->get();
         return view('section', ['title'=>$section->title, 'section'=>$section, 'products'=>$products]);
     }
     public function product($product){
         $properties = "";
         $product = Product::where('url_name', $product)->first();
-        if (!$product) abort(404);
+        if (!$product) return redirect('/catalog');
         $parent_section = Section::find($product->parent_section);
         if ($product->have_property) {
             $propertiesByProduct = $this->getPropertyDict();
