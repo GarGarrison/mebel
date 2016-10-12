@@ -165,6 +165,9 @@ footer .black-strip {
     padding: 10px;
     text-align: center;
 }
+.shadow-background-container img {
+    max-width: 100%;
+}
 .shadow-background-close {
     position: fixed;
     top: 1%;
