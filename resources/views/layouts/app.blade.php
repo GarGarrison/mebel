@@ -8,10 +8,10 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     @section('meta')
-        <meta name="Keywords" content="Кухни мебель шкафы спальни на заказ Москва Подмосковье от производителя"/>
-        <meta name="Description" content="Кухни, мебель на заказ по индивидуальным размерам от производителя"/> 
+        <meta name="Keywords" content="корпусная мебель кухни мебель шкафы спальни на заказ Москва Подмосковье от производителя"/>
+        <meta name="Description" content="Изготовление мебели на заказ - кухни, шкафы-купе и другая корпусная мебель"/> 
     @show
-    <title>{{config('z_my.name')." - "}}{{ $title or "Изготовление мебели на заказ - кухни, шкафы купе и другая корпусная мебель" }}</title>
+    <title>{{config('z_my.name')." - "}}{{ $title or "Изготовление мебели на заказ по индивидуальным размерам" }}</title>
     <link rel="shortcut icon" href="{{{ asset('/favicon3.png') }}}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -22,7 +22,6 @@
     <link rel="stylesheet" type="text/css" href="{{asset('css/dropmenu.css')}}">
     <!-- Scripts -->
     <script>
-        var JS_APP_URL = {!! json_encode(url('/')) !!};
         window.Laravel = <?php echo json_encode([
             'csrfToken' => csrf_token(),
         ]); ?>

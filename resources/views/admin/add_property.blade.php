@@ -25,10 +25,10 @@
             @endif
         </div>
         <div class="input-field col s6 m6 l4">
-            <input name="translit" type="text" class="validate" value="{{ $current_property['translit'] or '' }}">
-            <label class="{{ $class }}" for="translit">Транслит</label>
-            @if ($errors->has('translit'))
-                <span class="error-block">{{ $errors->first('translit') }}</span>
+            <input name="img" type="text" class="validate" value="{{ $current_property['img'] or '' }}">
+            <label class="{{ $class }}" for="img">Картинка</label>
+            @if ($errors->has('img'))
+                <span class="error-block">{{ $errors->first('img') }}</span>
             @endif
         </div>
     </div>
@@ -44,7 +44,7 @@
             <select class="browser-default filter-donor" name="parent">
                 <option value="" selected>Не выбрано</option>
                 @foreach ($sections as $section)
-                   <option value="{{ $section->id }}">{{ $section->name }}</option>
+                   <option value="{{ $section->id }}">{{ $section->menu_name }}</option>
                 @endforeach
             </select>
         </div>
@@ -54,9 +54,9 @@
                 <option value="" selected>Не выбрано</option>
                 @foreach ($products as $product)
                     @if($current_product == $product->id)
-                    <option name="{{ $product->parent_section }}" value="{{ $product->id }}" selected="selected">{{ $product->name }}</option>
+                    <option name="{{ $product->parent_section }}" value="{{ $product->id }}" selected="selected">{{ $product->menu_name }}</option>
                     @else
-                    <option name="{{ $product->parent_section }}" value="{{ $product->id }}">{{ $product->name }}</option>
+                    <option name="{{ $product->parent_section }}" value="{{ $product->id }}">{{ $product->menu_name }}</option>
                     @endif
                 @endforeach
             </select>

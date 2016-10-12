@@ -81,6 +81,10 @@ span.bold-phones {
 .bread i {
     margin-right: 10px;
 }
+.active_bread {
+    font-weight: bold;
+    text-decoration: underline;
+}
 .content {
     margin: 30px;
 }
@@ -94,12 +98,13 @@ span.bold-phones {
 .catalog-box li {
     padding: 2px;
 }
-
 #gallery {
     margin-bottom: 20px;
 }
-.gallary_container {
-    text-align: center;
+.property-img {
+    float: left;
+    margin-right: 10px;
+    cursor: pointer;
 }
 footer b {
     display: block;
@@ -129,5 +134,43 @@ footer .black-strip {
     color: inherit;
     text-decoration: underline;
     display: block;
+    cursor: pointer;
+}
+
+
+/*.shadow-background {
+    position: fixed;
+}*/
+.shadow-background {
+    height: 100%;
+    width: 100%;
+    background: black;
+    opacity: 0.5;
+    filter:alpha(opacity=50);
+    -moz-opacity:0.5;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+}
+.shadow-background-container {
+    display: none;
+    margin: 0px auto;
+    background: rgba(0,0,0,0.70);
+    position: fixed;
+    left: 0px;
+    right: 0px;
+    top: 20%;
+    z-index: 200;
+    padding: 10px;
+    text-align: center;
+}
+.shadow-background-close {
+    position: fixed;
+    top: 1%;
+    right: 1%;
+    color: #eee;
+    font-weight: bold;
+    z-index: 300;
     cursor: pointer;
 }

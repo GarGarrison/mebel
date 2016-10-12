@@ -18,7 +18,8 @@
     Звоните скорей и делайте заказ, мы поможем сделать Ваш дом еще более неповторимым!
     </p>
 </div>
-<div class="col s12 l10 offset-l1">
+<!-- <div class="col s12 l10 offset-l1"> -->
+<div class="col s12">
     <div id="gallery" name="main">
         @foreach($main_items as $item)
         <?php

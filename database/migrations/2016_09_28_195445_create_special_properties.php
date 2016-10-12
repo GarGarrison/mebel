@@ -17,8 +17,7 @@ class CreateSpecialProperties extends Migration
             $table->increments('id');
             $table->integer('parent_product');
             $table->string('name');
-            $table->string('translit');
-            $table->string('img_base');
+            $table->string('img');
             $table->text('description');
         });
     }

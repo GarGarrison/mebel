@@ -39,7 +39,7 @@ class AdminController extends SharedController
     public function show_add_property($id=""){
         $current_prop = '';
         if ($id) $current_prop = SpecialProperty::find($id);
-        return view('admin.add_property', ['current_property'=>$current_prop, 'products'=>Product::where("have_property", 1)->get()]);
+        return view('admin.add_property', ['current_property'=>$current_prop, 'products'=>Product::all()]);
     }
 
     public function show_edit_section(){
@@ -94,19 +94,17 @@ class AdminController extends SharedController
     }
 
     public function add_property(Request $request){
-        $translit = $request['translit'];
         $req_pp = $request['parent_product'];
         $parent = Product::find($req_pp);
-        $parent_product = $parent->translit.'/';
+        $parent_product = $parent->img_base.'/';
         $parent->update([
             'have_property'=>1
         ]);
-        $img_base = $parent_product.$translit;
+        $img = $parent_product.$request['img'];
         SpecialProperty::create([
             'name' => $request['name'],
             'parent_product' => $req_pp,
-            'translit' => $translit,
-            'img_base' => $img_base,
+            'img' => $img,
             'description' => $request['description']
         ]);
         return response()->json(['success'=> 'Успешно сохранено']);
@@ -166,17 +164,21 @@ class AdminController extends SharedController
     }
 
     public function edit_property(Request $request) {
-        $translit = $request['translit'];
-        $req_pp = $request['parent_product'];
-        $parent_product = Product::find($req_pp)->translit.'/';
-        $img_base = $parent_product.$translit;
-
         $property = SpecialProperty::find($request['id']);
+        $req_pp = $request['parent_product'];
+        $parent = Product::find($req_pp);
+        if ($property->parent_product != $req_pp) {
+            $old_prod = Product::find($property->parent_product);
+            $old_prod->update(['have_property'=> 0]);
+            $parent->update(['have_property'=> 1]);
+        }
+        $parent_product = $parent->img_base.'/';
+        $img = $request['img'];
+        if (count(explode('/', $img)) <= 1 ) $img = $parent_product.$request['img'];
         $property->update([
             'name' => $request['name'],
             'parent_product' => $req_pp,
-            'translit' => $translit,
-            'img_base' => $img_base,
+            'img' => $img,
             'description' => $request['description']
         ]);
         $property->save();

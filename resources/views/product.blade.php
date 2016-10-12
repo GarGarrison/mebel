@@ -13,16 +13,30 @@
     <a href="{{ url('/section/'.$parent_section->url_name) }}" class="bread_item valign">{{ $parent_section->menu_name }}</a>
     <i class="material-icons valign">chevron_right</i>
     @endif
-    <a href="{{ url('/section/'.$product->url_name) }}" class="bread_item valign">{{ $product->menu_name }}</a>
+    <span class="active_bread">{{ $product->menu_name }}</span>
 </div>
 <div class="col s12">
     <h1>{{ $product->header }}</h1>
     {!! $product->description !!}
 
     @if( $product->have_property)
-        @foreach($properties as $p)
-            {{ $p->name }}
-        @endforeach
+        {{ $product->description }}
+        <table>
+            <tbody>
+            @foreach($properties as $p)
+                <tr>
+                    <td><img class="property-img" src="{{ asset('/photosmall/'.$p->img) }}" data-image="{{ asset('/photobig/'.$p->img) }}" /></td>
+                    <td>
+                        @if ($p->description)
+                            <b>{{ $p->name }}:</b> {{ $p->description }}
+                        @else
+                            <b>{{ $p-> name }}</b>
+                        @endif
+                    </td>
+                </tr>
+            @endforeach
+            </tbody>
+        </table>
     @else
         <div id="gallery" name = "tiles" style="display: none;">
         @foreach($path as $p)
