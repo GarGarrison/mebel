@@ -1,7 +1,8 @@
 $(document).on('click', 'body', function(event){
-    deny_classes = ['catalog', 'drop'];
+    deny_names = ['catalog', 'info'];
     drop_parent = $(event.target).closest('.drop').size();
-    deny_index = deny_classes.indexOf($(event.target).attr('class'));
+    target = $(event.target).attr('name');
+    deny_index = deny_names.indexOf(target);
     if ( deny_index == -1 && drop_parent == 0) {
         $('.drop').slideUp('fast');
         $('.drop .subdrop').hide();

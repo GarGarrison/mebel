@@ -110,7 +110,7 @@
                 <ul class="hide-on-small-only drop_menu">
                     <li><i class="material-icons hide-on-small-only" style="color:#555">menu</i></li>
                     <li><a name="catalog">Каталог</a></li>
-                    <li><a name="info" href="{{url('/about')}}">Информация</a></li>
+                    <li><a name="info"">Информация</a></li>
                     <li><a href="{{url('/contacts')}}">Контакты</a></li>
                 </ul>
                 <ul class="side-nav" id="collapse_menu">
