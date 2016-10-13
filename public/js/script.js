@@ -26,7 +26,6 @@ $(document).ready(function(){
     $(".button-collapse").sideNav();
 
     if ($('body').height() < $(window).height() && location.href.split('/').indexOf("admin") <=0 && $("#gallery").length == 0 ) $('footer').addClass('fixed-footer');
-    reloadSomeJS();
 
     if ($('.order_form').length > 0){
         sec = $('input[name="cur_section"]').val();
@@ -34,8 +33,11 @@ $(document).ready(function(){
         $("select[name='section']").val(sec);
         if (sec) {
             $("select[name='product']").val(prod);
-            $(".steps.k-2").slideDown(400);
-            $(".steps.k-3").slideDown(400);
+            clas = $("select[name='product'] option:selected").attr('class');
+            cl = clas.slice(0,2);
+            next = parseInt(clas.slice(-1)) + 1;
+            $('.steps.' + clas).slideDown(400);
+            $('.steps.' + cl + next).slideDown(400);
         }
         else if (prod) {
             $("select[name='section']").val(prod);
@@ -54,7 +56,7 @@ $(document).on('change', 'select.order', function(){
         $('select.filter-object').val("");
     }
     clas = $(this).find('option:selected').attr('class');
-    cl = clas.split('-')[0] + '-';
-    next = parseInt(clas.split('-')[1]) + 1;
+    cl = clas.slice(0,2);
+    next = parseInt(clas.slice(-1)) + 1;
     $('.steps.' + cl + next).slideDown(400);
 });

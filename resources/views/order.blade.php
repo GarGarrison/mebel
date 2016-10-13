@@ -10,7 +10,7 @@
         '2'=>'s-2',
     );
 ?>
-@if (!empty($response))
+@if (session('response'))
     <script type="text/javascript">alert("Ваш заказ успешно отправлен!")</script>
 @endif
 @if (!empty($request['current_product']))
@@ -82,12 +82,22 @@
         </div>
     </div>
     <div class="row steps k-4">
-       <div class="input-field col s12">
+        <div class="input-field col s12 m6">
+            <strong>Материал столешницы</strong>
+            <select class="browser-default order" name="format">
+                <option class="k-4" value="" selected>Не выбрано</option>
+                <option class="k-4" value = "Прямая">Искусственный камень</option>
+                <option class="k-4" value = "Угловая">Пластик</option>
+            </select>
+        </div>
+    </div>
+    <div class="row steps k-5">
+       <div class="input-field col s12 m6">
             <input name="meters" type="text" class="validate">
             <label for="name">Погонные метры</label>
         </div>
     </div>
-    <div class="row steps k-4 s-3 o-2">
+    <div class="row steps k-5 s-3 o-2">
         <div class="input-field col s12 m6">
             <textarea name="wishes" class="materialize-textarea"></textarea>
             <label for="wishes">Особые пожелания</label>

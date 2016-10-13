@@ -113,8 +113,7 @@
             <div class="container">
                 <!-- <a href="#" data-activates="collapse_menu" class="button-collapse"><i class="material-icons" style="color:#555">menu</i></a> -->
                 <ul class="hide-on-med-and-up">
-                    <li><i class="material-icons" style="color:#555">menu</i></li>
-                    <li><a href="#" data-activates="collapse_menu" class="button-collapse">Меню</a></li>
+                    <li><a href="#" data-activates="collapse_menu" class="button-collapse"><i class="material-icons collapse_icon">menu</i>Меню</a></li>
                 </ul>
                 <ul class="hide-on-small-only drop_menu">
                     <li><i class="material-icons hide-on-small-only" style="color:#555">menu</i></li>
