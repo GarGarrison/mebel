@@ -28,7 +28,7 @@ $(document).ready(function(){
     if ($('body').height() < $(window).height() && location.href.split('/').indexOf("admin") <=0 && $("#gallery").length == 0 ) $('footer').addClass('fixed-footer');
     reloadSomeJS();
 
-    if ($('.order_form').length){
+    if ($('.order_form').length > 0){
         sec = $('input[name="cur_section"]').val();
         prod = $('input[name="cur_product"]').val();
         $("select[name='section']").val(sec);

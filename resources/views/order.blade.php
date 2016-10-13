@@ -29,7 +29,7 @@
     <input type="hidden" name="subject" value="order">
     <h2>Что Вы хотите заказать</h2>
     <div class="row">
-        <div class="input-field col s6">
+        <div class="input-field col s12 m6">
             <strong>Выберите мебель</strong>
             <select class="filter-donor browser-default order" name="section">
                 <option value="" selected>Не выбрано</option>
@@ -44,7 +44,7 @@
         </div>
     </div>
     <div class="row steps k-2 s-2">
-        <div class="input-field col s6">
+        <div class="input-field col s12 m6">
             <strong>Какого типа</strong>
             <select class="filter-object browser-default order" name="product">
                 <option value="" selected>Не выбрано</option>
@@ -57,7 +57,7 @@
         </div>
     </div>
     <div class="row steps k-3">
-        <div class="input-field col s6">
+        <div class="input-field col s12 m6">
             <strong>Форма</strong>
             <select class="browser-default order" name="format">
                 <option class="k-3" value="" selected>Не выбрано</option>
@@ -68,27 +68,27 @@
         </div>
     </div>
     <div class="row steps s-3">
-       <div class="input-field col s2">
+       <div class="input-field col s4 m2">
             <input name="height" type="text" class="validate">
             <label for="height">Высота</label>
         </div>
-        <div class="input-field col s2">
+        <div class="input-field col s4 m2">
             <input name="width" type="text" class="validate">
             <label for="height">Ширина</label>
         </div>
-        <div class="input-field col s2">
+        <div class="input-field col s4 m2">
             <input name="length" type="text" class="validate">
             <label for="height">Длинна</label>
         </div>
     </div>
     <div class="row steps k-4">
-       <div class="input-field col s2">
+       <div class="input-field col s12">
             <input name="meters" type="text" class="validate">
             <label for="name">Погонные метры</label>
         </div>
     </div>
     <div class="row steps k-4 s-3 o-2">
-        <div class="input-field col s6">
+        <div class="input-field col s12 m6">
             <textarea name="wishes" class="materialize-textarea"></textarea>
             <label for="wishes">Особые пожелания</label>
         </div>
@@ -96,7 +96,7 @@
 
     <h2>Ваши данные</h2>
     <div class="row">
-        <div class="input-field col s6">
+        <div class="input-field col s12 m6">
             <i class="material-icons prefix">account_circle</i>
             <input name="name" type="text" class="validate">
             <label for="name">Имя</label>
@@ -106,7 +106,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="input-field col s6">
+        <div class="input-field col s12 m6">
             <i class="material-icons prefix">phone</i>
             <input name="phone" type="text" class="validate">
             <label for="phone">Телефон</label>
@@ -116,7 +116,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="input-field col s6">
+        <div class="input-field col s12 m6">
             <i class="material-icons prefix">business</i>
             <input name="address" type="text" class="validate">
             <label for="address">Город</label>
@@ -126,7 +126,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="input-field col s6">
+        <div class="input-field col s12 m6">
             <i class="material-icons prefix">email</i>
             <input name="email" type="text" class="validate">
             <label for="email">Электронная почта</label>
@@ -136,7 +136,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="col s6">
+        <div class="col s12 m6">
             <a href="{{ url('/mail') }}">
             <button type="submit" class="btn">
                 Отправить
