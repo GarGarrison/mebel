@@ -8,9 +8,13 @@ use Illuminate\Support\Facades\Mail;
 use App\Http\Requests;
 use App\Section;
 use App\Product;
+use App\Article;
 
 class IndexController extends SharedController
 {
+    public function error404(){
+        return view('errors.404');
+    }
     public function index(){
         $sec = Section::where('main_section', 1)->get();
         $prod = Product::where('root_product', 1)->get();
@@ -20,23 +24,33 @@ class IndexController extends SharedController
     public function about(){
         return view('about');
     }
-    public function error404(){
-        return view('errors.404');
-    }
     public function contacts(){
         return view('contacts');
     }
     public function catalog(){
         return view('catalog');
     }
-    public function howto_kitchen(){
-        return view('articals.howto_kitchen');
+    public function order(Request $request){
+        return view('order', ['request'=>$request->all()]);
+    }
+    public function article($url_name){
+        $a = Article::where('url_name', $url_name)->first();
+        if (!$a) return abort(404);
+        return view('article', ['article'=> $a]);
     }
     public function mail(Request $request){
-        Mail::send('mail', [ 'request' => $request->all()], function($message){
-            $message->to(config('z_my.mailTo'))->subject('Вопрос по Yourmebel');
+        $template = "mail_order";
+        $subject = "Заказ на yourmebel.com";
+        $response_template = "order";
+        if ($request->subject == "question") {
+            $subject = "Вопрос по yourmebel.com";
+            $template = "mail_question";
+            $response_template = "contacts";
+        }
+        Mail::send($template, [ 'request' => $request->all()], function($message) use ($subject) {
+            $message->to(config('z_my.mailTo'))->subject($subject);
         });
-        return view('contacts', ['response'=> "yes"]);
+        return view($response_template, ['response'=> "yes"]);
     }
     public function test(){
         return view('test');
@@ -44,8 +58,8 @@ class IndexController extends SharedController
     public function section($section){
         $section = Section::where('url_name', $section)->first();
         if (!$section) return redirect('/catalog');
-        $products = Product::where('parent_section', $section->id)->get();
-        return view('section', ['title'=>$section->title, 'section'=>$section, 'products'=>$products]);
+        $children_products = Product::where('parent_section', $section->id)->get();
+        return view('section', ['title'=>$section->title, 'section'=>$section, 'children_products'=>$children_products]);
     }
     public function product($product){
         $properties = "";

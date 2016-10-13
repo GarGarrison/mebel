@@ -25,7 +25,7 @@
             <tbody>
             @foreach($properties as $p)
                 <tr>
-                    <td><img class="property-img" src="{{ asset('/photosmall/'.$p->img) }}" data-image="{{ asset('/photobig/'.$p->img) }}" /></td>
+                    <td><img class="property-img shadow-big-img" src="{{ asset('/photosmall/'.$p->img) }}" data-image="{{ asset('/photobig/'.$p->img) }}" /></td>
                     <td>
                         @if ($p->description)
                             <b>{{ $p->name }}:</b> {{ $p->description }}
@@ -55,7 +55,16 @@
         <p><b>На всю мебель мы предоставляем гарантию 18 месяцев!</b></p>
         <p>Чтобы сделать предварительный расчет Вашей мебели и сделать заказ, Вы можете связаться с нашим консультантом по телефону<span class="bold-phones">{{ config('z_my.phone') }}</span> или<span class="bold-phones">{{ config('z_my.consult_phone') }}</span></p>
         <p>Так же вы можете сделать это отправив нам на почту письмо с помощью формы обратной связи:</p>
-        <a href="{{ url('/contacts') }}"><button type="submit" class="btn">Заказать</button></a>
+        <form action="{{ url('/order') }}" method="post">
+            {{ csrf_field() }}
+            <input type="hidden" name="current_product" value="{{ $product->menu_name }}">
+            <input type="hidden" name="current_section" value="{{$parent_section->menu_name or ''}}">
+            @if ($parent_section)
+                <button type="submit" class="btn">Сделать расчет</button>
+            @else
+                <button type="submit" class="btn">Заказать</button>
+            @endif
+        </form>
     @endif
 </div>
 @endsection

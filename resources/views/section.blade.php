@@ -17,10 +17,10 @@
 </div>   
 <div class="col s12">
     <div id="gallery" name="main">
-    @foreach($products as $p)
+    @foreach($children_products as $p)
         <?php
             $bigpath = "photobig/".$p->img_base.'/'.$p->img_title;
-            $smallpath = "photosmall/".$p->img_base.'/'.$p->img_title;
+            $smallpath = "title_img/".$p->img_title;
         ?>
         <a href="{{ url('/product/'.$p->url_name) }}">
             <img src="{{ asset( $smallpath ) }}" data-image="{{ asset( $bigpath ) }}" alt="{{ $p->menu_name }}" data-description="{{ $p->header }}">

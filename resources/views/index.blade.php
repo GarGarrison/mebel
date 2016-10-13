@@ -26,7 +26,7 @@
             $path_url = "/section/";
             if ($item->root_product) $path_url = "/product/";
             $bigpath = "photobig/".$item->img_base.'/'.$item->img_title;
-            $smallpath = "photosmall/".$item->img_base.'/'.$item->img_title;
+            $smallpath = "title_img/".$item->img_title;
         ?>
                     <a href="{{ url($path_url.$item->url_name)}}">
                         <img src="{{ asset( $smallpath ) }}" data-image="{{ asset( $bigpath ) }}" alt="{{ $item->menu_name }}" data-description="{{ $item->header }}">

@@ -4,7 +4,7 @@
         <strong>Родительский продукт</strong>
         <select class="browser-default filter-donor" name="parent">
             <option value="" selected>Не выбрано</option>
-            @foreach ($products as $product)
+            @foreach ($property_products as $product)
                <option value="{{ $product->id }}">{{ $product->menu_name }}</option>
             @endforeach
         </select>

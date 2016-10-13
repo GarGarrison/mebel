@@ -81,3 +81,9 @@ $(document).on('submit', '.ajax-form', function(event){
     data = serializeToObject($(this));
     SendForm(url, data, formSuccess);
 });
+
+$(document).on('change', 'select.filter-donor', function(){
+    id = $(this).val();
+    $('select.filter-object option').hide();
+    $('select.filter-object option[name="' + id + '"]').show();
+});

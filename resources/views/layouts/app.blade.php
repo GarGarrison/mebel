@@ -12,7 +12,7 @@
         <meta name="Description" content="Изготовление мебели на заказ - кухни, шкафы-купе и другая корпусная мебель"/> 
     @show
     <title>{{config('z_my.name')." - "}}{{ $title or "Изготовление мебели на заказ по индивидуальным размерам" }}</title>
-    <link rel="shortcut icon" href="{{{ asset('/favicon3.png') }}}">
+    <link rel="shortcut icon" href="{{{ asset('/favicon.png') }}}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel='stylesheet' href='/unitegallery/dist/css/unite-gallery.css' type='text/css' />
@@ -20,6 +20,7 @@
     <link rel="stylesheet" type="text/css" href="{{asset('css/material_helper.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/picker_helper.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/dropmenu.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/shadow-img.css')}}">
     <!-- Scripts -->
     <script>
         window.Laravel = <?php echo json_encode([
@@ -95,7 +96,9 @@
         <div class="drop" name="info">
             <ul>
                 <a href="{{ url('/about') }}">О компании</a>
-                <!-- <a href="{{ url('/kak-vibrat-kuhnyu') }}">Как выбрать кухню</a> -->
+                @foreach( $articles as $a )
+                    <a href="{{ url('/article/'.$a->url_name) }}">{{ $a->menu_name }}</a>
+                @endforeach
             </ul>
         </div>
     </div>
@@ -114,7 +117,18 @@
                     <li><a href="{{url('/contacts')}}">Контакты</a></li>
                 </ul>
                 <ul class="side-nav" id="collapse_menu">
-                    <li><a href="{{url('/catalog')}}">Каталог</a></li>
+                    <li class="title_li">Каталог</li>
+                    @foreach($sections as $section)
+                        @if ($section->main_section)
+                            <li><a href="/section/{{$section->url_name}}">{{$section->menu_name}}</a></li>
+                        @endif
+                    @endforeach
+                    <li><a href="{{url('/catalog')}}">Весь каталог</a></li>
+                    <li class="title_li">Статьи</li>
+                    @foreach($articles as $a)
+                        <li><a href="{{ url('/article/'.$a->url_name) }}">{{ $a->menu_name }}</a></li>
+                    @endforeach
+                    <li class="title_li">Информация</li>
                     <li><a href="{{url('/about')}}">О компании</a></li>
                     <li><a href="{{url('/contacts')}}">Контакты</a></li>
                 </ul>
@@ -186,6 +200,7 @@
     <script type='text/javascript' src='/unitegallery/dist/themes/tilesgrid/ug-theme-tilesgrid.js'></script> 
     <script type="text/javascript" src="{{asset('js/helpers.js')}}"></script>
     <script type="text/javascript" src="{{asset('js/dropmenu.js')}}"></script>
+    <script type="text/javascript" src="{{asset('js/shadow-img.js')}}"></script>
     <script type="text/javascript" src="{{asset('js/script.js')}}"></script>
     @section('admin_script')
     @show

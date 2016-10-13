@@ -27,10 +27,11 @@
 </div>
 <h6>Сделать заказ или задать нам вопрос вы можете заполнив форму:</h6>
 @if (!empty($response))
-    <script type="text/javascript">alert("Успешно отправлено!")</script>
+    <script type="text/javascript">alert("Ваш вопрос успешно отправлен!")</script>
 @endif
 <form class="col s12" method="post" action="{{ url('/mail') }}">
     {{ csrf_field() }}
+    <input type="hidden" name="subject" value="question">
     <div class="row">
         <div class="input-field col s12 l6">
             <i class="material-icons prefix">account_circle</i>

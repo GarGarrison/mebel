@@ -10,6 +10,7 @@ use View;
 use App\Section;
 use App\Product;
 use App\SpecialProperty;
+use App\Article;
 
 class SharedController extends Controller
 {
@@ -33,6 +34,8 @@ class SharedController extends Controller
 
     public function __construct(){
         View::share ( 'sections', Section::all() );
+        View::share ( 'products', Product::all() );
+        View::share ( 'articles', Article::all() );
         View::share ( 'root_products', Product::where('root_product', 1)->get() );
         View::share ( 'productsBySection', $this->getProdDict() );
     }

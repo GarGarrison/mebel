@@ -57,7 +57,7 @@ return [
 
     'from' => [
         'address' => 'support@yourmebel.com',
-        'name' => 'Consultant',
+        'name' => 'YourMebel.com',
     ],
 
     /*

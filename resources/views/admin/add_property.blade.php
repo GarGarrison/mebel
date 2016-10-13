@@ -4,28 +4,28 @@
     $submit = "Добавить";
     $action = url('/admin/add_property');
     $current_product = '';
-    if ($current_property){
+    if ($current){
         $action = url('/admin/edit_property');
         $class = "active";
         $submit = "Сохранить";
-        $current_product = $current_property->parent_product;
+        $current_product = $current->parent_product;
     }
 ?>
 <form class="col s12 ajax-form" method="post" action="{{ $action }}">
     {{ csrf_field() }}
-    @if($current_property)
-    <input type="hidden" name="id" value="{{$current_property->id}}">
+    @if($current)
+    <input type="hidden" name="id" value="{{$current->id}}">
     @endif
     <div class="row">
         <div class="input-field col s6 m6 l4">
-            <input name="name" type="text" class="validate" value="{{ $current_property['name'] or '' }}">
+            <input name="name" type="text" class="validate" value="{{ $current['name'] or '' }}">
             <label class="{{ $class }}" for="name">Название</label>
             @if ($errors->has('name'))
                 <span class="error-block">{{ $errors->first('name') }}</span>
             @endif
         </div>
         <div class="input-field col s6 m6 l4">
-            <input name="img" type="text" class="validate" value="{{ $current_property['img'] or '' }}">
+            <input name="img" type="text" class="validate" value="{{ $current['img'] or '' }}">
             <label class="{{ $class }}" for="img">Картинка</label>
             @if ($errors->has('img'))
                 <span class="error-block">{{ $errors->first('img') }}</span>
@@ -34,7 +34,7 @@
     </div>
     <div class="row">
         <div class="input-field col s12 m12 l6">
-            <textarea name="description" class="materialize-textarea">{{ $current_property['description'] or '' }}</textarea>
+            <textarea name="description" class="materialize-textarea">{{ $current['description'] or '' }}</textarea>
             <label class="{{ $class }}" for="description">Описание</label>
         </div>
     </div>

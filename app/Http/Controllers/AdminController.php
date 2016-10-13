@@ -9,6 +9,7 @@ use App\Http\Requests;
 use App\Section;
 use App\Product;
 use App\SpecialProperty;
+use App\Article;
 
 class AdminController extends SharedController
 {
@@ -37,9 +38,15 @@ class AdminController extends SharedController
     }
 
     public function show_add_property($id=""){
-        $current_prop = '';
-        if ($id) $current_prop = SpecialProperty::find($id);
-        return view('admin.add_property', ['current_property'=>$current_prop, 'products'=>Product::all()]);
+        $current = '';
+        if ($id) $current = SpecialProperty::find($id);
+        return view('admin.add_property', ['current'=>$current]);
+    }
+
+    public function show_add_article($id=""){
+        $current = '';
+        if ($id) $current = Article::find($id);
+        return view('admin.add_article', ['current'=>$current]);
     }
 
     public function show_edit_section(){
@@ -47,11 +54,15 @@ class AdminController extends SharedController
     }
 
     public function show_edit_product(){
-        return view('admin.edit_product', ['products'=>Product::all()]);
+        return view('admin.edit_product');
     }
 
     public function show_edit_property(){
-        return view('admin.edit_property', ['products'=>Product::where("have_property", 1)->get(), 'properties'=>SpecialProperty::all()]);
+        return view('admin.edit_property', ['property_products'=>Product::where("have_property", 1)->get(), 'properties'=>SpecialProperty::all()]);
+    }
+
+    public function show_edit_article(){
+        return view('admin.edit_article');
     }
 /* ADD SECTION */
     public function add_section(Request $request){
@@ -106,6 +117,19 @@ class AdminController extends SharedController
             'parent_product' => $req_pp,
             'img' => $img,
             'description' => $request['description']
+        ]);
+        return response()->json(['success'=> 'Успешно сохранено']);
+    }
+
+    public function add_article(Request $request){
+        Article::create([
+            'header' => $request['header'],
+            'menu_name' => $request['menu_name'],
+            'url_name' => $request['url_name'],
+            'title' => $request['title'],
+            'meta_keywords' => $request['meta_keywords'],
+            'meta_description' => $request['meta_description'],
+            'text' => $request['description']
         ]);
         return response()->json(['success'=> 'Успешно сохранено']);
     }
@@ -182,6 +206,21 @@ class AdminController extends SharedController
             'description' => $request['description']
         ]);
         $property->save();
+        return response()->json(['success'=> 'Успешно изменено']);
+    }
+
+    public function edit_article(Request $request) {
+        $article = Article::find($request['id']);
+        $article->update([
+            'header' => $request['header'],
+            'menu_name' => $request['menu_name'],
+            'url_name' => $request['url_name'],
+            'title' => $request['title'],
+            'meta_keywords' => $request['meta_keywords'],
+            'meta_description' => $request['meta_description'],
+            'text' => $request['description']
+        ]);
+        $article->save();
         return response()->json(['success'=> 'Успешно изменено']);
     }
 }

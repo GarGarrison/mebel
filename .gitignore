@@ -1,6 +1,7 @@
 /node_modules
 /public/storage
 /public/img
+/public/title_img
 /public/photobig*
 /public/photosmall
 /public/*.tar.gz
