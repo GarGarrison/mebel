@@ -1,0 +1,38 @@
+.shadow-background {
+    height: 100%;
+    width: 100%;
+    background: black;
+    opacity: 0.5;
+    filter:alpha(opacity=50);
+    -moz-opacity:0.5;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+}
+.shadow-background-container {
+    width: 100%;
+    display: none;
+    margin: 0px auto;
+    background: rgba(0,0,0,0.70);
+    position: fixed;
+    left: 0px;
+    right: 0px;
+    top: 20%;
+    z-index: 200;
+    padding: 10px;
+    text-align: center;
+}
+.shadow-background-container img {
+    max-width: 100%;
+    max-height: 100%;
+}
+.shadow-background-close {
+    position: fixed;
+    top: 1%;
+    right: 1%;
+    color: #eee;
+    font-weight: bold;
+    z-index: 300;
+    cursor: pointer;
+}
