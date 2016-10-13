@@ -95,7 +95,13 @@
         </div>
         <div class="drop" name="info">
             <ul>
+                <a href="{{url('/contacts')}}">Контакты</a>
                 <a href="{{ url('/about') }}">О компании</a>
+            </ul>
+        </div>
+        <div class="drop" name="articles">
+            <ul>
+                <a href="{{url('/order')}}">Как заказать</a>
                 @foreach( $articles as $a )
                     <a href="{{ url('/article/'.$a->url_name) }}">{{ $a->menu_name }}</a>
                 @endforeach
@@ -113,8 +119,8 @@
                 <ul class="hide-on-small-only drop_menu">
                     <li><i class="material-icons hide-on-small-only" style="color:#555">menu</i></li>
                     <li><a name="catalog">Каталог</a></li>
-                    <li><a name="info"">Информация</a></li>
-                    <li><a href="{{url('/contacts')}}">Контакты</a></li>
+                    <li><a name="articles"">Информация</a></li>
+                    <li><a name="info"">О нас</a></li>       
                 </ul>
                 <ul class="side-nav" id="collapse_menu">
                     <li class="title_li">Каталог</li>
@@ -124,13 +130,14 @@
                         @endif
                     @endforeach
                     <li><a href="{{url('/catalog')}}">Весь каталог</a></li>
-                    <li class="title_li">Статьи</li>
+                    <li class="title_li">Информация</li>
+                    <li><a href="{{url('/order')}}">Как заказать</a></li>
                     @foreach($articles as $a)
                         <li><a href="{{ url('/article/'.$a->url_name) }}">{{ $a->menu_name }}</a></li>
                     @endforeach
-                    <li class="title_li">Информация</li>
-                    <li><a href="{{url('/about')}}">О компании</a></li>
+                    <li class="title_li">О нас</li>
                     <li><a href="{{url('/contacts')}}">Контакты</a></li>
+                    <li><a href="{{url('/about')}}">О компании</a></li>
                 </ul>
                 @if (!Auth::guest())
                 <ul class="right"> 

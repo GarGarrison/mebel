@@ -37,7 +37,7 @@ $(document).ready(function(){
             $(".steps.k-2").slideDown(400);
             $(".steps.k-3").slideDown(400);
         }
-        else {
+        else if (prod) {
             $("select[name='section']").val(prod);
             $(".steps.o-2").slideDown(400);
         }

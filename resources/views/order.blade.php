@@ -13,7 +13,7 @@
 @if (!empty($response))
     <script type="text/javascript">alert("Ваш заказ успешно отправлен!")</script>
 @endif
-@if (!empty($request['current_section']))
+@if (!empty($request['current_product']))
     <input type="hidden" name="cur_section" value="{{$request['current_section']}}">
     <input type="hidden" name="cur_product" value="{{$request['current_product']}}">
 @endif

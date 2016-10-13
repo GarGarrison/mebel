@@ -23,8 +23,9 @@ h2 {
 }
 .title_li {
     font-weight: bold;
-    background-color: #bf6200;
-    color: #e5e5e5;
+    background-color: #ffc180;
+    color: #555;
+    font-weight: bold;
     text-indent: 16px;
 }
 body, a, a:visited, nav ul a {
