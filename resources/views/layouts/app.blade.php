@@ -95,16 +95,16 @@
         </div>
         <div class="drop" name="info">
             <ul>
-                <a href="{{url('/contacts')}}">Контакты</a>
-                <a href="{{ url('/about') }}">О компании</a>
-            </ul>
-        </div>
-        <div class="drop" name="articles">
-            <ul>
                 <a href="{{url('/order')}}">Как заказать</a>
                 @foreach( $articles as $a )
                     <a href="{{ url('/article/'.$a->url_name) }}">{{ $a->menu_name }}</a>
                 @endforeach
+            </ul>
+        </div>
+        <div class="drop" name="about">
+            <ul>
+                <a href="{{ url('/contacts') }}">Контакты</a>
+                <a href="{{ url('/about') }}">О компании</a>
             </ul>
         </div>
     </div>
@@ -118,8 +118,8 @@
                 <ul class="hide-on-small-only drop_menu">
                     <li><i class="material-icons hide-on-small-only" style="color:#555">menu</i></li>
                     <li><a name="catalog">Каталог</a></li>
-                    <li><a name="articles"">Информация</a></li>
-                    <li><a name="info"">О нас</a></li>       
+                    <li><a name="info">Информация</a></li>
+                    <li><a name="about">О нас</a></li>       
                 </ul>
                 <ul class="side-nav" id="collapse_menu">
                     <li class="title_li">Каталог</li>

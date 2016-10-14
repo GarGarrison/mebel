@@ -7,6 +7,23 @@ function print(text) {
     console.log(text);
 }
 
+// функция стандартного ответа на успешный аякс (вывод в консоль)
+function standartSuccess(resp) { print(resp);}
+// функция стандартного ответа на успешный аякс (алерт)
+function alertSuccess(resp) { alert(resp);}
+// функция при успешном выполнении аякса ( добовление html в объект)
+function htmlSuccess(resp, obj) { obj.html(resp);
+}
+
+// функция ответа на отправку формы с подсветкой ошибочных данных
+function formSuccess(resp){
+    if (resp.success) {
+        alert(resp.success);
+        reloadTab();
+    }
+    else lightErrorsInForm(resp);
+}
+
 function load_with_error(url, obj, success=function(){return true;}) {
     obj.load(url, function(response, status, xhr){
         if (status == "error") {
@@ -16,6 +33,7 @@ function load_with_error(url, obj, success=function(){return true;}) {
         success();
     });
 }
+// собрать форму в словарь
 function serializeToObject(form) {
     arr = form.serializeArray();
     tmp = {};
@@ -24,15 +42,17 @@ function serializeToObject(form) {
     });
     return tmp;
 }
-
+// подсветить неправильно заполненные поля формы в материалайзе
 function lightErrorsInForm(errors) {
     for (var k in errors) {
         $("form.ajax-form").find('label[for="' + k + '"]').after("<span class='error-block'>" + errors[k] + "</span>");
     }
 }
+// перезагрузка материального селекта
 function selectReload() {
     $('select').material_select();
 }
+//перезагрузка разных объектов
 function reloadSomeJS(){
     selectReload();
     $('.datepicker').pickadate({
@@ -42,24 +62,16 @@ function reloadSomeJS(){
         onSet: function(context) {this.close();}
     });
 }
+// загрузка данных таба
 function loadTab(url) {
     load_with_error(url, $(".tab-container"));
 }
+// перезагрузка данных таба
 function reloadTab() {
     url = $(".tab a.active").attr("href");
     loadTab(url);
 }
-
-function standartSuccess(resp) { console.log(resp);}
-
-function formSuccess(resp){
-    if (resp.success) {
-        alert(resp.success);
-        reloadTab();
-    }
-    else lightErrorsInForm(resp);
-}
-
+// отправка любой формы
 function SendForm(url, data, success=standartSuccess) {
     if (!data['_token']) data['_token'] = $('meta[name="csrf-token"]').attr("content");
     $.ajax({
@@ -74,14 +86,14 @@ function SendForm(url, data, success=standartSuccess) {
         }
     })
 }
-
+// аякс сабмит формы
 $(document).on('submit', '.ajax-form', function(event){
     event.preventDefault();
     url = $(this).attr('action');
     data = serializeToObject($(this));
     SendForm(url, data, formSuccess);
 });
-
+// запрос на поиск
 $(document).on('change', 'select.filter-donor', function(){
     id = $(this).val();
     $('select.filter-object option').hide();

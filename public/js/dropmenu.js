@@ -1,5 +1,5 @@
 $(document).on('click', 'body', function(event){
-    deny_names = ['catalog', 'info'];
+    deny_names = ['catalog', 'info', 'about'];
     drop_parent = $(event.target).closest('.drop').size();
     target = $(event.target).attr('name');
     deny_index = deny_names.indexOf(target);
