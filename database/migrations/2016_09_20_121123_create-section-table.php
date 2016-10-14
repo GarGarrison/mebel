@@ -23,7 +23,7 @@ class CreateSectionTable extends Migration
             $table->string('title');
             $table->string('meta_keywords');
             $table->string('meta_description');
-            $table->text('description');
+            $table->text('text');
             $table->boolean('main_section');
         });
     }

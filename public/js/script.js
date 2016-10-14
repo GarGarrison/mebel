@@ -25,7 +25,7 @@ $(document).ready(function(){
     $("#gallery").unitegallery(themes_params[theme]);
     $(".button-collapse").sideNav();
 
-    if ($('body').height() < $(window).height() && location.href.split('/').indexOf("admin") <=0 && $("#gallery").length == 0 ) $('footer').addClass('fixed-footer');
+    if ($('body').height() < $(window).height() && location.href.split('/').indexOf("admin") <=0 && $("#gallery").length == 0 && $(".shadow-big-img").length == 0 ) $('footer').addClass('fixed-footer');
 
     if ($('.order_form').length > 0){
         sec = $('input[name="cur_section"]').val();

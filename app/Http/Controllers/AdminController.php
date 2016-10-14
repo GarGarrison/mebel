@@ -75,7 +75,7 @@ class AdminController extends SharedController
             'title' => $request['title'],
             'meta_keywords' => $request['meta_keywords'],
             'meta_description' => $request['meta_description'],
-            'description' => $request['description'],
+            'text' => $request['text'],
             'main_section' => $this->getCheckbox($request['main_section'])
         ]);
         return response()->json(['success'=> 'Успешно сохранено']);
@@ -96,7 +96,7 @@ class AdminController extends SharedController
             'title' => $request['title'],
             'meta_keywords' => $request['meta_keywords'],
             'meta_description' => $request['meta_description'],
-            'description' => $request['description'],
+            'text' => $request['text'],
             'parent_section' => $request['parent_section'] ? $request['parent_section'] : 0,
             'calculator' => $this->getCheckbox($request['calculator']),
             'root_product' => $this->getCheckbox($request['root_product'])
@@ -116,7 +116,7 @@ class AdminController extends SharedController
             'name' => $request['name'],
             'parent_product' => $req_pp,
             'img' => $img,
-            'description' => $request['description']
+            'text' => $request['text']
         ]);
         return response()->json(['success'=> 'Успешно сохранено']);
     }
@@ -129,7 +129,7 @@ class AdminController extends SharedController
             'title' => $request['title'],
             'meta_keywords' => $request['meta_keywords'],
             'meta_description' => $request['meta_description'],
-            'text' => $request['description']
+            'text' => $request['text']
         ]);
         return response()->json(['success'=> 'Успешно сохранено']);
     }
@@ -155,7 +155,7 @@ class AdminController extends SharedController
             'title' => $request['title'],
             'meta_keywords' => $request['meta_keywords'],
             'meta_description' => $request['meta_description'],
-            'description' => $request['description'],
+            'text' => $request['text'],
             'main_section' => $this->getCheckbox($request['main_section'])
         ]);
         $section->save();
@@ -178,7 +178,7 @@ class AdminController extends SharedController
             'title' => $request['title'],
             'meta_keywords' => $request['meta_keywords'],
             'meta_description' => $request['meta_description'],
-            'description' => $request['description'],
+            'text' => $request['text'],
             'parent_section' => $request['parent_section'] ? $request['parent_section'] : 0,
             'calculator' => $this->getCheckbox($request['calculator']),
             'root_product' => $this->getCheckbox($request['root_product'])
@@ -203,7 +203,7 @@ class AdminController extends SharedController
             'name' => $request['name'],
             'parent_product' => $req_pp,
             'img' => $img,
-            'description' => $request['description']
+            'text' => $request['text']
         ]);
         $property->save();
         return response()->json(['success'=> 'Успешно изменено']);
@@ -218,7 +218,7 @@ class AdminController extends SharedController
             'title' => $request['title'],
             'meta_keywords' => $request['meta_keywords'],
             'meta_description' => $request['meta_description'],
-            'text' => $request['description']
+            'text' => $request['text']
         ]);
         $article->save();
         return response()->json(['success'=> 'Успешно изменено']);

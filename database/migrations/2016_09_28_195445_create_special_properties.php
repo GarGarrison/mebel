@@ -18,7 +18,7 @@ class CreateSpecialProperties extends Migration
             $table->integer('parent_product');
             $table->string('name');
             $table->string('img');
-            $table->text('description');
+            $table->text('text');
         });
     }
 

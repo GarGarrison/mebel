@@ -23,7 +23,7 @@ class CreateProductsTable extends Migration
             $table->string('title');
             $table->string('meta_keywords');
             $table->string('meta_description');
-            $table->text('description');
+            $table->text('text');
             $table->integer('parent_section');
             $table->boolean('root_product');
             $table->boolean('calculator')->default(False);

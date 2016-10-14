@@ -13,7 +13,7 @@
 </div>
 <div class="col s12">
     <h1>{{ $section->header }}</h1>
-    {!! $section->description !!}
+    {!! $section->text !!}
 </div>   
 <div class="col s12">
     <div id="gallery" name="main">

@@ -13,7 +13,9 @@ $(document).on('mouseover', '.drop_menu a', function(){
     y = $(this).offset().top + $(this).height() + 5;
     x = $(this).offset().left;
     target = $(this).attr('name');
-    $('.drop[name="' + target + '"]').css({'top': y, 'left': x}).slideDown('fast');
+    $('.drop[name="' + target + '"]').css({'top': y, 'left': x}).slideDown(200, function(){
+        $('.drop').not('.drop[name="' + target + '"]').hide();
+    });
 
 });
 $(document).on('mouseleave', '.drop .subdrop', function(){

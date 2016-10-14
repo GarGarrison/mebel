@@ -17,18 +17,17 @@
 </div>
 <div class="col s12">
     <h1>{{ $product->header }}</h1>
-    {!! $product->description !!}
+    {!! $product->text !!}
 
     @if( $product->have_property)
-        {{ $product->description }}
         <table>
             <tbody>
             @foreach($properties as $p)
                 <tr>
                     <td><img class="property-img shadow-big-img" src="{{ asset('/photosmall/'.$p->img) }}" data-image="{{ asset('/photobig/'.$p->img) }}" /></td>
                     <td>
-                        @if ($p->description)
-                            <b>{{ $p->name }}:</b> {{ $p->description }}
+                        @if ($p->text)
+                            <b>{{ $p->name }}:</b> {{ $p->text }}
                         @else
                             <b>{{ $p-> name }}</b>
                         @endif

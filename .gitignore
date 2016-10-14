@@ -1,5 +1,6 @@
 /node_modules
 /public/storage
+/public/articles_img
 /public/img
 /public/title_img
 /public/photobig*

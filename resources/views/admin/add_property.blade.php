@@ -34,8 +34,8 @@
     </div>
     <div class="row">
         <div class="input-field col s12 m12 l6">
-            <textarea name="description" class="materialize-textarea">{{ $current['description'] or '' }}</textarea>
-            <label class="{{ $class }}" for="description">Описание</label>
+            <textarea name="text" class="materialize-textarea">{{ $current['text'] or '' }}</textarea>
+            <label class="{{ $class }}" for="text">Описание</label>
         </div>
     </div>
     <div class="row">
