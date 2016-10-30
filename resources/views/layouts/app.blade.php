@@ -10,8 +10,8 @@
     @section('meta')
         <meta name="Keywords" content="корпусная мебель кухни мебель шкафы спальни на заказ Москва Подмосковье от производителя"/>
         <meta name="Description" content="Изготовление мебели на заказ - кухни, шкафы-купе и другая корпусная мебель"/> 
+        <title>Изготовление мебели на заказ по индивидуальным размерам</title>
     @show
-    <title>{{config('z_my.name')." - "}}{{ $title or "Изготовление мебели на заказ по индивидуальным размерам" }}</title>
     <link rel="shortcut icon" href="{{{ asset('/favicon.png') }}}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -95,7 +95,7 @@
         </div>
         <div class="drop" name="info">
             <ul>
-                <a href="{{url('/order')}}">Как заказать</a>
+                <a href="{{url('/order')}}">Предварительный расчет</a>
                 @foreach( $articles as $a )
                     <a href="{{ url('/article/'.$a->url_name) }}">{{ $a->menu_name }}</a>
                 @endforeach
@@ -163,7 +163,7 @@
         <div class="container">
             <div class="row">
                 <div class="col s12 m6">
-                    <a href="{{ url('/catalog') }}"><b>КАТАЛОГ ПРОДУКЦИИ</b></a>
+                    <a href="{{ url('/catalog') }}"><b>КАТАЛОГ</b></a>
                     <div class="footer-links">
                     @foreach($sections as $section)
                         @if ($section->main_section)

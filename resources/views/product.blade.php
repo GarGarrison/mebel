@@ -2,7 +2,8 @@
 
 @section('meta')
 <meta name="Keywords" content="{{ $product->meta_keywords}}"/>
-<meta name="Description" content="{{ $product->meta_description}}"/> 
+<meta name="Description" content="{{ $product->meta_description}}"/>
+<title>{{ $product->title }}</title>
 @endsection
 
 @section('content')

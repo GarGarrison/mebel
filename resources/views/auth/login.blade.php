@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<h5>Вход</h5>
+<h2>Вход</h2>
 <form class="col s12" method="POST" action="{{ url('/login') }}">
     {{ csrf_field() }}
     <div class="row">

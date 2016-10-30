@@ -6,6 +6,7 @@
 /public/photobig*
 /public/photosmall
 /public/*.tar.gz
+/public/sitemap.xml
 /vendor
 /.idea
 Homestead.json

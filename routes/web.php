@@ -27,6 +27,7 @@ Route::get('/catalog', 'IndexController@catalog');
 Route::get('/section/{section}', 'IndexController@section');
 Route::get('/product/{product}', 'IndexController@product');
 Route::get('/notfound', 'IndexController@error404');
+Route::get('/mail', 'IndexController@getmail');
 Route::post('/mail', 'IndexController@mail');
 Route::get('/order', 'IndexController@order');
 Route::post('/order', 'IndexController@order');

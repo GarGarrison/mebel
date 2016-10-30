@@ -1,4 +1,11 @@
 @extends('layouts.app')
+
+@section('meta')
+<meta name="Keywords" content=""/>
+<meta name="Description" content=""/>
+<title>Изготовление мебели на заказ</title>
+@endsection
+
 @section('content')
 <?php
     $name_dict = array(
@@ -17,12 +24,12 @@
     <input type="hidden" name="cur_section" value="{{$request['current_section']}}">
     <input type="hidden" name="cur_product" value="{{$request['current_product']}}">
 @endif
-<h4>Сделать расчет и заказать</h4>
+<h1>Сделать расчет и заказать</h1>
 <p>
 Для того, чтобы мы сделали предварительный расчет Вашей мебели, заполните, 
 пожалуйста, следующую форму. Обязательно укажите как с Вами связаться — 
 наши специалисты сделают расчет в самое ближайшее время и 
-ответят вам по email или перезвонят.
+ответят вам по email или перезвонят. Обращаем Ваше внимание на то, что данный расчет будет приблизительным — окончательная сумма заказа будет понятна после вызова замерщика!
 </p>
 <form class="col s12 order_form" method="post" action="{{ url('/mail') }}">
     {{ csrf_field() }}

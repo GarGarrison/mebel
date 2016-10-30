@@ -3,6 +3,7 @@
 @section('meta')
 <meta name="Keywords" content="{{ $section->meta_keywords}}"/>
 <meta name="Description" content="{{ $section->meta_description}}"/> 
+<title>{{ $section->title }}</title>
 @endsection
 
 @section('content')

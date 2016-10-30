@@ -38,6 +38,9 @@ class IndexController extends SharedController
         if (!$a) return abort(404);
         return view('article', ['article'=> $a]);
     }
+    public function getmail(){
+        return redirect('/');
+    }
     public function mail(Request $request){
         $template = "mail_order";
         $subject = "Заказ на yourmebel.com";
@@ -57,11 +60,12 @@ class IndexController extends SharedController
         $section = Section::where('url_name', $section)->first();
         if (!$section) return redirect('/catalog');
         $children_products = Product::where('parent_section', $section->id)->get();
-        return view('section', ['title'=>$section->title, 'section'=>$section, 'children_products'=>$children_products]);
+        return view('section', ['section'=>$section, 'children_products'=>$children_products]);
     }
     public function product($product){
         $properties = "";
-        $product = Product::where('url_name', $product)->first();
+        $product = Product::whereUrl_name($product)->first();
+        //$product = Product::where('url_name', $product)->first();
         if (!$product) return redirect('/catalog');
         $parent_section = Section::find($product->parent_section);
         if ($product->have_property) {
@@ -71,6 +75,6 @@ class IndexController extends SharedController
         $path = scandir(public_path().'/photobig/'.$product->img_base);
         unset($path[0]);
         unset($path[1]);
-        return view('product', ['title'=>$product->title, 'product'=>$product, 'properties'=>$properties, 'path'=>$path, 'parent_section'=> $parent_section]);
+        return view('product', ['product'=>$product, 'properties'=>$properties, 'path'=>$path, 'parent_section'=> $parent_section]);
     }
 }
