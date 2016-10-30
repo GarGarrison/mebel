@@ -7,14 +7,6 @@ function print(text) {
     console.log(text);
 }
 
-// функция стандартного ответа на успешный аякс (вывод в консоль)
-function standartSuccess(resp) { print(resp);}
-// функция стандартного ответа на успешный аякс (алерт)
-function alertSuccess(resp) { alert(resp);}
-// функция при успешном выполнении аякса ( добовление html в объект)
-function htmlSuccess(resp, obj) { obj.html(resp);
-}
-
 // функция ответа на отправку формы с подсветкой ошибочных данных
 function formSuccess(resp){
     if (resp.success) {
@@ -52,9 +44,15 @@ function lightErrorsInForm(errors) {
 function selectReload() {
     $('select').material_select();
 }
+// перезагрузка материального селекта
+function editorReload() {
+    //bkLib.onDomLoaded(nicEditors.allTextAreas);
+    nicEditors.allTextAreas();
+}
 //перезагрузка разных объектов
 function reloadSomeJS(){
     selectReload();
+    editorReload();
     $('.datepicker').pickadate({
         today: 'Сегодня',
         clear: '',
@@ -72,19 +70,19 @@ function reloadTab() {
     loadTab(url);
 }
 // отправка любой формы
-function SendForm(url, data, success=standartSuccess) {
+function SendForm(url, data, callback) {
     if (!data['_token']) data['_token'] = $('meta[name="csrf-token"]').attr("content");
     $.ajax({
         'url': url,
         'type': 'post',
         'data': data,
         'success': function(resp){
-            success(resp)
+            if (callback && typeof(callback) === "function") callback(resp);
         },
         'error': function(resp) {
             $('body').prepend(resp.responseText);
         }
-    })
+    });
 }
 // аякс сабмит формы
 $(document).on('submit', '.ajax-form', function(event){
@@ -94,6 +92,16 @@ $(document).on('submit', '.ajax-form', function(event){
     SendForm(url, data, formSuccess);
 });
 // запрос на поиск
+$(document).on('submit', '.search_form', function(event){
+    event.preventDefault();
+    url = $(this).attr("action");
+    data = serializeToObject($(this));
+    SendForm(url, data, function(resp) {
+        $('.content').html(resp);
+    });
+});
+
+// фильтрация по двум селектам
 $(document).on('change', 'select.filter-donor', function(){
     id = $(this).val();
     $('select.filter-object option').hide();

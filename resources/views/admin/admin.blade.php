@@ -2,6 +2,7 @@
 
 @section('admin_script')
 <script type="text/javascript" src="{{asset('js/admin.js')}}"></script>
+<script type="text/javascript" src="{{asset('nicEdit/nicEdit.js')}}"></script>
 @endsection
 
 @section('content')
