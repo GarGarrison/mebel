@@ -27,45 +27,45 @@
             'csrfToken' => csrf_token(),
         ]); ?>
     </script>
-<!-- Yandex.Metrika counter -->
-<script type="text/javascript">
-    (function (d, w, c) {
-        (w[c] = w[c] || []).push(function() {
-            try {
-                w.yaCounter40017010 = new Ya.Metrika({
-                    id:40017010,
-                    clickmap:true,
-                    trackLinks:true,
-                    accurateTrackBounce:true
-                });
-            } catch(e) { }
-        });
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+        (function (d, w, c) {
+            (w[c] = w[c] || []).push(function() {
+                try {
+                    w.yaCounter40017010 = new Ya.Metrika({
+                        id:40017010,
+                        clickmap:true,
+                        trackLinks:true,
+                        accurateTrackBounce:true
+                    });
+                } catch(e) { }
+            });
 
-        var n = d.getElementsByTagName("script")[0],
-            s = d.createElement("script"),
-            f = function () { n.parentNode.insertBefore(s, n); };
-        s.type = "text/javascript";
-        s.async = true;
-        s.src = "https://mc.yandex.ru/metrika/watch.js";
+            var n = d.getElementsByTagName("script")[0],
+                s = d.createElement("script"),
+                f = function () { n.parentNode.insertBefore(s, n); };
+            s.type = "text/javascript";
+            s.async = true;
+            s.src = "https://mc.yandex.ru/metrika/watch.js";
 
-        if (w.opera == "[object Opera]") {
-            d.addEventListener("DOMContentLoaded", f, false);
-        } else { f(); }
-    })(document, window, "yandex_metrika_callbacks");
-</script>
-<noscript><div><img src="https://mc.yandex.ru/watch/40017010" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-<!-- /Yandex.Metrika counter -->
+            if (w.opera == "[object Opera]") {
+                d.addEventListener("DOMContentLoaded", f, false);
+            } else { f(); }
+        })(document, window, "yandex_metrika_callbacks");
+    </script>
+    <!-- /Yandex.Metrika counter -->
 </head>
 <body>
+    <noscript><div><img src="https://mc.yandex.ru/watch/40017010" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
     <div class="container">
         <div class="row head">
                 <div class="col s12 m6 logo">
-                    <a href="{{ url('/') }}"><img src="{{asset('img/yourlogo_rus.png')}}"></a>
+                    <a href="{{ url('/') }}"><img src="{{asset('img/yourlogo_rus.png')}}" alt="yourmebel.com logo"></a>
                 </div>
                 <div class="phones col s12 m6">
                     <div><b>Консультация:</b><span class="bold-phones">{{ config('z_my.phone') }}</span></div>
                     <div><span class="bold-phones">{{ config('z_my.consult_phone') }}</span></div>
-                    <a href="https://vk.com/public68794579"><img src="{{asset('img/vk.png')}}"></a>
+                    <a href="https://vk.com/public68794579"><img src="{{asset('img/vk.png')}}" alt="vk logo"></a>
                     <a href="{{ url('/contacts') }}"><i class="material-icons">email</i></a>
                 </div>
         </div>

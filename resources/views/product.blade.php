@@ -52,8 +52,9 @@
         </div>
     @endif
     @if ($product->parent_section != 3 && $product->parent_section != 4)
-        <p><b>На всю мебель мы предоставляем гарантию 18 месяцев!</b></p>
+        <!-- <h2>Заказать {{ $product->menu_name }}</h2> -->
         <p>Чтобы сделать предварительный расчет Вашей мебели и сделать заказ, Вы можете связаться с нашим консультантом по телефону<span class="bold-phones">{{ config('z_my.phone') }}</span> или<span class="bold-phones">{{ config('z_my.consult_phone') }}</span></p>
+        <p><b>На всю мебель мы предоставляем гарантию 18 месяцев!</b></p>
         <p>Так же вы можете сделать это отправив нам на почту письмо с помощью формы обратной связи:</p>
         <form action="{{ url('/order') }}" method="post">
             {{ csrf_field() }}

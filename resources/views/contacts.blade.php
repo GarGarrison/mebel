@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<h4>Контакты</h4>
+<h1>Контакты</h1>
 <div class="row">
     <div class="col s12 l8">
         <table>

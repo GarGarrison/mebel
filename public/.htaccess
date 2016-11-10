@@ -5,6 +5,10 @@
 
     RewriteEngine On
 
+    #301 old url redirect
+    Redirect 301 /product/kuhni-plastik http://yourmebel.com/product/kuhni-iz-plastika
+    Redirect 301 /product/biblioteki--na-zakaz http://yourmebel.com/product/biblioteki-na-zakaz
+
     # 301 redirect form www to non-www
     RewriteCond %{HTTP_HOST} ^www.yourmebel.com$ [NC]
     RewriteRule ^(.*)$ http://yourmebel.com/$1 [R=301,L]
