@@ -11,15 +11,23 @@ label {
 .card {
     --background: #f5f5f5;
 }
-.btn, .btn-floating {
+.btn-large {
+    font-weight: bold;
+}
+.btn, .btn-floating, .btn-large {
+    font-size: 1.1em;
     background-color: #bf6200 !important;
 }
-.btn:hover, .btn-floating:hover {
+.btn:hover, .btn-floating:hover, .btn-large:hover {
     background-color: #e64a19 !important;
+}
+.btn, .btn-floating, .btn-large i.large {
+    font-weight: bold;
 }
 label[for="search"] i {
     color: #444 !important;
 }
+
 .brand-logo {
     margin-left: 20px;
 }

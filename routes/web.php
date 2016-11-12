@@ -56,4 +56,10 @@ Route::get('/admin/show_edit_article', 'AdminController@show_edit_article');
 Route::post('/admin/add_article', 'AdminController@add_article');
 Route::post('/admin/edit_article', 'AdminController@edit_article');
 
+Route::get('/admin/show_add_similar/{id?}', 'AdminController@show_add_similar');
+Route::get('/admin/show_edit_similar', 'AdminController@show_edit_similar');
+Route::post('/admin/add_similar', 'AdminController@add_similar');
+Route::post('/admin/edit_similar', 'AdminController@edit_similar');
+Route::post('/admin/del_similar/{id}', 'AdminController@del_similar');
+
 Route::get('/test', 'IndexController@test');

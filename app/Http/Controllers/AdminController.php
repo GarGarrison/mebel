@@ -10,6 +10,8 @@ use App\Section;
 use App\Product;
 use App\SpecialProperty;
 use App\Article;
+use App\Similar;
+
 
 class AdminController extends SharedController
 {
@@ -49,6 +51,10 @@ class AdminController extends SharedController
         return view('admin.add_article', ['current'=>$current]);
     }
 
+    public function show_add_similar(){
+        return view('admin.add_similar');
+    }
+
     public function show_edit_section(){
         return view('admin.edit_section');
     }
@@ -63,6 +69,10 @@ class AdminController extends SharedController
 
     public function show_edit_article(){
         return view('admin.edit_article');
+    }
+
+    public function show_edit_similar(){
+        return view('admin.edit_similar', ["similars" => Similar::orderBy('parent_product')->get(), "productById" => $this->getPropertyDictById()]);
     }
 /* ADD SECTION */
     public function add_section(Request $request){
@@ -133,6 +143,14 @@ class AdminController extends SharedController
         ]);
         return response()->json(['success'=> 'Успешно сохранено']);
     }
+
+    public function add_similar(Request $request){
+        Similar::create([
+            'parent_product' => $request['parent_product'],
+            'similar_product' => $request['similar_product']
+        ]);
+        return response()->json(['success'=> 'Успешно сохранено']);
+    }
 /* EDIT SECTION */
     public function edit_section(Request $request) {
         $section = Section::find($request['id']);
@@ -158,7 +176,6 @@ class AdminController extends SharedController
             'text' => $request['text'],
             'main_section' => $this->getCheckbox($request['main_section'])
         ]);
-        $section->save();
         return response()->json(['success'=> 'Успешно изменено']);
     }
 
@@ -183,7 +200,6 @@ class AdminController extends SharedController
             'calculator' => $this->getCheckbox($request['calculator']),
             'root_product' => $this->getCheckbox($request['root_product'])
         ]);
-        $product->save();
         return response()->json(['success'=> 'Успешно изменено']);
     }
 
@@ -205,7 +221,6 @@ class AdminController extends SharedController
             'img' => $img,
             'text' => $request['text']
         ]);
-        $property->save();
         return response()->json(['success'=> 'Успешно изменено']);
     }
 
@@ -220,7 +235,19 @@ class AdminController extends SharedController
             'meta_description' => $request['meta_description'],
             'text' => $request['text']
         ]);
-        $article->save();
         return response()->json(['success'=> 'Успешно изменено']);
+    }
+
+    public function edit_similar(Request $request) {
+        $similar = Similar::find($request['id']);
+        $similar->update([
+            'parent_product' => $request['parent_product'],
+            'similar_product' => $request['similar_product']
+        ]);
+        return response()->json(['success'=> 'Успешно изменено']);
+    }
+    public function del_similar($id) {
+        Similar::destroy($id);
+        return response()->json(['success'=> 'Успешно удалено']);
     }
 }

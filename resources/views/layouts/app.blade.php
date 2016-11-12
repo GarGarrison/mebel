@@ -18,7 +18,6 @@
     <link rel='stylesheet' href='/unitegallery/dist/css/unite-gallery.css' type='text/css' />
     <link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/material_helper.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('css/picker_helper.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/dropmenu.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/shadow-img.css')}}">
     <!-- Scripts -->
@@ -54,9 +53,23 @@
         })(document, window, "yandex_metrika_callbacks");
     </script>
     <!-- /Yandex.Metrika counter -->
+    <!-- /Google analytics -->
+    <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+          ga('create', 'UA-87264452-1', 'auto');
+          ga('send', 'pageview');
+
+    </script>
+    <!-- /Google analytics -->
 </head>
 <body>
     <noscript><div><img src="https://mc.yandex.ru/watch/40017010" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <div class="row">
+    </div>
     <div class="container">
         <div class="row head">
                 <div class="col s12 m6 logo">
@@ -144,20 +157,18 @@
                     <li><a href="{{ url('/logout') }}">Выйти</a></li>
                 </ul>
                 @endif
-                <!-- <ul class="right">
-                    <li><a href="{{url('/admin')}}">Admin</a></li>
-                </ul> -->
             </div>
         </div>
     </nav>
+    @yield('admin')
     <div class="container">
          <div class="row">
- <!--           <div class="col s12">
-                <div class="content"> -->
-                    @yield('content')
-<!--                 </div>
-            </div>-->
+            @yield('content')
         </div> 
+    </div>
+    
+    @yield('similars')
+    
     </div>
     <footer class="page-footer">
         <div class="container">
@@ -208,7 +219,7 @@
     <script type="text/javascript" src="{{asset('js/dropmenu.js')}}"></script>
     <script type="text/javascript" src="{{asset('js/shadow-img.js')}}"></script>
     <script type="text/javascript" src="{{asset('js/script.js')}}"></script>
-    @section('admin_script')
+    @section('custom_script')
     @show
 </body>
 </html>

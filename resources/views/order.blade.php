@@ -156,7 +156,8 @@
     <div class="row">
         <div class="col s12 m6">
             <a href="{{ url('/mail') }}">
-            <button type="submit" class="btn">
+            <button type="submit" class="btn-large">
+            <i class="material-icons right">mail_outline</i>
                 Отправить
             </button>
             </a>

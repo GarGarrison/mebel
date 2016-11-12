@@ -31,6 +31,13 @@ class SharedController extends Controller
         }
         return $dict;
     }
+    public function getPropertyDictById(){
+        $dict = array();
+        foreach (Product::all() as $product) {
+           $dict[$product->id] = $product;
+        }
+        return $dict;
+    }
 
     public function __construct(){
         View::share ( 'sections', Section::all() );

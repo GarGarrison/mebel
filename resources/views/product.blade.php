@@ -60,12 +60,36 @@
             {{ csrf_field() }}
             <input type="hidden" name="current_product" value="{{ $product->menu_name }}">
             <input type="hidden" name="current_section" value="{{$parent_section->menu_name or ''}}">
-            @if ($parent_section)
-                <button type="submit" class="btn">Сделать расчет</button>
-            @else
-                <button type="submit" class="btn">Заказать</button>
-            @endif
+            <?php
+                $button = "Сделать расчет";
+                if (!$parent_section) $button = "Заказать";
+            ?>
+            <button type="submit" class="btn-large"><i class="material-icons right">assignment</i>{{ $button }}</button>
         </form>
     @endif
 </div>
+@endsection
+
+@section('similars')
+    @if (count($similars))
+    <div class="similars">
+        <div class="container">
+            <div class="row">
+                <div class="col s12">
+                    <h2>Еще Вам может быть интересно:</h2>
+                    <div id="similar_gallery" name="main">
+                    @foreach($similars as $p)
+                        <?php
+                            $smallpath = "title_img/".$p->img_title;
+                        ?>
+                        <a href="{{ url('/product/'.$p->url_name) }}">
+                            <img src="{{ asset( $smallpath ) }}" data-image="{{ asset( $smallpath ) }}" alt="{{ $p->menu_name }}" data-description="{{ $p->header }}">
+                        </a>
+                    @endforeach
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @endif
 @endsection

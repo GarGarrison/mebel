@@ -23,3 +23,15 @@ $(document).on('change', 'select.filter-object', function(){
         $('.edit_current_position').prepend("<hr /><br /><br />");
     })
 });
+
+$(document).on('click', '.delete-similar', function(){
+    url = $(this).attr('name');
+    $.ajax({
+        'url': url,
+        'type': 'post',
+        'success': function(resp){
+            alert(resp.success);
+            reloadTab();
+        }
+    })
+})

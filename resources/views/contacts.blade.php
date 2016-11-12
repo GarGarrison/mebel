@@ -81,7 +81,8 @@
     </div>
     <div class="row">
         <div class="col s12 l6">
-            <button type="submit" class="btn">
+            <button type="submit" class="btn-large">
+            <i class="material-icons right">mail_outline</i>
                 Отправить
             </button>
         </div>

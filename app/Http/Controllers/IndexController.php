@@ -9,6 +9,7 @@ use App\Http\Requests;
 use App\Section;
 use App\Product;
 use App\Article;
+use App\Similar;
 
 class IndexController extends SharedController
 {
@@ -65,6 +66,8 @@ class IndexController extends SharedController
     public function product($product){
         $properties = "";
         $product = Product::whereUrl_name($product)->first();
+        $similar_ids = Similar::whereParentProduct($product->id)->pluck('similar_product');
+        $similars = Product::whereIn('id', $similar_ids)->get();
         //$product = Product::where('url_name', $product)->first();
         if (!$product) return redirect('/catalog');
         $parent_section = Section::find($product->parent_section);
@@ -75,6 +78,6 @@ class IndexController extends SharedController
         $path = scandir(public_path().'/photobig/'.$product->img_base);
         unset($path[0]);
         unset($path[1]);
-        return view('product', ['product'=>$product, 'properties'=>$properties, 'path'=>$path, 'parent_section'=> $parent_section]);
+        return view('product', ['product'=>$product, 'similars' => $similars, 'properties'=>$properties, 'path'=>$path, 'parent_section'=> $parent_section]);
     }
 }
