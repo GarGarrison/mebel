@@ -49,9 +49,11 @@ class IndexController extends SharedController
             $subject = "Вопрос по yourmebel.com";
             $template = "mail_question";
         }
-        Mail::send($template, [ 'request' => $request->all()], function($message) use ($subject) {
-            $message->to(config('z_my.mailTo'))->subject($subject);
-        });
+        #return $request;
+        // Mail::send($template, [ 'request' => $request->all()], function($message) use ($subject) {
+        //     $message->to(config('z_my.mailTo'))->subject($subject);
+        // });
+        mail(config('z_my.mailTo'), $subject, view($template));
         return redirect()->back()->with(['response'=> "yes"]);
     }
     public function test(){

@@ -1,5 +1,11 @@
 @extends('layouts.app')
 
+@section('meta')
+    <meta name="Keywords" content="корпусная мебель кухни мебель шкафы спальни на заказ Москва Подмосковье от производителя"/>
+    <meta name="Description" content="Вашамебель - контакты. Изготовление мебели на заказ - кухни, шкафы-купе и другая корпусная мебель"/> 
+    <title>ВашаМебель - изготовление мебели на заказ по индивидуальным размерам - контакты</title>
+@endsection
+
 @section('content')
 <h1>Контакты</h1>
 <div class="row">
@@ -13,10 +19,6 @@
                         <span class="bold-phones">{{ config('z_my.consult_phone') }}</span>
                     </td>
                 </tr>
-                <!-- <tr>
-                    <td><u>Телефон замерщика:</u></td>
-                    <td><span class="bold-phones">{{ config('z_my.zamer_phone') }}</span></td>
-                </tr> -->
                 <tr>
                     <td><u>Наш адрес:</u></td>
                     <td><span class="bold-phones">{{ config('z_my.address') }}</span></td>

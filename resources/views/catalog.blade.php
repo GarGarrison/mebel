@@ -1,7 +1,13 @@
 @extends('layouts.app')
 
+@section('meta')
+    <meta name="Keywords" content="корпусная мебель кухни мебель шкафы спальни на заказ Москва Подмосковье от производителя"/>
+    <meta name="Description" content="Вашамебель - каталог. Изготовление мебели на заказ - кухни, шкафы-купе и другая корпусная мебель"/> 
+    <title>ВашаМебель - изготовление мебели на заказ по индивидуальным размерам - каталог компании</title>
+@endsection
+
 @section('content')
-<h4>Каталог</h4>
+<h1>Каталог</h1>
 <div class="catalog-box">
     <div class="row">
     @foreach($sections as $section)

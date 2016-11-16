@@ -7,7 +7,7 @@
 @endsection
 
 @section('content')
-<div class="col s12 valign-wrapper bread">
+<div class="valign-wrapper bread">
     <a href="{{ url('/catalog') }}" class="bread_item valign">Каталог</a>
     <i class="material-icons valign">chevron_right</i>
     @if ($parent_section)
@@ -18,6 +18,7 @@
 </div>
 <div class="col s12">
     <h1>{{ $product->header }}</h1>
+    <h2>{{ $product->h2 }}</h2>
     {!! $product->text !!}
 
     @if( $product->have_property)
@@ -74,20 +75,16 @@
     @if (count($similars))
     <div class="similars">
         <div class="container">
-            <div class="row">
-                <div class="col s12">
-                    <h2>Еще Вам может быть интересно:</h2>
-                    <div id="similar_gallery" name="main">
-                    @foreach($similars as $p)
-                        <?php
-                            $smallpath = "title_img/".$p->img_title;
-                        ?>
-                        <a href="{{ url('/product/'.$p->url_name) }}">
-                            <img src="{{ asset( $smallpath ) }}" data-image="{{ asset( $smallpath ) }}" alt="{{ $p->menu_name }}" data-description="{{ $p->header }}">
-                        </a>
-                    @endforeach
-                    </div>
-                </div>
+            <h3>Еще Вам может быть интересно:</h3>
+            <div id="similar_gallery" name="main">
+            @foreach($similars as $p)
+                <?php
+                    $smallpath = "title_img/".$p->img_title;
+                ?>
+                <a href="{{ url('/product/'.$p->url_name) }}">
+                    <img src="{{ asset( $smallpath ) }}" data-image="{{ asset( $smallpath ) }}" alt="{{ $p->menu_name }}" data-description="{{ $p->header }}">
+                </a>
+            @endforeach
             </div>
         </div>
     </div>

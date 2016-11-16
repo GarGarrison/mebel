@@ -7,7 +7,7 @@
 @endsection
 
 @section('content')
-<div class="col s12 valign-wrapper bread">
+<div class="valign-wrapper bread">
     <a href="{{ url('/catalog') }}" class="bread_item valign">Каталог</a>
     <i class="material-icons valign">chevron_right</i>
     <span class="active_bread">{{ $section->menu_name }}</a></span>

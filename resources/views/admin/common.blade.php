@@ -21,6 +21,15 @@
         @endif
     </div>
 </div>
+<div class="row">
+    <div class="input-field col s12 l8">
+        <input name="h2" type="text" class="validate" value="{{ $current['h2'] or '' }}">
+        <label class="{{ $class }}" for="h2">h2</label>
+        @if ($errors->has('h2'))
+            <span class="error-block">{{ $errors->first('h2') }}</span>
+        @endif
+    </div>
+</div>
 @if ( empty($isArtical) )
 <div class="row">
     <div class="input-field col s6 l4">

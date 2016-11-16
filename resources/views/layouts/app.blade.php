@@ -52,7 +52,8 @@
             } else { f(); }
         })(document, window, "yandex_metrika_callbacks");
     </script>
-    <!-- /Yandex.Metrika counter -->
+    <!-- /Yandex.Share -->
+    <script src="//yastatic.net/share2/share.js"></script>
     <!-- /Google analytics -->
     <script>
           (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -68,8 +69,6 @@
 </head>
 <body>
     <noscript><div><img src="https://mc.yandex.ru/watch/40017010" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-    <div class="row">
-    </div>
     <div class="container">
         <div class="row head">
                 <div class="col s12 m6 logo">
@@ -78,8 +77,7 @@
                 <div class="phones col s12 m6">
                     <div><b>Консультация:</b><span class="bold-phones">{{ config('z_my.phone') }}</span></div>
                     <div><span class="bold-phones">{{ config('z_my.consult_phone') }}</span></div>
-                    <a href="https://vk.com/public68794579"><img src="{{asset('img/vk.png')}}" alt="vk logo"></a>
-                    <a href="{{ url('/contacts') }}"><i class="material-icons">email</i></a>
+                    <a class="right" title="Напишите нам письмо" href="{{ url('/contacts') }}"><i class="material-icons">email</i></a>
                 </div>
         </div>
         <div class="drop" name="catalog">
@@ -124,7 +122,6 @@
     <nav>
         <div class="nav-wrapper">
             <div class="container">
-                <!-- <a href="#" data-activates="collapse_menu" class="button-collapse"><i class="material-icons" style="color:#555">menu</i></a> -->
                 <ul class="hide-on-med-and-up">
                     <li><a href="#" data-activates="collapse_menu" class="button-collapse"><i class="material-icons collapse_icon">menu</i>Меню</a></li>
                 </ul>
@@ -162,14 +159,14 @@
     </nav>
     @yield('admin')
     <div class="container">
-         <div class="row">
+        <div class="row">
+            <div class="ya-share2 right" data-services="vkontakte,facebook,odnoklassniki,gplus,twitter,lj" data-limit="3"></div>
             @yield('content')
         </div> 
     </div>
     
     @yield('similars')
     
-    </div>
     <footer class="page-footer">
         <div class="container">
             <div class="row">
@@ -198,6 +195,8 @@
                         <div>{{ config('z_my.consult_phone') }}</div>
                         <!-- <div>{{ config('z_my.zamer_phone') }}</div> -->
                         <div><u>{{ config('z_my.address') }}</u></div>
+                        <a class="left" href="https://vk.com/public68794579"><img src="{{asset('img/icon-vk.png')}}" alt="vk logo"></a>
+                        <a class="left" href="{{ url('/contacts') }}"><i class="material-icons">email</i></a>
                     </div>
                 </div>
             </div>
