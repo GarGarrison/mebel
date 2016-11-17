@@ -49,12 +49,9 @@ class IndexController extends SharedController
             $subject = "Вопрос по yourmebel.com";
             $template = "mail_question";
         }
-        #return $request;
         Mail::send($template, [ 'request' => $request->all()], function($message) use ($subject) {
             $message->to(config('z_my.mailToGmail'))->subject($subject);
-        });
-        //return array(config('z_my.mailTo'), $subject);
-        //mail(config('z_my.mailTo'), $subject, view($template, ['request' => $request]));
+        });        
         return redirect()->back()->with(['response'=> "yes"]);
     }
     public function test(){
@@ -69,10 +66,9 @@ class IndexController extends SharedController
     public function product($product){
         $properties = "";
         $product = Product::whereUrl_name($product)->first();
-        $similar_ids = Similar::whereParentProduct($product->id)->pluck('similar_product');
-        $similars = Product::whereIn('id', $similar_ids)->get();
-        //$product = Product::where('url_name', $product)->first();
         if (!$product) return redirect('/catalog');
+        $similar_ids = Similar::whereParentProduct($product->id)->pluck('similar_product');
+        $similars = Product::whereIn('id', $similar_ids)->get();        
         $parent_section = Section::find($product->parent_section);
         if ($product->have_property) {
             $propertiesByProduct = $this->getPropertyDict();
