@@ -31,7 +31,7 @@
 @if (session('response'))
     <script type="text/javascript">alert("Ваш вопрос успешно отправлен!")</script>
 @endif
-<form class="col s12" method="post" action="{{ url('/mail') }}">
+<form class="col s12" method="post" action="{{ url('/util/mail') }}">
     {{ csrf_field() }}
     <input type="hidden" name="subject" value="question">
     <div class="row">

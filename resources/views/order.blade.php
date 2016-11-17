@@ -32,7 +32,7 @@
 наши специалисты сделают расчет в самое ближайшее время и 
 ответят вам по email или перезвонят. Обращаем Ваше внимание на то, что данный расчет будет приблизительным — окончательная сумма заказа будет понятна после вызова замерщика!
 </p>
-<form class="col s12 order_form" method="post" action="{{ url('/mail') }}">
+<form class="col s12 order_form" method="post" action="{{ url('/util/mail') }}">
     {{ csrf_field() }}
     <input type="hidden" name="subject" value="order">
     <h2>Что Вы хотите заказать</h2>
