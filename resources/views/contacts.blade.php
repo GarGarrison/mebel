@@ -28,7 +28,7 @@
     </div>
 </div>
 <h6>Сделать заказ или задать нам вопрос вы можете заполнив форму:</h6>
-@if (!empty($response))
+@if (session('response'))
     <script type="text/javascript">alert("Ваш вопрос успешно отправлен!")</script>
 @endif
 <form class="col s12" method="post" action="{{ url('/mail') }}">

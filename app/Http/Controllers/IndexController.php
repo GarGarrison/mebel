@@ -50,10 +50,11 @@ class IndexController extends SharedController
             $template = "mail_question";
         }
         #return $request;
-        // Mail::send($template, [ 'request' => $request->all()], function($message) use ($subject) {
-        //     $message->to(config('z_my.mailTo'))->subject($subject);
-        // });
-        mail(config('z_my.mailTo'), $subject, view($template));
+        Mail::send($template, [ 'request' => $request->all()], function($message) use ($subject) {
+            $message->to(config('z_my.mailToGmail'))->subject($subject);
+        });
+        //return array(config('z_my.mailTo'), $subject);
+        //mail(config('z_my.mailTo'), $subject, view($template, ['request' => $request]));
         return redirect()->back()->with(['response'=> "yes"]);
     }
     public function test(){
