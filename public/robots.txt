@@ -1,8 +1,10 @@
 User-agent: *
 Disallow: /admin
+Disallow: /util
 
 User-agent: Yandex
 Disallow: /admin
+Disallow: /util
 Host: yourmebel.com
 
 Sitemap: http://yourmebel.com/sitemap.xml

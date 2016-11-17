@@ -34,11 +34,6 @@ class IndexController extends SharedController
     public function order(Request $request){
         return view('order', ['request'=>$request->all()]);
     }
-    public function article($url_name){
-        $a = Article::where('url_name', $url_name)->first();
-        if (!$a) return abort(404);
-        return view('article', ['article'=> $a]);
-    }
     public function getmail(){
         return redirect('/');
     }
@@ -59,14 +54,14 @@ class IndexController extends SharedController
     }
     public function section($section){
         $section = Section::where('url_name', $section)->first();
-        if (!$section) return redirect('/catalog');
+        if (!$section) return abort(404);
         $children_products = Product::where('parent_section', $section->id)->get();
         return view('section', ['section'=>$section, 'children_products'=>$children_products]);
     }
     public function product($product){
         $properties = "";
         $product = Product::whereUrl_name($product)->first();
-        if (!$product) return redirect('/catalog');
+        if (!$product) abort(404);
         $similar_ids = Similar::whereParentProduct($product->id)->pluck('similar_product');
         $similars = Product::whereIn('id', $similar_ids)->get();        
         $parent_section = Section::find($product->parent_section);
@@ -78,5 +73,10 @@ class IndexController extends SharedController
         unset($path[0]);
         unset($path[1]);
         return view('product', ['product'=>$product, 'similars' => $similars, 'properties'=>$properties, 'path'=>$path, 'parent_section'=> $parent_section]);
+    }
+    public function article($url_name){
+        $a = Article::where('url_name', $url_name)->first();
+        if (!$a) return abort(404);
+        return view('article', ['article'=> $a]);
     }
 }
