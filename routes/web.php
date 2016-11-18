@@ -18,7 +18,7 @@ Route::get('/google51095b7803df147b.html', function(){
 });
 Route::get('/login', 'Auth\LoginController@showLoginForm');
 Route::post('/login', 'Auth\LoginController@login');
-Route::get('/logout', 'Auth\LoginController@getLogout');
+Route::get('/logout', 'Auth\LoginController@logout');
 
 Route::get('/', 'IndexController@index');
 Route::get('/about', 'IndexController@about');
