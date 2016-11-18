@@ -6,7 +6,7 @@
             @endif
         @endforeach
         @foreach($root_products as $rp)
-            <a name="{{$rp->id}}" href="{{ url('/product/'.$rp->url_name) }}">{{$rp->menu_name}}</a>
+            <a name="{{$rp->id}}" href="{{ '/product/'.$rp->url_name }}">{{$rp->menu_name}}</a>
         @endforeach
         @foreach($sections as $section)
             @if (!$section->main_section)
@@ -17,23 +17,23 @@
         @foreach(array_keys($productsBySection) as $key)
         <ul class="subdrop" name="{{$key}}">
             @foreach( $productsBySection[$key] as $product)
-                <a href="{{ url('/product/'.$product->url_name) }}">{{ $product->menu_name }}</a>
+                <a href="{{ '/product/'.$product->url_name }}">{{ $product->menu_name }}</a>
             @endforeach
         </ul>
         @endforeach
 </div>
 <div class="drop" name="info">
     <ul>
-        <a href="{{url('/order')}}">Предварительный расчет</a>
+        <a href="/order">Предварительный расчет</a>
         @foreach( $articles as $a )
-            <a href="{{ url('/article/'.$a->url_name) }}">{{ $a->menu_name }}</a>
+            <a href="{{ '/article/'.$a->url_name }}">{{ $a->menu_name }}</a>
         @endforeach
     </ul>
 </div>
 <div class="drop" name="about">
     <ul>
-        <a href="{{ url('/contacts') }}">Контакты</a>
-        <a href="{{ url('/about') }}">О компании</a>
+        <a href="/contacts">Контакты</a>
+        <a href="/about">О компании</a>
     </ul>
 </div>
 <nav>
@@ -52,23 +52,23 @@
                 <li class="title_li">Каталог</li>
                 @foreach($sections as $section)
                     @if ($section->main_section)
-                        <li><a href="/section/{{$section->url_name}}">{{$section->menu_name}}</a></li>
+                        <li><a href="/section/{{ $section->url_name }}">{{$section->menu_name}}</a></li>
                     @endif
                 @endforeach
-                <li><a href="{{url('/catalog')}}">Весь каталог</a></li>
+                <li><a href="/catalog">Весь каталог</a></li>
                 <li class="title_li">Информация</li>
-                <li><a href="{{url('/order')}}">Как заказать</a></li>
+                <li><a href="/order">Как заказать</a></li>
                 @foreach($articles as $a)
-                    <li><a href="{{ url('/article/'.$a->url_name) }}">{{ $a->menu_name }}</a></li>
+                    <li><a href="{{ '/article/'.$a->url_name }}">{{ $a->menu_name }}</a></li>
                 @endforeach
                 <li class="title_li">О нас</li>
-                <li><a href="{{url('/contacts')}}">Контакты</a></li>
-                <li><a href="{{url('/about')}}">О компании</a></li>
+                <li><a href="/contacts">Контакты</a></li>
+                <li><a href="/about">О компании</a></li>
             </ul>
             <?php echo "@if (!Auth::guest())"; ?>
             <ul class="right"> 
                 <li>{{ Auth::user()->name }}</li>  
-                <li><a href="{{ url('/logout') }}">Выйти</a></li>
+                <li><a href="/logout">Выйти</a></li>
                 <li><button class="btn reload_menu">Новое меню</button></li>
             </ul>
             <?php echo "@endif"; ?>
