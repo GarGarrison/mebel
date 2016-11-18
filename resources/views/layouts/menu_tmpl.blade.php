@@ -65,14 +65,6 @@
                 <li><a href="{{url('/contacts')}}">Контакты</a></li>
                 <li><a href="{{url('/about')}}">О компании</a></li>
             </ul>
-            @if (!Auth::guest())
-            <ul class="right"> 
-                <li>{{ Auth::user()->name }}</li>  
-                <li><a href="{{ url('/logout') }}">Выйти</a></li>
-                <li><button class="btn reload_menu">Новое меню</button></li>
-            </ul>
-
-            @endif
         </div>
     </div>
 </nav>

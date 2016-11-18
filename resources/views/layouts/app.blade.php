@@ -38,7 +38,7 @@
     </div>
 
     @include('layouts.menu')
-
+    @yield('admin_buttons')
     @yield('admin')
     <div class="container">
         <div class="row">

@@ -9,6 +9,17 @@
 <script type="text/javascript" src="{{asset('nicEdit/nicEdit.js')}}"></script>
 @endsection
 
+@section('admin_buttons')
+<div>
+ololo
+</div>
+<ul class="right"> 
+    <li>{{ Auth::user()->name }}</li>  
+    <li><a href="{{ url('/logout') }}">Выйти</a></li>
+    <li><button class="btn reload_menu">Новое меню</button></li>
+</ul>
+@endsection
+
 @section('admin')
 <div class="col s12">
     <div class="card">
