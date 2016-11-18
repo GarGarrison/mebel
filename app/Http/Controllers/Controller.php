@@ -9,6 +9,7 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 use App\Section;
 use App\Product;
+use App\SpecialProperty;
 
 class Controller extends BaseController
 {
