@@ -25,7 +25,7 @@ $(document).ready(function(){
             tile_enable_border: false,
             tile_as_link:true,
             tile_link_newpage: false,
-            tile_width: 220,
+            tile_width: 240,
             tile_height: 180,
             tile_enable_icons:false,
             tile_enable_textpanel:true,

@@ -18,7 +18,7 @@ Route::get('/google51095b7803df147b.html', function(){
 });
 Route::get('/login', 'Auth\LoginController@showLoginForm');
 Route::post('/login', 'Auth\LoginController@login');
-Route::get('/logout', 'Auth\LoginController@logout');
+Route::get('/logout', 'Auth\LoginController@getLogout');
 
 Route::get('/', 'IndexController@index');
 Route::get('/about', 'IndexController@about');
@@ -34,6 +34,7 @@ Route::post('/order', 'IndexController@order');
 Route::get('/article/{url}', 'IndexController@article');
 
 Route::get('/admin', 'AdminController@index');
+Route::get('/admin/reload_menu', 'AdminController@reload_menu');
  
 Route::get('/admin/show_add_section/{id?}', 'AdminController@show_add_section');
 Route::get('/admin/show_edit_section', 'AdminController@show_edit_section');

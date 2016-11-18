@@ -1,11 +1,41 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    @include('layouts.head')
+    <meta charset="utf-8">
+    <meta name="yandex-verification" content="a12b6d1e0933c944" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    @section('meta')
+        <meta name="Keywords" content="корпусная мебель кухни мебель шкафы спальни на заказ Москва Подмосковье от производителя"/>
+        <meta name="Description" content="Изготовление мебели на заказ - кухни, шкафы-купе и другая корпусная мебель"/> 
+        <title>Изготовление мебели на заказ по индивидуальным размерам</title>
+    @show
+    <link rel="shortcut icon" href="{{{ asset('/favicon.png') }}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel='stylesheet' href='/unitegallery/dist/css/unite-gallery.css' type='text/css' />
+    <link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/material_helper.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/dropmenu.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/shadow-img.css')}}">
+    @include('layouts.vendorjs')
 </head>
 <body>
     <noscript><div><img src="https://mc.yandex.ru/watch/40017010" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-    @include('layouts.hat')
+    <div class="container">
+        <div class="row head">
+            <div class="col s12 m6 logo">
+                <a href="{{ url('/') }}"><img src="{{asset('img/yourlogo_rus.png')}}" alt="yourmebel.com logo"></a>
+            </div>
+            <div class="phones col s12 m6">
+                <div><b>Консультация:</b><span class="bold-phones">{{ config('z_my.phone') }}</span></div>
+                <div><span class="bold-phones">{{ config('z_my.consult_phone') }}</span></div>
+                <a class="right" title="Напишите нам письмо" href="{{ url('/contacts') }}"><i class="material-icons">email</i></a>
+            </div>
+        </div>
+    </div>
 
     @include('layouts.menu')
 
@@ -19,42 +49,7 @@
     
     @yield('similars')
     
-    <footer class="page-footer">
-        <div class="container">
-            <div class="row">
-                <div class="col s12 m6">
-                    <a href="{{ url('/catalog') }}"><b>КАТАЛОГ</b></a>
-                    <div class="footer-links">
-                    @foreach($sections as $section)
-                        @if ($section->main_section)
-                        <a class="haschild" name="{{$section->url_name}}" href="{{ url('/section/'.$section->url_name) }}">{{$section->menu_name}}</a>
-                        @endif
-                    @endforeach
-                    @foreach($root_products as $rp)
-                        <a name="{{$rp->url_name}}" href="{{ url('/product/'.$rp->url_name) }}">{{$rp->menu_name}}</a>
-                    @endforeach
-                    @foreach($sections as $section)
-                        @if (!$section->main_section)
-                        <a class="haschild" name="{{$section->url_name}}" href="{{ url('/section/'.$section->url_name) }}">{{$section->menu_name}}</a>
-                        @endif
-                    @endforeach
-                    </div>
-                </div>
-                <div class="col s12 m6">
-                    <a href="{{ url('/contacts') }}"><b>КОНТАКТЫ</b></a>
-                    <div class="footer-links">
-                        <div>{{ config('z_my.phone') }}</div>
-                        <div>{{ config('z_my.consult_phone') }}</div>
-                        <!-- <div>{{ config('z_my.zamer_phone') }}</div> -->
-                        <div><u>{{ config('z_my.address') }}</u></div>
-                        <a class="left" href="https://vk.com/public68794579"><img src="{{asset('img/icon-vk.png')}}" alt="vk logo"></a>
-                        <a class="left" href="{{ url('/contacts') }}"><i class="material-icons">email</i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="black-strip"></div>
-    </footer>
+    @include('layouts.footer')
     <!-- Scripts -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>

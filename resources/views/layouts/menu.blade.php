@@ -1,39 +1,53 @@
 <div class="drop" name="catalog">
         <ul>
-        @foreach($sections as $section)
-            @if ($section->main_section)
-            <a class="haschild" name="{{$section->id}}">{{$section->menu_name}}<i class="material-icons">chevron_right</i></a>
-            @endif
-        @endforeach
-        @foreach($root_products as $rp)
-            <a name="{{$rp->id}}" href="{{ url('/product/'.$rp->url_name) }}">{{$rp->menu_name}}</a>
-        @endforeach
-        @foreach($sections as $section)
-            @if (!$section->main_section)
-            <a class="haschild" name="{{$section->id}}">{{$section->menu_name}}<i class="material-icons">chevron_right</i></a>
-            @endif
-        @endforeach
-        </ul>
-        @foreach(array_keys($productsBySection) as $key)
-        <ul class="subdrop" name="{{$key}}">
-            @foreach( $productsBySection[$key] as $product)
-                <a href="{{ url('/product/'.$product->url_name) }}">{{ $product->menu_name }}</a>
-            @endforeach
-        </ul>
-        @endforeach
-</div>
+                                <a class="haschild" name="1">Кухни test<i class="material-icons">chevron_right</i></a>
+                                            <a class="haschild" name="2">Шкафы<i class="material-icons">chevron_right</i></a>
+                                                                                <a name="8" href="http://localhost:8181/product/spalni">Спальни</a>
+                    <a name="9" href="http://localhost:8181/product/detskie">Детские</a>
+                    <a name="10" href="http://localhost:8181/product/ofisnaya-mebel">Мебель для офиса</a>
+                    <a name="11" href="http://localhost:8181/product/biblioteki-na-zakaz">Библиотеки</a>
+                                                                                <a class="haschild" name="3">Материалы<i class="material-icons">chevron_right</i></a>
+                                            <a class="haschild" name="4">Комплектующие<i class="material-icons">chevron_right</i></a>
+                            </ul>
+                <ul class="subdrop" name="1">
+                            <a href="http://localhost:8181/product/kuhni-massiv-dereva-na-zakaz">Кухни из массива</a>
+                            <a href="http://localhost:8181/product/kuhni-mdf-plenka-pvh">Кухни МДФ пленка ПВХ</a>
+                            <a href="http://localhost:8181/product/kuhni-emal">Кухни Эмаль</a>
+                            <a href="http://localhost:8181/product/kuhni-iz-plastika">Кухни Пластик</a>
+                            <a href="http://localhost:8181/product/kuhni-ldsp">Кухни ЛДСП</a>
+                            <a href="http://localhost:8181/product/kuhni-fantaziya">Кухни Фантазия на заказ</a>
+                            <a href="http://localhost:8181/product/kuhni-s-ramochnymi-fasadami">Кухни рамочный фасад</a>
+                    </ul>
+                <ul class="subdrop" name="2">
+                            <a href="http://localhost:8181/product/shkafi-kupe-vstroennie">Шкафы-купе встроенные</a>
+                            <a href="http://localhost:8181/product/shkafi-v-prihozhuyu">Шкафы в прихожую</a>
+                            <a href="http://localhost:8181/product/stenki">Стенки в гостинную</a>
+                            <a href="http://localhost:8181/product/shkafi-kupe-na-zakaz">Шкафы-купе</a>
+                            <a href="http://localhost:8181/product/shkafi-stvorchatie">Створчатые шкафы</a>
+                    </ul>
+                <ul class="subdrop" name="3">
+                            <a href="http://localhost:8181/product/fasadi-plenka-pvh">Фасады пленка ПВХ</a>
+                            <a href="http://localhost:8181/product/kamen">Искусственный камень</a>
+                    </ul>
+                <ul class="subdrop" name="4">
+                            <a href="http://localhost:8181/product/fasadi">Варианты фасадов</a>
+                            <a href="http://localhost:8181/product/vitrazhi">Витражи</a>
+                            <a href="http://localhost:8181/product/zerkala">Зеркала</a>
+                            <a href="http://localhost:8181/product/vidvizhnie-mehanizmi">Системы выдвижения ящиков</a>
+                            <a href="http://localhost:8181/product/podemnie-mehanizmi">Подъемные механизмы</a>
+                    </ul>
+        </div>
 <div class="drop" name="info">
     <ul>
-        <a href="{{url('/order')}}">Предварительный расчет</a>
-        @foreach( $articles as $a )
-            <a href="{{ url('/article/'.$a->url_name) }}">{{ $a->menu_name }}</a>
-        @endforeach
-    </ul>
+        <a href="http://localhost:8181/order">Предварительный расчет</a>
+                    <a href="http://localhost:8181/article/kak-mi-rabotaem">Как мы работаем</a>
+                    <a href="http://localhost:8181/article/kak-vibrat-kuhnu">Как выбрать кухню</a>
+            </ul>
 </div>
 <div class="drop" name="about">
     <ul>
-        <a href="{{ url('/contacts') }}">Контакты</a>
-        <a href="{{ url('/about') }}">О компании</a>
+        <a href="http://localhost:8181/contacts">Контакты</a>
+        <a href="http://localhost:8181/about">О компании</a>
     </ul>
 </div>
 <nav>
@@ -50,27 +64,23 @@
             </ul>
             <ul class="side-nav" id="collapse_menu">
                 <li class="title_li">Каталог</li>
-                @foreach($sections as $section)
-                    @if ($section->main_section)
-                        <li><a href="/section/{{$section->url_name}}">{{$section->menu_name}}</a></li>
-                    @endif
-                @endforeach
-                <li><a href="{{url('/catalog')}}">Весь каталог</a></li>
+                                                            <li><a href="/section/kuhni">Кухни test</a></li>
+                                                                                <li><a href="/section/shkafi">Шкафы</a></li>
+                                                                                                                            <li><a href="http://localhost:8181/catalog">Весь каталог</a></li>
                 <li class="title_li">Информация</li>
-                <li><a href="{{url('/order')}}">Как заказать</a></li>
-                @foreach($articles as $a)
-                    <li><a href="{{ url('/article/'.$a->url_name) }}">{{ $a->menu_name }}</a></li>
-                @endforeach
-                <li class="title_li">О нас</li>
-                <li><a href="{{url('/contacts')}}">Контакты</a></li>
-                <li><a href="{{url('/about')}}">О компании</a></li>
+                <li><a href="http://localhost:8181/order">Как заказать</a></li>
+                                    <li><a href="http://localhost:8181/article/kak-mi-rabotaem">Как мы работаем</a></li>
+                                    <li><a href="http://localhost:8181/article/kak-vibrat-kuhnu">Как выбрать кухню</a></li>
+                                <li class="title_li">О нас</li>
+                <li><a href="http://localhost:8181/contacts">Контакты</a></li>
+                <li><a href="http://localhost:8181/about">О компании</a></li>
             </ul>
-            @if (!Auth::guest())
-            <ul class="right"> 
-                <li>{{ Auth::user()->name }}</li>  
-                <li><a href="{{ url('/logout') }}">Выйти</a></li>
+                        <ul class="right"> 
+                <li>gar.garrison</li>  
+                <li><a href="http://localhost:8181/logout">Выйти</a></li>
+                <li><button class="btn reload_menu">Новое меню</button></li>
             </ul>
-            @endif
-        </div>
+
+                    </div>
     </div>
 </nav>

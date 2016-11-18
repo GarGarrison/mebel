@@ -1,23 +1,23 @@
 <b>Заказ с сайта Yourmebel.com</b>
 <table>
     <tr>
-        <td>Имя</td>
+        <td>Имя:</td>
         <td>{{ $request['name'] or "Не указано" }}</td>
     </tr>
     <tr>
-        <td>Телефон</td>
+        <td>Телефон:</td>
         <td>{{ $request['phone'] or "Не указано" }}</td>
     </tr>
     <tr>
-        <td>Адрес</td>
+        <td>Адрес:</td>
         <td>{{ $request['address'] or "Не указано" }}</td>
     </tr>
     <tr>
-        <td>Email</td>
+        <td>Email:</td>
         <td>{{ $request['email'] or "Не указано" }}</td>
     </tr>
     <tr>
-        <td>Вид мебели</td>
+        <td>Вид мебели:</td>
         <td>{{ $request['section'] or "Не указано" }}</td>
     </tr>
 </table>
@@ -25,36 +25,36 @@
 <table>
 @if ($request['section'] == 'Кухни')
     <tr>
-        <td>Фасад</td>
+        <td>Фасад:</td>
         <td>{{ $request['product'] or "Не указано" }}</td>
     </tr>
     <tr>
-        <td>Формат</td>
+        <td>Формат:</td>
         <td>{{ $request['format'] or "Не указано" }}</td>
     </tr>
     <tr>
-        <td>Столешница</td>
+        <td>Столешница:</td>
         <td>{{ $request['stol_material'] or "Не указано" }}</td>
     </tr>
     <tr>
-        <td>Погонные метры</td>
+        <td>Погонные метры:</td>
         <td>{{ $request['meters'] or "Не указано" }}</td>
     </tr>
 @elseif ($request['section'] == 'Шкафы')
      <tr>
-        <td>Какой шкаф</td>
+        <td>Какой шкаф:</td>
         <td>{{ $request['product'] or "Не указано" }}</td>
     </tr>
     <tr>
-        <td>Длинна</td>
+        <td>Длинна:</td>
         <td>{{ $request['length'] or "Не указано" }}</td>
     </tr>
     <tr>
-        <td>Высота</td>
+        <td>Высота:</td>
         <td>{{ $request['height'] or "Не указано" }}</td>
     </tr>
     <tr>
-        <td>Ширина</td>
+        <td>Ширина:</td>
         <td>{{ $request['width'] or "Не указано" }}</td>
     </tr>
 @endif

@@ -13,13 +13,12 @@ use App\Article;
 use App\Similar;
 
 
-class AdminController extends SharedController
+class AdminController extends Controller
 {
 
     public function __construct()
     {
         $this->middleware('auth');
-        parent::__construct();
     }
 
 /* SHOW SECTION */
@@ -30,19 +29,29 @@ class AdminController extends SharedController
     public function show_add_section($id=""){
         $current = '';
         if ($id) $current = Section::find($id);
-        return view('admin.add_section', ['current'=>$current]);
+        return view('admin.add_section', [
+            'current'=>$current
+        ]);
     }
 
     public function show_add_product($id=""){
         $current = '';
         if ($id) $current = Product::find($id);
-        return view('admin.add_product', ['current'=>$current]);
+        return view('admin.add_product', [
+            'current'=>$current,
+            'sections' => Section::all(),
+            'products' => Product::all()
+        ]);
     }
 
     public function show_add_property($id=""){
         $current = '';
         if ($id) $current = SpecialProperty::find($id);
-        return view('admin.add_property', ['current'=>$current]);
+        return view('admin.add_property', [
+            'current' => $current,
+            'sections' => Section::all(),
+            'products' => Product::all()
+        ]);
     }
 
     public function show_add_article($id=""){
@@ -52,15 +61,22 @@ class AdminController extends SharedController
     }
 
     public function show_add_similar(){
-        return view('admin.add_similar');
+        return view('admin.add_similar', [
+            'products' => Product::all()
+        ]);
     }
 
     public function show_edit_section(){
-        return view('admin.edit_section');
+        return view('admin.edit_section',[
+            'sections' => Section::all()
+        ]);
     }
 
     public function show_edit_product(){
-        return view('admin.edit_product');
+        return view('admin.edit_product', [
+            'sections' => Section::all(),
+            'products' => Product::all()
+        ]);
     }
 
     public function show_edit_property(){
@@ -68,7 +84,9 @@ class AdminController extends SharedController
     }
 
     public function show_edit_article(){
-        return view('admin.edit_article');
+        return view('admin.edit_article', [
+            'articles' => Article::all()
+        ]);
     }
 
     public function show_edit_similar(){
@@ -255,5 +273,30 @@ class AdminController extends SharedController
     public function del_similar($id) {
         Similar::destroy($id);
         return response()->json(['success'=> 'Успешно удалено']);
+    }
+
+    public function reload_menu() {
+        $sections = Section::all();
+        $articles = Article::all();
+        $root_products = Product::where('root_product', 1)->get();
+        $productsBySection = $this->getProdDict();
+        $menu = view('layouts.tmpl_menu', [
+                'sections' => $sections,
+                'articles' => $articles,
+                'root_products' => $root_products,
+                'productsBySection' => $productsBySection
+            ])->render();
+        $footer = view('layouts.tmpl_footer', [
+                'sections' => $sections,
+                'root_products' => $root_products
+            ])->render();
+
+        $menu_file = fopen(base_path("resources/views/layouts/menu.blade.php"), 'w');
+        $footer_file = fopen(base_path("resources/views/layouts/footer.blade.php"), 'w');
+        $fw_menu = fwrite($menu_file, $menu);
+        $fw_footer = fwrite($footer_file, $footer);
+        fclose($menu_file);
+        fclose($footer_file);
+        return response()->json(['success'=> sprintf("Успех! fw_menu: %s, fw_footer: %s", $fw_menu, $fw_footer)]);
     }
 }

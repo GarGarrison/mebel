@@ -11,7 +11,7 @@ use App\Product;
 use App\Article;
 use App\Similar;
 
-class IndexController extends SharedController
+class IndexController extends Controller
 {
     public function error404(){
         return view('errors.404');
@@ -29,10 +29,17 @@ class IndexController extends SharedController
         return view('contacts');
     }
     public function catalog(){
-        return view('catalog');
+        return view('catalog', [
+            'sections' => Section::all(),
+            'productsBySection' => $this->getProdDict(),
+            'root_products' => Product::where('root_product', 1)->get()
+        ]);
     }
     public function order(Request $request){
-        return view('order', ['request'=>$request->all()]);
+        return view('order', [
+            'request' => $request->all(),
+            'products' => Product::all()
+        ]);
     }
     public function getmail(){
         return redirect('/');

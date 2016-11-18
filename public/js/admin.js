@@ -33,5 +33,18 @@ $(document).on('click', '.delete-similar', function(){
             alert(resp.success);
             reloadTab();
         }
-    })
-})
+    });
+});
+
+$(document).on('click', '.reload_menu', function(){
+    $.ajax({
+        'url': '/admin/reload_menu',
+        'type': 'get',
+        'success': function(resp){
+            alert(resp.success);
+        },
+        'error': function(resp) {
+            $('body').prepend(resp.responseText);
+        }
+    });
+});

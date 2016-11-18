@@ -3,6 +3,13 @@
     может оставить console.log
 
 */
+var error_func = function(){
+    alert('Произошла ошибка');
+};
+if (Debug) error_func = function(response){
+    $('body').prepend(response);
+}
+
 function print(text) {
     console.log(text);
 }
@@ -19,7 +26,7 @@ function formSuccess(resp){
 function load_with_error(url, obj, success=function(){return true;}) {
     obj.load(url, function(response, status, xhr){
         if (status == "error") {
-            $('body').prepend(response);
+            error_func(response);
         }
         reloadSomeJS();
         success();
@@ -80,7 +87,7 @@ function SendForm(url, data, callback) {
             if (callback && typeof(callback) === "function") callback(resp);
         },
         'error': function(resp) {
-            $('body').prepend(resp.responseText);
+            error_func(resp.responseText);
         }
     });
 }
