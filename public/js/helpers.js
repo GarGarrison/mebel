@@ -112,5 +112,5 @@ $(document).on('submit', '.search_form', function(event){
 $(document).on('change', 'select.filter-donor', function(){
     id = $(this).val();
     $('select.filter-object option').hide();
-    $('select.filter-object option[name="' + id + '"]').show();
+    $('select.filter-object option[data-parent="' + id + '"]').show();
 });

@@ -41,8 +41,8 @@
             <strong>Выберите мебель</strong>
             <select class="filter-donor browser-default order" name="section">
                 <option value="" selected>Не выбрано</option>
-                <option class = "k-1">Кухни</option>
-                <option class = "s-1">Шкафы</option>
+                <option class = "k-1" value="1">Кухни</option>
+                <option class = "s-1" value="2">Шкафы</option>
                 @foreach( $products as $p)
                     @if($p->root_product)
                     <option class = "o-1">{{ $p->menu_name }}</option>
@@ -58,7 +58,7 @@
                 <option value="" selected>Не выбрано</option>
                 @foreach( $products as $p)
                     @if ($p->calculator)
-                        <option class="{{ $class_dict[$p->parent_section] }}" value="{{ $p->menu_name }}">{{ $p->menu_name }}</option>
+                        <option class="{{ $class_dict[$p->parent_section] }}" data-parent="{{ $p->parent_section }}" value="{{ $p->menu_name }}">{{ $p->menu_name }}</option>
                     @endif
                 @endforeach
             </select>
@@ -78,15 +78,15 @@
     <div class="row steps s-3">
        <div class="input-field col s4 m2">
             <input name="height" type="text" class="validate">
-            <label for="height">Высота</label>
+            <label>Высота</label>
         </div>
         <div class="input-field col s4 m2">
             <input name="width" type="text" class="validate">
-            <label for="height">Ширина</label>
+            <label>Ширина</label>
         </div>
         <div class="input-field col s4 m2">
             <input name="length" type="text" class="validate">
-            <label for="height">Длинна</label>
+            <label>Длинна</label>
         </div>
     </div>
     <div class="row steps k-4">
@@ -102,13 +102,13 @@
     <div class="row steps k-5">
        <div class="input-field col s12 m6">
             <input name="meters" type="text" class="validate">
-            <label for="name">Погонные метры</label>
+            <label>Погонные метры</label>
         </div>
     </div>
     <div class="row steps k-5 s-3 o-2">
         <div class="input-field col s12 m6">
             <textarea name="wishes" class="materialize-textarea"></textarea>
-            <label for="wishes">Особые пожелания</label>
+            <label>Особые пожелания</label>
         </div>
     </div>
 
@@ -117,7 +117,7 @@
         <div class="input-field col s12 m6">
             <i class="material-icons prefix">account_circle</i>
             <input name="name" type="text" class="validate">
-            <label for="name">Имя</label>
+            <label>Имя</label>
             @if ($errors->has('name'))
                 <span class="error-block">{{ $errors->first('name') }}</span>
             @endif
@@ -127,7 +127,7 @@
         <div class="input-field col s12 m6">
             <i class="material-icons prefix">phone</i>
             <input name="phone" type="text" class="validate">
-            <label for="phone">Телефон</label>
+            <label>Телефон</label>
             @if ($errors->has('phone'))
                 <span class="error-block">{{ $errors->first('phone') }}</span>
             @endif
@@ -137,7 +137,7 @@
         <div class="input-field col s12 m6">
             <i class="material-icons prefix">business</i>
             <input name="address" type="text" class="validate">
-            <label for="address">Город</label>
+            <label>Город</label>
             @if ($errors->has('address'))
                 <span class="error-block">{{ $errors->first('address') }}</span>
             @endif
@@ -147,7 +147,7 @@
         <div class="input-field col s12 m6">
             <i class="material-icons prefix">email</i>
             <input name="email" type="text" class="validate">
-            <label for="email">Электронная почта</label>
+            <label>Электронная почта</label>
             @if ($errors->has('email'))
                 <span class="error-block">{{ $errors->first('email') }}</span>
             @endif

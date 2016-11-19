@@ -10,12 +10,6 @@ $(document).on('click', '.tab', function(){
     loadTab(url);
 });
 
-// фильтры по селектам
-$(document).on('change', 'select.filter-donor', function(){
-    id = $(this).val();
-    $('select.filter-object option').hide();
-    $('select.filter-object option[name="' + id + '"]').show();
-});
 $(document).on('change', 'select.filter-object', function(){
     url = $(this).val();
     $('.edit_current_position').html();
