@@ -19,7 +19,7 @@
     помогут выбрать подходящую именно Вам мебель.<br />
     Звоните скорей и делайте заказ, мы поможем сделать Ваш дом еще более неповторимым!
     </p>
-    <div id="gallery" name="main">
+    <div id="gallery" data-gallery-type="main">
         @foreach($main_items as $item)
         <?php
             $path_url = "/section/";
