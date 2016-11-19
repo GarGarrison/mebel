@@ -110,7 +110,7 @@ $(document).on('submit', '.search_form', function(event){
 
 // фильтрация по двум селектам
 $(document).on('change', 'select.filter-donor', function(){
-    id = $(this).val();
+    id = $(this).find('option:selected').attr('data-children');
     $('select.filter-object option').hide();
     $('select.filter-object option[data-parent="' + id + '"]').show();
 });
