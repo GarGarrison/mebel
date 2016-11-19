@@ -46,8 +46,8 @@
 </div>
 <div class="drop" data-drop-target="about">
     <ul>
-        <a href="/contacts">Контакты</a>
-        <a href="/about">О компании</a>
+        <li><a href="/contacts">Контакты</a></li>
+        <li><a href="/about">О компании</a></li>
     </ul>
 </div>
 <nav>

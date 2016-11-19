@@ -7,6 +7,8 @@
 /public/photosmall
 /public/*.tar.gz
 /public/sitemap.xml
+/resources/views/layouts/menu.blade.php
+/resources/views/layouts/footer.blade.php
 /vendor
 /.idea
 Homestead.json
