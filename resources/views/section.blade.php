@@ -10,7 +10,7 @@
 <div class="valign-wrapper bread">
     <a href="{{ url('/catalog') }}" class="bread_item valign">Каталог</a>
     <i class="material-icons valign">chevron_right</i>
-    <span class="active_bread">{{ $section->menu_name }}</a></span>
+    <span class="active_bread">{{ $section->menu_name }}</span>
 </div>
 <div class="col s12">
     <h1>{{ $section->header }}</h1>
