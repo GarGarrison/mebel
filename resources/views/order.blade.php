@@ -41,8 +41,8 @@
             <strong>Выберите мебель</strong>
             <select class="filter-donor browser-default order" name="section">
                 <option value="" selected>Не выбрано</option>
-                <option class = "k-1" value="1">Кухни</option>
-                <option class = "s-1" value="2">Шкафы</option>
+                <option class = "k-1" data-children="1">Кухни</option>
+                <option class = "s-1" data-children="2">Шкафы</option>
                 @foreach( $products as $p)
                     @if($p->root_product)
                     <option class = "o-1">{{ $p->menu_name }}</option>

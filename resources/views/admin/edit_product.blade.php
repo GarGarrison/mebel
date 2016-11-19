@@ -5,7 +5,7 @@
         <select class="filter-donor browser-default">
             <option value="0" selected>Не выбрано</option>
             @foreach ($sections as $section)
-               <option value="{{ $section->id }}">{{ $section->menu_name }}</option>
+               <option data-children="{{ $section->id }}">{{ $section->menu_name }}</option>
             @endforeach
         </select>
     </div>
