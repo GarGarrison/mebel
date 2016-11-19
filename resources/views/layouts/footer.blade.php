@@ -21,7 +21,7 @@
                     <div>+7 (985) 390-68-90</div>
                     <!-- <div></div> -->
                     <div><u>г. Москва, м. Савеловская, Сущевский вал, д. 9</u></div>
-                    <a class="left" href="https://vk.com/public68794579"><img src="http://localhost:8181/img/icon-vk.png" alt="vk logo"></a>
+                    <a class="left" href="https://vk.com/yourmebelcom"><img src="http://localhost:8181/img/icon-vk.png" alt="vk logo"></a>
                     <a class="left" href="/contacts"><i class="material-icons">email</i></a>
                 </div>
             </div>

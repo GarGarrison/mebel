@@ -8,4 +8,5 @@ return [
     'mailToYandex' => "garold.garrison@yandex.ru",
     'mailToGmail' => "garrisongar@gmail.com",
     'mailToYourmebel' => "support@yourmebel.com",
+    'vkgroup' => "https://vk.com/yourmebelcom",
 ];
