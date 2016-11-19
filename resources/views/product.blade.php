@@ -39,7 +39,7 @@
             </tbody>
         </table>
     @else
-        <div id="gallery" name = "tiles" style="display: none;">
+        <div id="gallery" data-gallery-type="tiles" style="display: none;">
         @foreach($path as $p)
             <?php
                 $bigpath = "photobig/".$product->img_base.'/'.$p;
@@ -76,7 +76,7 @@
     <div class="similars">
         <div class="container">
             <h3>Еще Вам может быть интересно:</h3>
-            <div id="similar_gallery" name="main">
+            <div id="similar_gallery" data-gallery-type="main">
             @foreach($similars as $p)
                 <?php
                     $smallpath = "title_img/".$p->img_title;

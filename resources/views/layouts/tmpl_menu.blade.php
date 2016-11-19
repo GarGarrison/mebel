@@ -2,31 +2,31 @@
         <ul>
         @foreach($sections as $section)
             @if ($section->main_section)
-            <a class="haschild" data-subdrop="{{$section->id}}">{{$section->menu_name}}<i class="material-icons">chevron_right</i></a>
+            <li><a class="haschild" data-subdrop="{{$section->id}}">{{$section->menu_name}}<i class="material-icons">chevron_right</i></a></li>
             @endif
         @endforeach
         @foreach($root_products as $rp)
-            <a href="{{ '/product/'.$rp->url_name }}">{{$rp->menu_name}}</a>
+            <li><a href="{{ '/product/'.$rp->url_name }}">{{$rp->menu_name}}</a></li>
         @endforeach
         @foreach($sections as $section)
             @if (!$section->main_section)
-            <a class="haschild" data-subdrop="{{$section->id}}">{{$section->menu_name}}<i class="material-icons">chevron_right</i></a>
+            <li><a class="haschild" data-subdrop="{{$section->id}}">{{$section->menu_name}}<i class="material-icons">chevron_right</i></a></li>
             @endif
         @endforeach
         </ul>
         @foreach(array_keys($productsBySection) as $key)
         <ul class="subdrop" data-subdrop="{{ $key }}">
             @foreach( $productsBySection[$key] as $product)
-                <a href="{{ '/product/'.$product->url_name }}">{{ $product->menu_name }}</a>
+                <li><a href="{{ '/product/'.$product->url_name }}">{{ $product->menu_name }}</a></li>
             @endforeach
         </ul>
         @endforeach
 </div>
 <div class="drop" data-drop-target="info">
     <ul>
-        <a href="/order">Предварительный расчет</a>
+        <li><a href="/order">Предварительный расчет</a></li>
         @foreach( $articles as $a )
-            <a href="{{ '/article/'.$a->url_name }}">{{ $a->menu_name }}</a>
+            <li><a href="{{ '/article/'.$a->url_name }}">{{ $a->menu_name }}</a></li>
         @endforeach
     </ul>
 </div>

@@ -7,7 +7,7 @@
                                                         <a class="haschild" name="kuhni" href="http://localhost:8181/section/kuhni">Кухни</a>
                                                                             <a class="haschild" name="shkafi" href="http://localhost:8181/section/shkafi">Шкафы</a>
                                                                                                                                                 <a name="spalni" href="http://localhost:8181/product/spalni">Спальни</a>
-                                    <a name="detskie" href="http://localhost:8181/product/detskie">Детские</a>
+                                    <a name="detskie" href="http://localhost:8181/product/detskie">Детская мебель</a>
                                     <a name="ofisnaya-mebel" href="http://localhost:8181/product/ofisnaya-mebel">Мебель для офиса</a>
                                     <a name="biblioteki-na-zakaz" href="http://localhost:8181/product/biblioteki-na-zakaz">Библиотеки</a>
                                                                                                                                                 <a class="haschild" name="materiali" href="http://localhost:8181/section/materiali">Материалы</a>

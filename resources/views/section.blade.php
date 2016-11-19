@@ -17,7 +17,7 @@
     {!! $section->text !!}
 </div>   
 <div class="col s12">
-    <div id="gallery" name="main">
+    <div id="gallery" data-gallery-type="main">
     @foreach($children_products as $p)
         <?php
             $bigpath = "photobig/".$p->img_base.'/'.$p->img_title;

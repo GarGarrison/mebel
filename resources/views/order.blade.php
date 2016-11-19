@@ -58,7 +58,7 @@
                 <option value="" selected>Не выбрано</option>
                 @foreach( $products as $p)
                     @if ($p->calculator)
-                        <option class="{{ $class_dict[$p->parent_section] }}" name = "{{ $name_dict[$p->parent_section] }}" value="{{ $p->menu_name }}">{{ $p->menu_name }}</option>
+                        <option class="{{ $class_dict[$p->parent_section] }}" value="{{ $p->menu_name }}">{{ $p->menu_name }}</option>
                     @endif
                 @endforeach
             </select>

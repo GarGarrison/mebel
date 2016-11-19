@@ -33,7 +33,7 @@ $(document).ready(function(){
             tile_textpanel_always_on:true
         }
     }
-    theme = $("#gallery").attr("name");
+    theme = $("#gallery").attr("data-gallery-type");
     if (!theme) theme = "tiles";
     $("#gallery").unitegallery(themes_params[theme]);
     $("#similar_gallery").unitegallery(themes_params['similar']);
