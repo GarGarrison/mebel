@@ -1,35 +1,35 @@
-<div class="drop" name="catalog">
+<div class="drop" data-drop-target="catalog">
         <ul>
-                                <a class="haschild" name="1">Кухни<i class="material-icons">chevron_right</i></a>
-                                            <a class="haschild" name="2">Шкафы<i class="material-icons">chevron_right</i></a>
-                                                                                <a name="8" href="/product/spalni">Спальни</a>
-                    <a name="9" href="/product/detskie">Детская мебель</a>
-                    <a name="10" href="/product/ofisnaya-mebel">Мебель для офиса</a>
-                    <a name="11" href="/product/biblioteki-na-zakaz">Библиотеки</a>
-                                                                                <a class="haschild" name="3">Материалы<i class="material-icons">chevron_right</i></a>
-                                            <a class="haschild" name="4">Комплектующие<i class="material-icons">chevron_right</i></a>
+                                <a class="haschild" data-subdrop="1">Кухни<i class="material-icons">chevron_right</i></a>
+                                            <a class="haschild" data-subdrop="2">Шкафы<i class="material-icons">chevron_right</i></a>
+                                                                                <a href="/product/spalni">Спальни</a>
+                    <a href="/product/detskie">Детские</a>
+                    <a href="/product/ofisnaya-mebel">Мебель для офиса</a>
+                    <a href="/product/biblioteki-na-zakaz">Библиотеки</a>
+                                                                                <a class="haschild" data-subdrop="3">Материалы<i class="material-icons">chevron_right</i></a>
+                                            <a class="haschild" data-subdrop="4">Комплектующие<i class="material-icons">chevron_right</i></a>
                             </ul>
-                <ul class="subdrop" name="1">
-                            <a href="/product/kuhni-massiv-dereva-na-zakaz">Кухни из массива</a>
-                            <a href="/product/kuhni-emal">Кухни Эмаль</a>
-                            <a href="/product/kuhni-iz-plastika">Кухни из пластика</a>
-                            <a href="/product/kuhni-fantaziya">Кухни Фантазия</a>
-                            <a href="/product/kuhni-ldsp">Кухни ЛДСП</a>
+                <ul class="subdrop" data-subdrop="1">
+                            <a href="/product/kuhni-massiv-dereva-na-zakaz">Кухни из массива test</a>
                             <a href="/product/kuhni-mdf-plenka-pvh">Кухни МДФ пленка ПВХ</a>
-                            <a href="/product/kuhni-s-ramochnymi-fasadami">Кухни с рамочными фасадами</a>
+                            <a href="/product/kuhni-emal">Кухни Эмаль</a>
+                            <a href="/product/kuhni-iz-plastika">Кухни Пластик</a>
+                            <a href="/product/kuhni-ldsp">Кухни ЛДСП</a>
+                            <a href="/product/kuhni-fantaziya">Кухни Фантазия на заказ</a>
+                            <a href="/product/kuhni-s-ramochnymi-fasadami">Кухни рамочный фасад</a>
                     </ul>
-                <ul class="subdrop" name="2">
+                <ul class="subdrop" data-subdrop="2">
                             <a href="/product/shkafi-kupe-vstroennie">Шкафы-купе встроенные</a>
                             <a href="/product/shkafi-v-prihozhuyu">Шкафы в прихожую</a>
                             <a href="/product/stenki">Стенки в гостинную</a>
                             <a href="/product/shkafi-kupe-na-zakaz">Шкафы-купе</a>
                             <a href="/product/shkafi-stvorchatie">Створчатые шкафы</a>
                     </ul>
-                <ul class="subdrop" name="3">
+                <ul class="subdrop" data-subdrop="3">
                             <a href="/product/fasadi-plenka-pvh">Фасады пленка ПВХ</a>
                             <a href="/product/kamen">Искусственный камень</a>
                     </ul>
-                <ul class="subdrop" name="4">
+                <ul class="subdrop" data-subdrop="4">
                             <a href="/product/fasadi">Варианты фасадов</a>
                             <a href="/product/vitrazhi">Витражи</a>
                             <a href="/product/zerkala">Зеркала</a>
@@ -37,14 +37,14 @@
                             <a href="/product/podemnie-mehanizmi">Подъемные механизмы</a>
                     </ul>
         </div>
-<div class="drop" name="info">
+<div class="drop" data-drop-target="info">
     <ul>
         <a href="/order">Предварительный расчет</a>
                     <a href="/article/kak-mi-rabotaem">Как мы работаем</a>
                     <a href="/article/kak-vibrat-kuhnu">Как выбрать кухню</a>
             </ul>
 </div>
-<div class="drop" name="about">
+<div class="drop" data-drop-target="about">
     <ul>
         <a href="/contacts">Контакты</a>
         <a href="/about">О компании</a>
@@ -58,9 +58,9 @@
             </ul>
             <ul class="hide-on-small-only drop_menu">
                 <li><i class="material-icons hide-on-small-only" style="color:#555">menu</i></li>
-                <li><a name="catalog">Каталог</a></li>
-                <li><a name="info">Информация</a></li>
-                <li><a name="about">О нас</a></li>       
+                <li><a data-drop-target="catalog">Каталог</a></li>
+                <li><a data-drop-target="info">Информация</a></li>
+                <li><a data-drop-target="about">О нас</a></li>       
             </ul>
             <ul class="side-nav" id="collapse_menu">
                 <li class="title_li">Каталог</li>

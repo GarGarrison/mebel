@@ -1,28 +1,28 @@
-<div class="drop" name="catalog">
+<div class="drop" data-drop-target="catalog">
         <ul>
         @foreach($sections as $section)
             @if ($section->main_section)
-            <a class="haschild" name="{{$section->id}}">{{$section->menu_name}}<i class="material-icons">chevron_right</i></a>
+            <a class="haschild" data-subdrop="{{$section->id}}">{{$section->menu_name}}<i class="material-icons">chevron_right</i></a>
             @endif
         @endforeach
         @foreach($root_products as $rp)
-            <a name="{{$rp->id}}" href="{{ '/product/'.$rp->url_name }}">{{$rp->menu_name}}</a>
+            <a href="{{ '/product/'.$rp->url_name }}">{{$rp->menu_name}}</a>
         @endforeach
         @foreach($sections as $section)
             @if (!$section->main_section)
-            <a class="haschild" name="{{$section->id}}">{{$section->menu_name}}<i class="material-icons">chevron_right</i></a>
+            <a class="haschild" data-subdrop="{{$section->id}}">{{$section->menu_name}}<i class="material-icons">chevron_right</i></a>
             @endif
         @endforeach
         </ul>
         @foreach(array_keys($productsBySection) as $key)
-        <ul class="subdrop" name="{{$key}}">
+        <ul class="subdrop" data-subdrop="{{ $key }}">
             @foreach( $productsBySection[$key] as $product)
                 <a href="{{ '/product/'.$product->url_name }}">{{ $product->menu_name }}</a>
             @endforeach
         </ul>
         @endforeach
 </div>
-<div class="drop" name="info">
+<div class="drop" data-drop-target="info">
     <ul>
         <a href="/order">Предварительный расчет</a>
         @foreach( $articles as $a )
@@ -30,7 +30,7 @@
         @endforeach
     </ul>
 </div>
-<div class="drop" name="about">
+<div class="drop" data-drop-target="about">
     <ul>
         <a href="/contacts">Контакты</a>
         <a href="/about">О компании</a>
@@ -44,9 +44,9 @@
             </ul>
             <ul class="hide-on-small-only drop_menu">
                 <li><i class="material-icons hide-on-small-only" style="color:#555">menu</i></li>
-                <li><a name="catalog">Каталог</a></li>
-                <li><a name="info">Информация</a></li>
-                <li><a name="about">О нас</a></li>       
+                <li><a data-drop-target="catalog">Каталог</a></li>
+                <li><a data-drop-target="info">Информация</a></li>
+                <li><a data-drop-target="about">О нас</a></li>       
             </ul>
             <ul class="side-nav" id="collapse_menu">
                 <li class="title_li">Каталог</li>
