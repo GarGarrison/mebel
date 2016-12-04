@@ -9,7 +9,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     @section('meta')
         <meta name="Keywords" content="корпусная мебель кухни мебель шкафы спальни на заказ Москва Подмосковье от производителя"/>
-        <meta name="Description" content="Изготовление мебели на заказ - кухни, шкафы-купе и другая корпусная мебель"/> 
+        <meta name="Description" content="Мебель на заказ - кухни, шкафы-купе, мебель для спальни, детских и другая корпусная мебель для дома и офиса"/> 
         <title>Изготовление мебели на заказ по индивидуальным размерам</title>
     @show
     <link rel="shortcut icon" href="{{{ asset('/favicon.png') }}}">

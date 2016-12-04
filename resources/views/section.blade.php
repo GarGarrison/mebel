@@ -14,6 +14,7 @@
 </div>
 <div class="col s12">
     <h1>{{ $section->header }}</h1>
+    <h2>{{ $section->h2 }}</h2>
     {!! $section->text !!}
 </div>   
 <div class="col s12">
