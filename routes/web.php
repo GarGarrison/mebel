@@ -23,13 +23,14 @@ Route::get('/logout', 'Auth\LoginController@logout');
 Route::get('/', 'IndexController@index');
 Route::get('/about', 'IndexController@about');
 Route::get('/contacts', 'IndexController@contacts');
+Route::get('/kak-mi-rabotaem', 'IndexController@how_we_work');
 Route::get('/catalog', 'IndexController@catalog');
+Route::post('/util/mail', 'IndexController@mail');
+Route::match(['get', 'post'], '/order', 'IndexController@order');
+Route::get('/articles', 'IndexController@articles');
+
 Route::get('/section/{section}', 'IndexController@section');
 Route::get('/product/{product}', 'IndexController@product');
-Route::get('/util/mail', 'IndexController@getmail');
-Route::post('/util/mail', 'IndexController@mail');
-Route::get('/order', 'IndexController@order');
-Route::post('/order', 'IndexController@order');
 
 Route::get('/article/{url}', 'IndexController@article');
 

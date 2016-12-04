@@ -30,7 +30,7 @@
 <a href="{{ url('/section/shkafi-na-zakaz') }}">шкафа</a> или другой мебели, заполните, 
 пожалуйста, следующую форму. Обязательно укажите как с Вами связаться — 
 наши специалисты сделают расчет в самое ближайшее время и 
-ответят вам по email или перезвонят. Обращаем Ваше внимание на то, что данный расчет будет приблизительным — окончательная сумма заказа будет понятна после вызова замерщика!
+ответят вам по email или перезвонят. Так же Вы можете сразу связаться с нашими консультантами по телефону. Обращаем Ваше внимание на то, что данный расчет будет приблизительным — окончательная сумма заказа будет понятна после вызова замерщика!
 </p>
 <form class="col s12 order_form" method="post" action="{{ url('/util/mail') }}">
     {{ csrf_field() }}
@@ -41,8 +41,8 @@
             <strong>Выберите мебель</strong>
             <select class="filter-donor browser-default order" name="section">
                 <option value="" selected>Не выбрано</option>
-                <option class = "k-1" data-children="1">Кухни</option>
-                <option class = "s-1" data-children="2">Шкафы</option>
+                <option class = "k-1" data-children="1">Кухни на заказ</option>
+                <option class = "s-1" data-children="2">Шкафы на заказ</option>
                 @foreach( $products as $p)
                     @if($p->root_product)
                     <option class = "o-1">{{ $p->menu_name }}</option>

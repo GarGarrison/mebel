@@ -42,8 +42,8 @@
         <div id="gallery" data-gallery-type="tiles" style="display: none;">
         @foreach($path as $p)
             <?php
-                $bigpath = "photobig/".$product->img_base.'/'.$p;
-                $smallpath = "photosmall/".$product->img_base.'/'.$p;
+                $bigpath = "/img/photobig/".$product->img_base.'/'.$p;
+                $smallpath = "/img/photosmall/".$product->img_base.'/'.$p;
                 $alt = str_replace("_", " ", $p);
                 $alt = str_replace(".png", "", $alt);
                 $alt = str_replace(".jpg", "", $alt);
@@ -56,7 +56,7 @@
         <!-- <h2>Заказать {{ $product->menu_name }}</h2> -->
         <p>Чтобы сделать предварительный расчет Вашей мебели и сделать заказ, Вы можете связаться с нашим консультантом по телефону<span class="bold-phones">{{ config('z_my.phone') }}</span> или<span class="bold-phones">{{ config('z_my.consult_phone') }}</span></p>
         <p><b>На всю мебель мы предоставляем гарантию 18 месяцев!</b></p>
-        <p>Так же вы можете сделать это отправив нам на почту письмо с помощью формы обратной связи:</p>
+        <p>Так же вы можете сделать это отправив нам на почту письмо с помощью формы обратной связи.</p>
         <form action="{{ url('/order') }}" method="post">
             {{ csrf_field() }}
             <input type="hidden" name="current_product" value="{{ $product->menu_name }}">
@@ -79,7 +79,7 @@
             <div id="similar_gallery" data-gallery-type="main">
             @foreach($similars as $p)
                 <?php
-                    $smallpath = "title_img/".$p->img_title;
+                    $smallpath = "/img/title_img/".$p->img_title;
                 ?>
                 <a href="{{ url('/product/'.$p->url_name) }}">
                     <img src="{{ asset( $smallpath ) }}" data-image="{{ asset( $smallpath ) }}" alt="{{ $p->menu_name }}" data-description="{{ $p->header }}">

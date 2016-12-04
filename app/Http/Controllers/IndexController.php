@@ -28,6 +28,11 @@ class IndexController extends Controller
     public function contacts(){
         return view('contacts');
     }
+    public function how_we_work(){
+        $a = Article::whereUrlName("kak-mi-rabotaem")->first();
+        if (!$a) return abort(404);
+        return view('article', ['article'=> $a]);
+    }
     public function catalog(){
         return view('catalog', [
             'sections' => Section::all(),
@@ -41,9 +46,6 @@ class IndexController extends Controller
             'products' => Product::all()
         ]);
     }
-    public function getmail(){
-        return redirect('/');
-    }
     public function mail(Request $request){
         $template = "mail_order";
         $subject = "Заказ на yourmebel.com";
@@ -56,8 +58,9 @@ class IndexController extends Controller
         });        
         return redirect()->back()->with(['response'=> "yes"]);
     }
-    public function test(){
-        return view('test');
+    public function articles(){
+        $articles = Article::whereUsefull(1)->get();
+        return view('articles', ["articles" => $articles]);
     }
     public function section($section){
         $section = Section::where('url_name', $section)->first();
@@ -76,7 +79,7 @@ class IndexController extends Controller
             $propertiesByProduct = $this->getPropertyDict();
             $properties = $propertiesByProduct[$product->url_name];
         }
-        $path = scandir(public_path().'/photobig/'.$product->img_base);
+        $path = scandir(public_path().'/img/photobig/'.$product->img_base);
         unset($path[0]);
         unset($path[1]);
         return view('product', ['product'=>$product, 'similars' => $similars, 'properties'=>$properties, 'path'=>$path, 'parent_section'=> $parent_section]);

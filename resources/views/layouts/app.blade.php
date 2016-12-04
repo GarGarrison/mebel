@@ -13,9 +13,9 @@
         <title>Изготовление мебели на заказ по индивидуальным размерам</title>
     @show
     <link rel="shortcut icon" href="{{{ asset('/favicon.png') }}}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+    <link rel="stylesheet" href="/libs/materialize/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel='stylesheet' href='/unitegallery/dist/css/unite-gallery.css' type='text/css' />
+    <link rel='stylesheet' href='/libs/unitegallery/dist/css/unite-gallery.css' type='text/css' />
     <link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/material_helper.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/dropmenu.css')}}">
@@ -27,12 +27,14 @@
     <div class="container">
         <div class="row head">
             <div class="col s12 m6 logo">
-                <a href="{{ url('/') }}"><img src="{{asset('img/yourlogo_rus.png')}}" alt="yourmebel.com logo"></a>
+                <a href="{{ url('/') }}"><img src="{{asset('/img/common_imgs/yourlogo_rus.png')}}" alt="yourmebel.com logo"></a>
             </div>
             <div class="phones col s12 m6">
                 <div><b>Консультация:</b><span class="bold-phones">{{ config('z_my.phone') }}</span></div>
                 <div><span class="bold-phones">{{ config('z_my.consult_phone') }}</span></div>
-                <a class="right" title="Напишите нам письмо" href="{{ url('/contacts') }}"><i class="material-icons">email</i></a>
+                <!-- <a class="right" title="Напишите нам письмо" href="{{ url('/contacts') }}"><i class="material-icons">email</i></a> -->
+                <a href="{{ url('/contacts') }}"><img class="right" src="{{ asset('/img/common_imgs/mail_mini.png') }}" title="Напишите нам письмо" alt="Напишите нам письмо"></a>
+                <a href="{{ url('/order') }}"><img class="right" src="{{ asset('/img/common_imgs/calc_mini.png') }}" title="Предварительный расчет" alt="Предварительный расчет"></a>
             </div>
         </div>
     </div>
@@ -50,15 +52,15 @@
     @include('layouts.footer')
     <!-- Scripts -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+    <script src="/libs/materialize/js/materialize.min.js"></script>
     <script type="text/javascript">
         $.ajaxSetup({
             headers: { 'X-CSRF-Token' : $('meta[name="csrf-token"]').attr("content") }
         });
     </script>
-    <script type='text/javascript' src='/unitegallery/dist/js/unitegallery.min.js'></script>
-    <script type='text/javascript' src='/unitegallery/dist/themes/tiles/ug-theme-tiles.js'></script> 
-    <script type='text/javascript' src='/unitegallery/dist/themes/tilesgrid/ug-theme-tilesgrid.js'></script> 
+    <script type='text/javascript' src='/libs/unitegallery/dist/js/unitegallery.min.js'></script>
+    <script type='text/javascript' src='/libs/unitegallery/dist/themes/tiles/ug-theme-tiles.js'></script> 
+    <script type='text/javascript' src='/libs/unitegallery/dist/themes/tilesgrid/ug-theme-tilesgrid.js'></script> 
     <script type="text/javascript" src="{{asset('js/helpers.js')}}"></script>
     <script type="text/javascript" src="{{asset('js/dropmenu.js')}}"></script>
     <script type="text/javascript" src="{{asset('js/shadow-img.js')}}"></script>

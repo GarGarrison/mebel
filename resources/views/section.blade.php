@@ -21,8 +21,8 @@
     <div id="gallery" data-gallery-type="main">
     @foreach($children_products as $p)
         <?php
-            $bigpath = "photobig/".$p->img_base.'/'.$p->img_title;
-            $smallpath = "title_img/".$p->img_title;
+            $bigpath = "/img/photobig/".$p->img_base.'/'.$p->img_title;
+            $smallpath = "/img/title_img/".$p->img_title;
         ?>
         <a href="{{ url('/product/'.$p->url_name) }}">
             <img src="{{ asset( $smallpath ) }}" data-image="{{ asset( $bigpath ) }}" alt="{{ $p->menu_name }}" data-description="{{ $p->header }}">

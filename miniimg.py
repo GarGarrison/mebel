@@ -1,6 +1,6 @@
 import os, sys
-small = "/photosmall"
-big = "/photobig_no_watermark"
+small = "/img/photosmall"
+big = "/img/photobig_no_watermark"
 smallbase = os.path.join(os.getcwd(),"public"+small)
 bigbase = os.path.join(os.getcwd(),"public"+big)
 for bigpath, dirs, files in os.walk(bigbase):

@@ -22,6 +22,9 @@ class CreateArticles extends Migration
             $table->string('meta_keywords');
             $table->string('meta_description');
             $table->text('text');
+            $table->text('annotation');
+            $table->string('preview_img');
+            $table->boolean('usefull')->default(True);
             $table->timestamps();
         });
     }

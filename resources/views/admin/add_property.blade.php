@@ -41,10 +41,10 @@
     <div class="row">
         <div class="input-field col s6 m6 l4">
             <strong>Раздел</strong>
-            <select class="browser-default filter-donor" name="parent">
+            <select class="filter-donor browser-default" name="parent">
                 <option value="" selected>Не выбрано</option>
                 @foreach ($sections as $section)
-                   <option value="{{ $section->id }}">{{ $section->menu_name }}</option>
+                   <option data-children="{{ $section->id }}">{{ $section->menu_name }}</option>
                 @endforeach
             </select>
         </div>
@@ -54,9 +54,9 @@
                 <option value="" selected>Не выбрано</option>
                 @foreach ($products as $product)
                     @if($current_product == $product->id)
-                    <option name="{{ $product->parent_section }}" value="{{ $product->id }}" selected="selected">{{ $product->menu_name }}</option>
+                    <option data-parent="{{ $product->parent_section }}" value="{{ $product->id }}" selected="selected">{{ $product->menu_name }}</option>
                     @else
-                    <option name="{{ $product->parent_section }}" value="{{ $product->id }}">{{ $product->menu_name }}</option>
+                    <option data-parent="{{ $product->parent_section }}" value="{{ $product->id }}">{{ $product->menu_name }}</option>
                     @endif
                 @endforeach
             </select>

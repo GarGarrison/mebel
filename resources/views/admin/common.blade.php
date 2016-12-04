@@ -21,6 +21,7 @@
         @endif
     </div>
 </div>
+@if ( empty($isArtical) )
 <div class="row">
     <div class="input-field col s12 l8">
         <input name="h2" type="text" class="validate" value="{{ $current['h2'] or '' }}">
@@ -30,7 +31,6 @@
         @endif
     </div>
 </div>
-@if ( empty($isArtical) )
 <div class="row">
     <div class="input-field col s6 l4">
         <input name="img_base" type="text" class="validate" value="{{ $current['img_base'] or '' }}">

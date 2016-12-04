@@ -1,7 +1,7 @@
 import os, sys
-watermark = os.path.join(os.getcwd(),"public/img/watermark.png")
-src = "public/photobig_no_watermark"
-big = "public/photobig"
+watermark = os.path.join(os.getcwd(),"public/img/common_img/watermark.png")
+src = "public/img/photobig_no_watermark"
+big = "public/img/photobig"
 bigsrc = os.path.join(os.getcwd(),src)
 bigbase = os.path.join(os.getcwd(),big)
 for bigpath, dirs, files in os.walk(bigsrc):

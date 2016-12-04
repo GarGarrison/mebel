@@ -22,18 +22,18 @@
         </ul>
         @endforeach
 </div>
-<div class="drop" data-drop-target="info">
+<!-- <div class="drop" data-drop-target="info">
     <ul>
-        <li><a href="/order">Предварительный расчет</a></li>
         @foreach( $articles as $a )
             <li><a href="{{ '/article/'.$a->url_name }}">{{ $a->menu_name }}</a></li>
         @endforeach
     </ul>
-</div>
+</div> -->
 <div class="drop" data-drop-target="about">
     <ul>
-        <li><a href="/contacts">Контакты</a></li>
         <li><a href="/about">О компании</a></li>
+        <li><a href="/kak-mi-rabotaem">Как мы работаем</a></li>
+        <li><a href="/contacts">Контакты</a></li>
     </ul>
 </div>
 <nav>
@@ -45,8 +45,8 @@
             <ul class="hide-on-small-only drop_menu">
                 <li><i class="material-icons hide-on-small-only" style="color:#555">menu</i></li>
                 <li><a data-drop-target="catalog">Каталог</a></li>
-                <li><a data-drop-target="info">Информация</a></li>
-                <li><a data-drop-target="about">О нас</a></li>       
+                <li><a data-drop-target="about">О нас</a></li>
+                <li><a href="/articles">Полезное</a></li>   
             </ul>
             <ul class="side-nav" id="collapse_menu">
                 <li class="title_li">Каталог</li>

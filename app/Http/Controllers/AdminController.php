@@ -94,43 +94,24 @@ class AdminController extends Controller
     }
 /* ADD SECTION */
     public function add_section(Request $request){
-        Section::create([
-            'header' => $request['header'],
-            'menu_name' => $request['menu_name'],
-            'url_name' => $request['url_name'],
-            'img_title' => $request['img_title'],
-            'img_base' => $request['img_base'],
-            'title' => $request['title'],
-            'h2' => $request['h2'],
-            'meta_keywords' => $request['meta_keywords'],
-            'meta_description' => $request['meta_description'],
-            'text' => $request['text'],
-            'main_section' => $this->getCheckbox($request['main_section'])
-        ]);
+        $data = $request->all();
+        $data['main_section'] = $this->getCheckbox($request['main_section']);
+        Section::create($data);
         return response()->json(['success'=> 'Успешно сохранено']);
     }
 
     public function add_product(Request $request){
+        $data = $request->all();
         $img_base = $request['img_base'];
         $req_ps = $request['parent_section'];
         $parent_section = "";
         if ($req_ps) $parent_section = Section::find($req_ps)->img_base.'/';
         $img_base = $parent_section.$img_base;
-        Product::create([
-            'header' => $request['header'],
-            'menu_name' => $request['menu_name'],
-            'url_name' => $request['url_name'],
-            'img_title' => $request['img_title'],
-            'img_base' => $img_base,
-            'title' => $request['title'],
-            'h2' => $request['h2'],
-            'meta_keywords' => $request['meta_keywords'],
-            'meta_description' => $request['meta_description'],
-            'text' => $request['text'],
-            'parent_section' => $request['parent_section'] ? $request['parent_section'] : 0,
-            'calculator' => $this->getCheckbox($request['calculator']),
-            'root_product' => $this->getCheckbox($request['root_product'])
-        ]);
+
+        $data['img_base'] = $img_base;
+        $data['calculator'] = $this->getCheckbox($request['calculator']);
+        $data['root_product'] = $this->getCheckbox($request['root_product']);
+        Product::create($data);
         return response()->json(['success'=> 'Успешно сохранено']);
     }
 
@@ -152,24 +133,14 @@ class AdminController extends Controller
     }
 
     public function add_article(Request $request){
-        Article::create([
-            'header' => $request['header'],
-            'menu_name' => $request['menu_name'],
-            'url_name' => $request['url_name'],
-            'title' => $request['title'],
-            'h2' => $request['h2'],
-            'meta_keywords' => $request['meta_keywords'],
-            'meta_description' => $request['meta_description'],
-            'text' => $request['text']
-        ]);
+        $data = $request->all();
+        $data['usefull'] = $this->getCheckbox($request['usefull']);
+        Article::create($data);
         return response()->json(['success'=> 'Успешно сохранено']);
     }
 
     public function add_similar(Request $request){
-        Similar::create([
-            'parent_product' => $request['parent_product'],
-            'similar_product' => $request['similar_product']
-        ]);
+        Similar::create($request->all());
         return response()->json(['success'=> 'Успешно сохранено']);
     }
 /* EDIT SECTION */
@@ -185,19 +156,12 @@ class AdminController extends Controller
                 $product->save();
             }
         }
-        $section->update([
-            'header' => $request['header'],
-            'menu_name' => $request['menu_name'],
-            'url_name' => $request['url_name'],
-            'img_title' => $request['img_title'],
-            'img_base' => $img_base,
-            'title' => $request['title'],
-            'h2' => $request['h2'],
-            'meta_keywords' => $request['meta_keywords'],
-            'meta_description' => $request['meta_description'],
-            'text' => $request['text'],
-            'main_section' => $this->getCheckbox($request['main_section'])
-        ]);
+
+        $data = $request->all();
+        $data['main_section'] = $this->getCheckbox($request['main_section']);
+        $data['img_base'] = $img_base;
+
+        $section->update($data);
         return response()->json(['success'=> 'Успешно изменено']);
     }
 
@@ -208,21 +172,13 @@ class AdminController extends Controller
         if ($req_ps) $parent_section = Section::find($req_ps)->img_base.'/';
         if (count(explode('/', $img_base)) == 1) $img_base = $parent_section.$img_base;
         $product = Product::find($request['id']);
-        $product->update([
-            'header' => $request['header'],
-            'menu_name' => $request['menu_name'],
-            'url_name' => $request['url_name'],
-            'img_title' => $request['img_title'],
-            'img_base' => $img_base,
-            'title' => $request['title'],
-            'h2' => $request['h2'],
-            'meta_keywords' => $request['meta_keywords'],
-            'meta_description' => $request['meta_description'],
-            'text' => $request['text'],
-            'parent_section' => $request['parent_section'] ? $request['parent_section'] : 0,
-            'calculator' => $this->getCheckbox($request['calculator']),
-            'root_product' => $this->getCheckbox($request['root_product'])
-        ]);
+
+        $data = $request->all();
+        $data['img_base'] = $img_base;
+        $data['calculator'] = $this->getCheckbox($request['calculator']);
+        $data['root_product'] = $this->getCheckbox($request['root_product']);
+
+        $product->update($data);
         return response()->json(['success'=> 'Успешно изменено']);
     }
 
@@ -248,26 +204,16 @@ class AdminController extends Controller
     }
 
     public function edit_article(Request $request) {
+        $data = $request->all();
+        $data['usefull'] = $this->getCheckbox($request['usefull']);
         $article = Article::find($request['id']);
-        $article->update([
-            'header' => $request['header'],
-            'menu_name' => $request['menu_name'],
-            'url_name' => $request['url_name'],
-            'title' => $request['title'],
-            'h2' => $request['h2'],
-            'meta_keywords' => $request['meta_keywords'],
-            'meta_description' => $request['meta_description'],
-            'text' => $request['text']
-        ]);
+        $article->update($data);
         return response()->json(['success'=> 'Успешно изменено']);
     }
 
     public function edit_similar(Request $request) {
         $similar = Similar::find($request['id']);
-        $similar->update([
-            'parent_product' => $request['parent_product'],
-            'similar_product' => $request['similar_product']
-        ]);
+        $similar->update($request->all());
         return response()->json(['success'=> 'Успешно изменено']);
     }
     public function del_similar($id) {
@@ -277,7 +223,7 @@ class AdminController extends Controller
 
     public function reload_menu() {
         $sections = Section::all();
-        $articles = Article::all();
+        $articles = Article::whereUsefull(1)->get();
         $root_products = Product::where('root_product', 1)->get();
         $productsBySection = $this->getProdDict();
         $menu = view('layouts.tmpl_menu', [

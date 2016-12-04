@@ -26,7 +26,7 @@
                     <div>{{ config('z_my.consult_phone') }}</div>
                     <!-- <div>{{ config('z_my.zamer_phone') }}</div> -->
                     <div><u>{{ config('z_my.address') }}</u></div>
-                    <a class="left" href="{{ config('z_my.vkgroup') }}"><img src="{{asset('img/icon-vk.png')}}" alt="vk logo"></a>
+                    <a class="left" href="{{ config('z_my.vkgroup') }}"><img src="{{asset('/img/common_imgs/icon-vk.png')}}" alt="vk logo"></a>
                     <a class="left" href="/contacts"><i class="material-icons">email</i></a>
                 </div>
             </div>
