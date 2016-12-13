@@ -10,7 +10,7 @@ $(document).ready(function(){
             tile_enable_icons:false,
             tile_enable_textpanel:true,
             tile_textpanel_title_text_align: "center",
-            grid_num_rows: 4,
+            grid_num_rows: 1,
             tile_textpanel_always_on:true
         },
         'tiles': {

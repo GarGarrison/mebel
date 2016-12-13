@@ -9,13 +9,12 @@ p {
     font-size: 1.1em;
 }
 h1 {
-    font-size: 2.6em;
+    font-size: 3em;
     margin: 0.7em 0em;
     font-weight: 400;
-    --float: left;
 }
 h2 {
-    font-size: 1.4em;
+    font-size: 1.6em;
     font-weight: 500;
 }
 h3 {
@@ -132,13 +131,14 @@ span.bold-phones {
     padding: 2px;
 }
 #gallery {
-    margin-bottom: 20px;
+    margin: 2em 0em;
 }
 .property-img {
     float: left;
     margin-right: 10px;
     cursor: pointer;
 }
+/* article preview */
 .preview_item {
     width: 100%;
     display: inline-block;
@@ -155,9 +155,18 @@ span.bold-phones {
     margin-left: 0px;
 }
 .preview_item h5 {
-    font-size: 20px;
+    font-size: 1.5em;
     font-weight: bolder;
     color: #bf6200;
+}
+
+.why strong {
+    font-size: 1.5em;
+}
+.big {
+    font-size: 2.2em;
+    color: #bf6200;
+    margin: 1.2em 0em;
 }
 footer b {
     display: block;
