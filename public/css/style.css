@@ -160,8 +160,22 @@ span.bold-phones {
     color: #bf6200;
 }
 
+.why_head_wrapper {
+    display: inline-block;
+    width: 100%;
+}
+.why img {
+    margin-top: -2em;
+    margin-right: 1em;
+    float: left;
+}
 .why strong {
     font-size: 1.5em;
+    display: block;
+}
+.why p {
+    display: block;
+    margin-top: 0px;
 }
 .big {
     font-size: 2.2em;

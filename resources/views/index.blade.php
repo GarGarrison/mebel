@@ -34,15 +34,24 @@
     <h2 class="big">Три простых шага до идеальной мебели</h2>
     <div class="row">
         <div class="col s12 m4 why">
-            <strong>Звонок</strong>
+            <div class="why_head_wrapper">
+                <img src='{{ asset("img/common_imgs/index_telefon_mini.png") }} '>
+                <strong>Звонок</strong>
+            </div>
             <p>Свяжитесь с нашими специалистами и они проконсультируют Вас по всем вопросам, помогут выбрать материалы, посоветуют наилучший способ воплотить Ваши идеи и сделают предварительный расчет.</p>
         </div>
         <div class="col s12 m4 why">
-            <strong>Вызов дизайнера</strong>
+            <div class="why_head_wrapper">
+                <img src='{{ asset("img/common_imgs/index_design_mini.png") }} '>
+                <strong>Вызов дизайнера</strong>
+            </div>
             <p>Наш дизайнер приедет в удобное время, осуществит замер помещения и создаст вместе с Вами эскиз будущей мебели. Также Вы сможете ознакомится с образцами материалов, выбрать наиболее подходящий к интерьеру. На этом этапе устанавливается окончательная стоимость и заключается договор.</p>
         </div>
         <div class="col s12 m4 why">
-            <strong>Доставка</strong>
+            <div class="why_head_wrapper">
+                <img src='{{ asset("img/common_imgs/index_dostavka_mini.png") }} '>
+                <strong>Доставка</strong>
+            </div>
             <p>Поздравляем — Ваша мебель готова! Мы доставим ее в любую точку Москвы и Подмосковья в удобное для Вас время и соберем. Наслаждайтесь Вашей новой мебелью! </p>
         </div>
     </div>
