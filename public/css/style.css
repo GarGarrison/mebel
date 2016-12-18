@@ -139,6 +139,13 @@ span.bold-phones {
     cursor: pointer;
 }
 /* article preview */
+.article_text ul {
+    margin-left: 40px;
+}
+.article_text ul li{
+    list-style-type: disc;
+    padding: 3px;
+}
 .preview_item {
     width: 100%;
     display: inline-block;
@@ -160,27 +167,24 @@ span.bold-phones {
     color: #bf6200;
 }
 
-.why_head_wrapper {
-    display: inline-block;
-    width: 100%;
+.valign-wrapperr {
+    display: table-cell;
 }
 .why img {
-    margin-top: -2em;
-    margin-right: 1em;
-    float: left;
+    margin-right: 1.5em;
+    display: inline;
+    vertical-align: middle;
 }
 .why strong {
     font-size: 1.5em;
-    display: block;
-}
-.why p {
-    display: block;
-    margin-top: 0px;
+    display: inline-block;
+    vertical-align: middle;
 }
 .big {
     font-size: 2.2em;
     color: #bf6200;
-    margin: 1.2em 0em;
+    margin-top: 1.2em;
+    margin-bottom: 0.8em;
 }
 footer b {
     display: block;

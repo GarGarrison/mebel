@@ -22,13 +22,6 @@
         </ul>
         @endforeach
 </div>
-<!-- <div class="drop" data-drop-target="info">
-    <ul>
-        @foreach( $articles as $a )
-            <li><a href="{{ '/article/'.$a->url_name }}">{{ $a->menu_name }}</a></li>
-        @endforeach
-    </ul>
-</div> -->
 <div class="drop" data-drop-target="about">
     <ul>
         <li><a href="/about">О компании</a></li>
@@ -56,14 +49,13 @@
                     @endif
                 @endforeach
                 <li><a href="/catalog">Весь каталог</a></li>
-                <li class="title_li">Информация</li>
-                <li><a href="/order">Как заказать</a></li>
-                @foreach($articles as $a)
-                    <li><a href="{{ '/article/'.$a->url_name }}">{{ $a->menu_name }}</a></li>
-                @endforeach
                 <li class="title_li">О нас</li>
                 <li><a href="/contacts">Контакты</a></li>
                 <li><a href="/about">О компании</a></li>
+                <li><a href="/order">Как заказать</a></li>
+                <li><a href="/kak-mi-rabotaem">Как мы работаем</a></li>
+                <li class="title_li">Информация</li>
+                <li><a href="/articles">Статьи</a></li>
             </ul>
             <?php echo "@if (!Auth::guest())"; ?>
             <ul class="right"> 

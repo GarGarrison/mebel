@@ -155,6 +155,14 @@
     </div>
     <div class="row">
         <div class="col s12 m6">
+            <div class="g-recaptcha" data-sitekey="6LeIJA8UAAAAAK5ndUpXOaLR2WXmLZnpnTiexLel"></div>
+        </div>
+        @if (session()->has('capcha'))
+            <span class="error-block">{{ session('capcha') }}</span>
+        @endif
+    </div>
+    <div class="row">
+        <div class="col s12 m6">
             <button type="submit" class="btn-large">
             <i class="material-icons right">mail_outline</i>
                 Отправить
@@ -162,4 +170,5 @@
         </div>
     </div>
 </form>
+<script src='https://www.google.com/recaptcha/api.js?hl=ru'></script>
 @endsection

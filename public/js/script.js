@@ -36,7 +36,7 @@ $(document).ready(function(){
     theme = $("#gallery").attr("data-gallery-type");
     if (!theme) theme = "tiles";
     $("#gallery").unitegallery(themes_params[theme]);
-    $("#similar_gallery").unitegallery(themes_params['similar']);
+    $("#similar_gallery").unitegallery(themes_params['main']);
     $(".button-collapse").sideNav();
 
     if ($('body').height() < $(window).height() && location.href.split('/').indexOf("admin") <=0 && $("#gallery").length == 0 && $(".shadow-big-img").length == 0 ) $('footer').addClass('fixed-footer');

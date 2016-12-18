@@ -8,5 +8,7 @@
 
 @section('content')
     <h1>{{ $article->header }}</h1>
+    <div class="article_text"> 
     {!! $article->text !!}
+    </div>
 @endsection

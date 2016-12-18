@@ -47,6 +47,8 @@ class IndexController extends Controller
         ]);
     }
     public function mail(Request $request){
+        $recaptcha=$request['g-recaptcha-response'];
+        if (!$recaptcha) return redirect()->back()->with('capcha', 'Подтвердите что вы не робот');
         $template = "mail_order";
         $subject = "Заказ на yourmebel.com";
         if ($request->subject == "question") {

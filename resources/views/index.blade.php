@@ -34,21 +34,21 @@
     <h2 class="big">Три простых шага до идеальной мебели</h2>
     <div class="row">
         <div class="col s12 m4 why">
-            <div class="why_head_wrapper">
+            <div class="why-head-wrapper">
                 <img src='{{ asset("img/common_imgs/index_telefon_mini.png") }} '>
                 <strong>Звонок</strong>
             </div>
             <p>Свяжитесь с нашими специалистами и они проконсультируют Вас по всем вопросам, помогут выбрать материалы, посоветуют наилучший способ воплотить Ваши идеи и сделают предварительный расчет.</p>
         </div>
         <div class="col s12 m4 why">
-            <div class="why_head_wrapper">
+            <div class="why-head-wrapper">
                 <img src='{{ asset("img/common_imgs/index_design_mini.png") }} '>
                 <strong>Вызов дизайнера</strong>
             </div>
-            <p>Наш дизайнер приедет в удобное время, осуществит замер помещения и создаст вместе с Вами эскиз будущей мебели. Также Вы сможете ознакомится с образцами материалов, выбрать наиболее подходящий к интерьеру. На этом этапе устанавливается окончательная стоимость и заключается договор.</p>
+            <p>Наш дизайнер приедет в удобное время, сделает замер помещения и создаст вместе с Вами эскиз будущей мебели. Также Вы сможете ознакомится с образцами материалов, выбрать наиболее подходящий к интерьеру. На этом этапе устанавливается окончательная стоимость и заключается договор.</p>
         </div>
         <div class="col s12 m4 why">
-            <div class="why_head_wrapper">
+            <div class="why-head-wrapper">
                 <img src='{{ asset("img/common_imgs/index_dostavka_mini.png") }} '>
                 <strong>Доставка</strong>
             </div>
@@ -59,15 +59,24 @@
     <h2 class="big">Почему мы</h2>
     <div class="row">
         <div class="col s12 m4 why">
-            <strong>Гарантия 18 месяцев</strong>
+            <div class="why-head-wrapper">
+                <img src='{{ asset("img/common_imgs/index_garanty_mini.png") }} '>
+                <strong>Гарантия 18 месяцев</strong>
+            </div>
             <p>Мы уверены в качестве нашей мебели, поэтому на всю продукцию предоставляется гарантия 18 месяцев!</p>
         </div>
         <div class="col s12 m4 why">
-            <strong>Индивидуальный подход</strong>
+            <div class="why-head-wrapper">
+                <img src='{{ asset("img/common_imgs/index_individ_mini.png") }} '>
+                <strong>Индивидуальный подход</strong>
+            </div>
             <p>Эскизы Вашей новой кухни или шкафа-купе будут созданы нашими опытными дизайнерами специально для Вас — новая мебель будет не просто уникальна, но и идеально впишется в интерьер!</p>
         </div>
         <div class="col s12 m4 why">
-            <strong>Рассрочка и кредит</strong>
+            <div class="why-head-wrapper">
+                <img src='{{ asset("img/common_imgs/index_credit_mini.png") }} '>
+                <strong>Рассрочка и кредит</strong>
+            </div>
             <p>Если Вы устали копить на мебель Вашей мечты и хотите ее прямо сейчас, то возможен заказ нашей мебели в кредит или рассрочку!</p>
         </div>
     </div>
