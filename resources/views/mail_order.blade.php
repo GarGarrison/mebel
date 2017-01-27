@@ -23,7 +23,7 @@
 </table>
 <b>Параметры</b>
 <table>
-@if ($request['section'] == 'Кухни')
+@if ($request['section'] == 'Кухни на заказ')
     <tr>
         <td>Фасад:</td>
         <td>{{ $request['product'] or "Не указано" }}</td>
@@ -40,7 +40,7 @@
         <td>Погонные метры:</td>
         <td>{{ $request['meters'] or "Не указано" }}</td>
     </tr>
-@elseif ($request['section'] == 'Шкафы')
+@elseif ($request['section'] == 'Шкафы на заказ')
      <tr>
         <td>Какой шкаф:</td>
         <td>{{ $request['product'] or "Не указано" }}</td>
