@@ -163,7 +163,7 @@
     </div>
     <div class="row">
         <div class="col s12 m6">
-            <button type="submit" class="btn-large">
+            <button type="submit" class="btn-large form-submit">
             <i class="material-icons right">mail_outline</i>
                 Отправить
             </button>
