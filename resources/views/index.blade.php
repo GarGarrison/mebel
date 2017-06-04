@@ -56,7 +56,7 @@
         </div>
     </div>
     <div style="text-align: center;"><a href="/kak-mi-rabotaem"><button type="submit" class="btn-large"><i class="material-icons right">chevron_right</i>Подробнее</button></a></div>
-    <h2 class="big">Почему мы</h2>
+    <h2 class="big">Почему стоит выбрать именно нас</h2>
     <div class="row">
         <div class="col s12 m4 why">
             <div class="why-head-wrapper">

@@ -172,25 +172,26 @@ span.bold-phones {
     font-weight: bolder;
     color: #bf6200;
 }
-
-.valign-wrapperr {
-    display: table-cell;
+.why-head-wrapper {
+    text-align: center;
 }
 .why img {
-    margin-right: 1.5em;
+    max-width: 60px;
+    --margin-right: 1.5em;
+    margin-bottom: 1em;
     display: inline;
     vertical-align: middle;
 }
 .why strong {
     font-size: 1.5em;
-    display: inline-block;
+    display: block;
     vertical-align: middle;
 }
 .big {
     font-size: 2.2em;
     color: #bf6200;
     margin-top: 1.2em;
-    margin-bottom: 0.8em;
+    margin-bottom: 1.2em;
 }
 footer b {
     display: block;

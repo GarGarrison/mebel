@@ -26,7 +26,7 @@
             <tbody>
             @foreach($properties as $p)
                 <tr>
-                    <td><img class="property-img shadow-big-img" src="{{ asset('/photosmall/'.$p->img) }}" data-image="{{ asset('/photobig/'.$p->img) }}" /></td>
+                    <td><img class="property-img shadow-big-img" src="{{ asset('/img/photosmall/'.$p->img) }}" data-image="{{ asset('/img/photobig/'.$p->img) }}" /></td>
                     <td>
                         @if ($p->text)
                             <b>{{ $p->name }}:</b> {{ $p->text }}
